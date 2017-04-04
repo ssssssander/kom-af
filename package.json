@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "scripts": {
+ git status
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/ssssssander/kom-af#readme",
   "devDependencies": {
+    "graceful-fs": "^4.1.11",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-image": "^2.7.5",
