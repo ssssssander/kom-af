@@ -20,7 +20,7 @@
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
-		<img src="img/A_logo_2925_PMS_NEG.png" alt="">
+		<img src="/img/A_logo_2925_PMS_NEG.png" alt="">
 		<ul>
 			<li><a href="">nieuws</a></li>
 			<li><a href="">scholen</a></li>

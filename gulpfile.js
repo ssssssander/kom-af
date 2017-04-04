@@ -20,7 +20,6 @@ gulp.task('sass', function () {
 		.pipe(autoprefixer())
 		.pipe(gulp.dest('public/css'));
 });
-
 gulp.task('sass:watch', function () {
 	gulp.watch('resources/assets/sass/*.scss', ['sass']);
 });
@@ -43,7 +42,7 @@ gulp.task('image', function () {
  */
 gulp.task('js', function () {
 	pump([
-		gulp.src('resources/assets.js/*.js'),
+		gulp.src('resources/assets/js/*.js'),
 		uglify(),
 		gulp.dest('public/js')
 	]);
@@ -63,7 +62,6 @@ gulp.task('font', function() {
 	return gulp.src('resources/assets/font/*')
 		.pipe(gulp.dest('public/font'));
 });
-
 gulp.task('font:watch', function () {
 	gulp.watch('resources/assets/font/*', ['font']);
 });
