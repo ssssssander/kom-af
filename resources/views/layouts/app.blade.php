@@ -20,10 +20,14 @@
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
-		<img src="A_logo_2925_PMS_NEG.png" alt="">
+		<img src="img/A_logo_2925_PMS_NEG.png" alt="">
 		<ul>
 			<li><a href="">nieuws</a></li>
-			<li><a href="">nieuws</a></li>
+			<li><a href="">scholen</a></li>
+			<li><a href="">vrije tijd</a></li>
+			<li><a href="">omgeving</a></li>
+			<li><a href="">eten & drinken</a></li>
+			<li><a href="">testimonials</a></li>
 		</ul>
 	</nav>
 	<img src="" alt="">
@@ -32,7 +36,6 @@
 <main>
 	@yield('content')
 </main>
-
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>
