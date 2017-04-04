@@ -26,29 +26,41 @@ small{font-size: 0.833em;}
 
 header{
 	&>a{
-
+		position: absolute;
 	}
-
 	nav{
 		display: flex;
 		margin: 30px 0;
 		background: white;
 		img{
-			height: 155px;
-
+			height: 5rem;
 		}
 		ul{
 			display: flex;
+			flex: 1;
 			list-style: none;
-			li a{
-				font-family: "Antwerpen", Arial, sans-serif;
-				color: $primary-blue;
-				text-decoration: none;
+			justify-content: space-around;
+			li{
+				display: flex;
+				flex:1;
+				a{
+					font-family: "Antwerpen", Arial, sans-serif;
+					font-size: 1.44em;
+					color: $primary-blue;
+					width: 100%;
+					padding: 1.5rem 0;
+					text-decoration: none;
+					text-align: center;
+					white-space: nowrap;
+				}
 			}
 		}
 	}
 	&>img{
-
+		position: absolute;
+		width: 100%;
+		top: 0;
+		z-index: -1;
 	}
 	h1{
 		position: absolute;

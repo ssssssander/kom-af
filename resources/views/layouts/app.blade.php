@@ -26,11 +26,10 @@
 			<li><a href="">scholen</a></li>
 			<li><a href="">vrije tijd</a></li>
 			<li><a href="">omgeving</a></li>
-			<li><a href="">eten & drinken</a></li>
 			<li><a href="">testimonials</a></li>
 		</ul>
 	</nav>
-	<img src="" alt="">
+	<img src="/img/Grote_Markt_Antwerpen.jpg" alt="">
 	<h1>@yield('page')</h1>
 </header>
 <main>
