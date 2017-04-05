@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6{
 p, small{
 	font-family: "SunAntwerpen", Arial, sans-serif;
 }
-h1{font-size: 2.98em;color: $font-color-white;}
+h1{font-size: 4em;color: $font-color-white;}
 h2{font-size: 2.488em;}
 h3{font-size: 2.074em;}
 h4{font-size: 1.728em;}
@@ -25,10 +25,19 @@ p{font-size: 1em;}
 small{font-size: 0.833em;}
 
 header{
+	position: relative;
+	height: 400px;
+	overflow: hidden;
+	display: block;
+	background: url("/img/Grote_Markt_Antwerpen.jpg") 50% 50% no-repeat;
+	background-size: cover;
 	&>a{
 		position: absolute;
+		right: 0;
 	}
 	nav{
+		position: absolute;
+		width: 100%;
 		display: flex;
 		margin: 30px 0;
 		background: white;
@@ -56,13 +65,14 @@ header{
 			}
 		}
 	}
-	&>img{
-		position: absolute;
-		width: 100%;
-		top: 0;
-		z-index: -1;
-	}
 	h1{
 		position: absolute;
+		bottom: -15px;
+		padding: 0 20px;
+		text-shadow: 0 0 10px $font-color;
 	}
+}
+main{
+	display: block;
+	background: white;
 }

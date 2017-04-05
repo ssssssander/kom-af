@@ -22,14 +22,13 @@
 	<nav>
 		<img src="/img/A_logo_2925_PMS_NEG.png" alt="">
 		<ul>
-			<li><a href="">nieuws</a></li>
-			<li><a href="">scholen</a></li>
-			<li><a href="">vrije tijd</a></li>
-			<li><a href="">omgeving</a></li>
-			<li><a href="">testimonials</a></li>
+			<li><a href="{{ route('nieuws') }}">nieuws</a></li>
+			<li><a href="{{ route('scholen') }}">scholen</a></li>
+			<li><a href="{{ route('vrijetijd') }}">vrije tijd</a></li>
+			<li><a href="{{ route('omgeving') }}">omgeving</a></li>
+			<li><a href="{{ route('testimonials') }}">testimonials</a></li>
 		</ul>
 	</nav>
-	<img src="/img/Grote_Markt_Antwerpen.jpg" alt="">
 	<h1>@yield('page')</h1>
 </header>
 <main>
