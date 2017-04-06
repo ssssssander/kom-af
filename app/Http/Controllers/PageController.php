@@ -25,6 +25,10 @@ class PageController extends Controller
     {
         return view('nieuws');
     }
+	public function artikel($id)
+	{
+		return view('artikel');
+	}
 	public function scholen()
 	{
 		return view('scholen');

@@ -15,23 +15,23 @@
     </script>
 </head>
 <body>
-<header>
+<header class="{{ Route::currentRouteName() }}">
 	@if (Auth::guest())
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
 		<img src="/img/A_logo_2925_PMS_NEG.png" alt="">
 		<ul>
-			<li><a href="{{ route('nieuws') }}">nieuws</a></li>
-			<li><a href="{{ route('scholen') }}">scholen</a></li>
-			<li><a href="{{ route('vrijetijd') }}">vrije tijd</a></li>
-			<li><a href="{{ route('omgeving') }}">omgeving</a></li>
-			<li><a href="{{ route('testimonials') }}">testimonials</a></li>
+			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"? ' class=active':'' }}>nieuws</a></li>
+			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"? ' class=active':'' }}>scholen</a></li>
+			<li><a href="{{ route('vrijetijd') }}"{{ Route::currentRouteName()==="vrijetijd"? ' class=active':'' }}>vrije tijd</a></li>
+			<li><a href="{{ route('omgeving') }}"{{ Route::currentRouteName()==="omgeving"? ' class=active':'' }}>omgeving</a></li>
+			<li><a href="{{ route('testimonials') }}"{{ Route::currentRouteName()==="testimonials"? ' class=active':'' }}>testimonials</a></li>
 		</ul>
 	</nav>
-	<h1>@yield('page')</h1>
 </header>
 <main>
+	<h1>@yield('page')</h1>
 	@yield('content')
 </main>
     <!-- Scripts -->

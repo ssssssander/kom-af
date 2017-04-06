@@ -25,15 +25,35 @@ p{font-size: 1em;}
 small{font-size: 0.833em;}
 
 header{
+	&.nieuws{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.scholen{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.vrijetijd{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.omgeving{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.testimonials{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
 	position: relative;
-	height: 400px;
+	height: $header-height;
 	overflow: hidden;
 	display: block;
-	background: url("/img/Grote_Markt_Antwerpen.jpg") 50% 50% no-repeat;
+	background-position: center;
+	background-repeat: no-repeat;
 	background-size: cover;
 	&>a{
 		position: absolute;
 		right: 0;
+		color: white;
+		background: $primary-blue;
+		padding: 7px 15px;
+		text-decoration: none;
 	}
 	nav{
 		position: absolute;
@@ -61,18 +81,39 @@ header{
 					text-decoration: none;
 					text-align: center;
 					white-space: nowrap;
+					position: relative;
+					svg{
+						display: block;
+						position: absolute;
+						bottom: 0;
+						width: 100%;
+					}
 				}
 			}
 		}
-	}
-	h1{
-		position: absolute;
-		bottom: -15px;
-		padding: 0 20px;
-		text-shadow: 0 0 10px $font-color;
 	}
 }
 main{
 	display: block;
 	background: white;
+	padding: 40px;
+	h1{
+		position: absolute;
+		top: $header-height - 64px;
+		text-shadow: 0 -3px 10px darken($font-color-light,20%);
+	}
+	article{
+		display: flex;
+		flex-wrap: wrap;
+		a{
+			width: 29%;
+			padding: 2%;
+			display: block;
+			text-decoration: none;
+			color: $font-color;
+			img{
+				max-width: 100%;
+			}
+		}
+	}
 }

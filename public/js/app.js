@@ -1,0 +1,1 @@
+function getBlueColor(){var o,r;return o=Math.floor(16*Math.random()),r=Math.floor(256*Math.random()),{r:o,g:r,b:255}}
