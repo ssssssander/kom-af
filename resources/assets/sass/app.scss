@@ -28,6 +28,9 @@ header{
 	&.nieuws{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
+	&.artikel{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
 	&.scholen{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
@@ -112,8 +115,14 @@ main{
 			text-decoration: none;
 			color: $font-color;
 			img{
-				max-width: 100%;
+				width: 100%;
+				height: 100%;
 			}
+		}
+		&>img{
+			width: 40%;
+			height: 100%;
+			padding-right: 20px;
 		}
 	}
 }
