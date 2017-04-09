@@ -53,7 +53,8 @@ function generateSVGLine(){
 
 function getBlueColor(){
 	var red,green,blue=255;
-	red = Math.floor(Math.random()*16);
-	green = Math.floor(Math.random()*256);
+	red = Math.floor(Math.random()*16); // 0 tot 15
+	// green = Math.floor(Math.random()*256); // 0 tot 255
+	green = Math.floor((Math.random()*91) + 120); // 120 tot 210
 	return {r:red,g:green,b:blue}
 }
