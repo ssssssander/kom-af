@@ -105,6 +105,11 @@ main{
 		top: $header-height - 64px;
 		text-shadow: 0 -3px 10px darken($font-color-light,20%);
 	}
+	.accent svg{
+		display: block;
+		position: absolute;
+		width: 4%;
+	}
 	article{
 		display: flex;
 		flex-wrap: wrap;
