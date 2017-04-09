@@ -33,6 +33,14 @@ class PageController extends Controller
 	{
 		return view('scholen');
 	}
+	public function opleidingen($id)
+	{
+		return view('opleidingen');
+	}
+	public function opleiding($id)
+	{
+		return view('opleiding');
+	}
 	public function vrijetijd()
 	{
 		return view('vrijetijd');

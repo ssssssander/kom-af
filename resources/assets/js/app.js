@@ -1,12 +1,17 @@
 
 var activeItem = document.getElementsByClassName("active")[0];
-var accentItems = document.getElementsByClassName("accent");
+var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a");
 
 activeItem.innerHTML += generateSVGLine();
 for(var i = 0, ilen = accentItems.length;i<ilen;++i){
-	accentItems[i].innerHTML += generateSVGAccent();
+	if(randomYesOrNo()){
+		accentItems[i].innerHTML += generateSVGAccent();
+	}
 }
 
+function randomYesOrNo(){
+	return Math.floor(Math.random()*2) === 1;
+}
 
 function generateSVGAccent(){
 	return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">' +
@@ -54,7 +59,6 @@ function generateSVGLine(){
 function getBlueColor(){
 	var red,green,blue=255;
 	red = Math.floor(Math.random()*16); // 0 tot 15
-	// green = Math.floor(Math.random()*256); // 0 tot 255
 	green = Math.floor((Math.random()*91) + 120); // 120 tot 210
 	return {r:red,g:green,b:blue}
 }
