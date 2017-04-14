@@ -9,7 +9,7 @@ class Artikel extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'image'];
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     public function user() {
