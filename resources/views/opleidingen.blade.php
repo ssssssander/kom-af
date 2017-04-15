@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page', 'scholen')
+@section('page', 'opleidingen')
 
 @section('content')
 	<figure>

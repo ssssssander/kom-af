@@ -27,7 +27,7 @@
 		<li>
 			<a href="http://henm.be">
 				<figure>
-					<img src="H&M.png" alt="H&M">
+					<img src="/img/H&M.png" alt="H&M">
 					<figcaption>
 						<h5>H&M</h5>
 						<p>blablablablabla blablablalbalbal</p>
@@ -38,7 +38,7 @@
 		<li>
 			<a href="http://henm.be">
 				<figure>
-					<img src="H&M.png" alt="H&M">
+					<img src="/img/H&M.png" alt="H&M">
 					<figcaption>
 						<h5>H&M</h5>
 						<p>blablablablabla blablablalbalbal</p>
@@ -49,7 +49,7 @@
 		<li>
 			<a href="http://henm.be">
 				<figure>
-					<img src="H&M.png" alt="H&M">
+					<img src="/img/H&M.png" alt="H&M">
 					<figcaption>
 						<h5>H&M</h5>
 						<p>blablablablabla blablablalbalbal</p>
