@@ -249,50 +249,24 @@ main{
 					color: $font-color;
 					background: $bg-color;
 					text-decoration: none;
+					padding: $vrijetijd-padding;
 					&:hover{
 						background: $bg-color-light;
 						border: 1px solid $border-color;
-						figcaption{
-							h5, p{
-								padding-left: calc(1.5rem - 4px);
-							}
-							h5{
-								padding-top: calc(1.5rem - 1px);
-							}
-							p{
-								padding-bottom: calc(1.5rem - 1px);
-							}
-						}
-					}
-					figure{
-						display: flex;
-						img{
-							min-height: 100%;
-						}
-						figcaption{
-							h5,p{
-								padding-left: 1.5rem;
-							}
-							h5{
-								padding-top: 1.5rem;
-							}
-							p{
-								padding-bottom: 1.5rem;
-							}
-						}
+						padding: calc(1.5rem - 1px);
 					}
 				}
 
 			}
 		}
 	}
-}
-&.omgeving{
+	&.omgeving{
+		
+	}
+	&.testimonials{
 
-}
-&.testimonials{
+	}
+	&.testimonial{
 
-}
-&.testimonial{
-
+	}
 }
