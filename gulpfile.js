@@ -5,7 +5,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const image = require('gulp-image');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
-//const imagemin = require('gulp-imagemin');
 
 gulp.task('default', ['sass','image','js','font']);
 gulp.task('watch', ['sass:watch','js:watch']);
@@ -37,28 +36,18 @@ gulp.task('image', function () {
 });
 
 /*
-gulp.task('image', function(){
-	return gulp.src('resources/assets/img/!*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('public/img'));
-});
-gulp.task('image:watch', function () {
-	gulp.watch('resources/assets/img/!*', ['image']);
-});
-*/
-
-/*
  *
  * js
  *
  */
 gulp.task('js', function () {
 	pump([
-		gulp.src('resources/assets.js/*.js'),
+		gulp.src('resources/assets/js/*.js'),
 		uglify(),
 		gulp.dest('public/js')
 	]);
 });
+
 gulp.task('js:watch', function () {
 	gulp.watch('resources/assets/js/*.js', ['js']);
 });
@@ -68,6 +57,7 @@ gulp.task('js:watch', function () {
  * fonts
  *
  */
+
 gulp.task('font', function() {
 	return gulp.src('resources/assets/font/*')
 		.pipe(gulp.dest('public/font'));

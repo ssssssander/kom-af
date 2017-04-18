@@ -4,3 +4,269 @@
 	margin: 0;
 	padding: 0;
 }
+body{
+	font-family: "SunAntwerpen", Arial, sans-serif;
+	font-size: 1em;
+	color: $font-color;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: "Antwerpen", Arial, sans-serif;
+}
+p, small{
+	font-family: "SunAntwerpen", Arial, sans-serif;
+}
+h1{font-size: 4em;color: $font-color-white;}
+h2{font-size: 2.488em;}
+h3{font-size: 2.074em;}
+h4{font-size: 1.728em;}
+h5{font-size: 1.44em;}
+h6{font-size: 1.2em;}
+p{font-size: 1em;}
+small,time{font-size: 0.833em;}
+
+header{
+	&.nieuws,&.artikel{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.scholen,&.opleidingen,&.opleiding{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.vrijetijd{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.omgeving{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.testimonials,&.testimonial{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	position: relative;
+	height: $header-height;
+	overflow: hidden;
+	display: block;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	&>a{
+		position: absolute;
+		right: 0;
+		color: white;
+		background: $primary-blue;
+		padding: 7px 15px;
+		text-decoration: none;
+	}
+	nav{
+		position: absolute;
+		width: 100%;
+		display: flex;
+		margin: 30px 0;
+		background: white;
+		a{
+			display: block;
+			img{
+				height: 5rem;
+				display: block;
+			}
+		}
+		ul{
+			display: flex;
+			flex: 1;
+			list-style: none;
+			justify-content: space-around;
+			li{
+				display: flex;
+				flex:1;
+				a{
+					font-family: "Antwerpen", Arial, sans-serif;
+					font-size: 1.44em;
+					color: $primary-blue;
+					width: 100%;
+					padding: 1.5rem 0;
+					text-decoration: none;
+					text-align: center;
+					white-space: nowrap;
+					position: relative;
+					svg{
+						display: block;
+						position: absolute;
+						bottom: 0;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+main{
+	display: block;
+	background: white;
+	padding: 40px;
+	h1{
+		position: absolute;
+		top: $header-height - 64px;
+		text-shadow: 0 -3px 10px darken($font-color-light,20%);
+	}
+	&.nieuws{
+		display: flex;
+		flex-wrap: wrap;
+		article{
+			width: (100%/$lijstaantaln)-4;
+			padding: 2%;
+			a{
+				position: relative;
+				display: block;
+				text-decoration: none;
+				color: $font-color;
+				background: $bg-color;
+				&:hover{
+					background: $bg-color-light;
+					border: 1px solid $border-color;
+					p{
+						padding-bottom: calc(1.5rem - 2px);
+					}
+					h5, time, p{
+						padding-left: calc(1.5rem - 1px);
+						padding-right: calc(1.5rem - 1px);
+					}
+				}
+				svg{
+					display: block;
+					position: absolute;
+					width: 15%;
+					top: 0;
+					left: 0;
+				}
+				img{
+					width: 100%;
+					height: 100%;
+				}
+				h5, time, p{
+					padding: 10px $nieuws-padding 10px;
+				}
+				h5{
+					padding-top: $nieuws-padding;
+				}
+				time{
+					font-weight: bold;
+					display: block;
+				}
+				p{
+					padding-bottom: $nieuws-padding;
+				}
+			}
+		}
+	}
+	&.artikel{
+		article{
+			display: flex;
+			img{
+				width: 40%;
+				height: 100%;
+				padding-right: 20px;
+			}
+		}
+	}
+	&.scholen{
+		display: flex;
+		flex-wrap: wrap;
+		figure{
+			width: (100%/$lijstaantals)-4;
+			padding: 2%;
+			a{
+				position: relative;
+				display: block;
+				text-decoration: none;
+				color: $font-color;
+				&:hover{
+					div{
+						background: $bg-color-light;
+						border: 1px solid $border-color;
+						padding: calc(1rem - 1px);
+					}
+				}
+				div{
+					width: calc(100% - 2rem);
+					height: 15vh;
+					padding: $scholen-padding;
+					background: $bg-color;
+					display: flex;
+					img{
+						display: block;
+						max-width: 100%;
+						max-height: 100%;
+						margin: auto;
+					}
+				}
+				figcaption{
+					text-align: center;
+					padding: $scholen-padding/2 0;
+				}
+				svg{
+					display: block;
+					position: absolute;
+					width: 15%;
+					top: 0;
+					left: 0;
+				}
+			}
+		}
+	}
+	&.opleidingen{
+
+	}
+	&.opleiding{
+
+	}
+	&.vrijetijd{
+		display: flex;
+		filter{
+			border-right: 1px solid $border-color;
+			display: block;
+			padding-right: 2%;
+			form{
+				h5{
+					display: block;
+					padding-bottom: 5px;
+				}
+				label{
+					display: block;
+					padding: 5px 0;
+					input{
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+		ul{
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+			li{
+				width: (100%/$lijstaantalvt)-4;
+				padding: 2%;
+				a{
+					display: block;
+					color: $font-color;
+					background: $bg-color;
+					text-decoration: none;
+					padding: $vrijetijd-padding;
+					&:hover{
+						background: $bg-color-light;
+						border: 1px solid $border-color;
+						padding: calc(1.5rem - 1px);
+					}
+				}
+
+			}
+		}
+	}
+	&.omgeving{
+		
+	}
+	&.testimonials{
+
+	}
+	&.testimonial{
+
+	}
+}
