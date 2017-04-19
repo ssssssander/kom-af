@@ -14,47 +14,28 @@
 	</filter>
 	<ul>
 		<li>
-			<a href="http://henm.be">
-				<figure>
-					<img src="H&M.png" alt="H&M">
-					<figcaption>
-						<h5>H&M</h5>
-						<p>blablablablabla blablablalbalbal</p>
-					</figcaption>
-				</figure>
+			<a href="http://henm.com">
+
+				<h5>H&M</h5>
+				<p>blablablablabla blablablalbalbal</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://henm.be">
-				<figure>
-					<img src="H&M.png" alt="H&M">
-					<figcaption>
-						<h5>H&M</h5>
-						<p>blablablablabla blablablalbalbal</p>
-					</figcaption>
-				</figure>
+			<a href="http://henm.com">
+				<h5>H&M</h5>
+				<p>blablablablabla blablablalbalbal</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://henm.be">
-				<figure>
-					<img src="H&M.png" alt="H&M">
-					<figcaption>
-						<h5>H&M</h5>
-						<p>blablablablabla blablablalbalbal</p>
-					</figcaption>
-				</figure>
+			<a href="http://henm.com">
+				<h5>H&M</h5>
+				<p>blablablablabla blablablalbalbal</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://henm.be">
-				<figure>
-					<img src="H&M.png" alt="H&M">
-					<figcaption>
-						<h5>H&M</h5>
-						<p>blablablablabla blablablalbalbal</p>
-					</figcaption>
-				</figure>
+			<a href="http://henm.com">
+				<h5>H&M</h5>
+				<p>blablablablabla blablablalbalbal</p>
 			</a>
 		</li>
 	</ul>

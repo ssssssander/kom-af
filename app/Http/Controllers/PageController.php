@@ -81,4 +81,8 @@ class PageController extends Controller
 	{
 		return view('testimonials');
 	}
+	public function testimonial($id)
+	{
+		return view('testimonial');
+	}
 }

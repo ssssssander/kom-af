@@ -20,7 +20,7 @@
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
-		<img src="/img/A_logo_2925_PMS_NEG.png" alt="">
+		<a href="{{ route('nieuws') }}"><img src="/img/A_logo_2925_PMS_NEG.png" alt=""></a>
 		<ul>
 			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"||Route::currentRouteName()==="artikel"? ' class=active':'' }}>nieuws</a></li>
 			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"||Route::currentRouteName()==="opleidingen"||Route::currentRouteName()==="opleiding"? ' class=active':'' }}>scholen</a></li>
