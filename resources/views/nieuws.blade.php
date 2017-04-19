@@ -3,36 +3,14 @@
 @section('page', 'nieuws')
 
 @section('content')
-	<article>
-		<a href="{{ route('artikel',['id' => 2]) }}">
-			<img src="/img/Grote_Markt_Antwerpen.jpg" alt="grote markt">
-			<h5>Test Alarm</h5>
-			<time>5 uur geleden.</time>
-			<p>bla bla bla</p>
-		</a>
-	</article>
-	<article>
-		<a href="{{ route('artikel',['id' => 2]) }}">
-			<img src="/img/Grote_Markt_Antwerpen.jpg" alt="grote markt">
-			<h5>Test Alarm</h5>
-			<time>5 uur geleden.</time>
-			<p>bla bla bla</p>
-		</a>
-	</article>
-	<article>
-		<a href="{{ route('artikel',['id' => 2]) }}">
-			<img src="/img/Grote_Markt_Antwerpen.jpg" alt="grote markt">
-			<h5>Test Alarm</h5>
-			<time>5 uur geleden.</time>
-			<p>bla bla bla</p>
-		</a>
-	</article>
-	<article>
-		<a href="{{ route('artikel',['id' => 2]) }}">
-			<img src="/img/Grote_Markt_Antwerpen.jpg" alt="grote markt">
-			<h5>Test Alarm</h5>
-			<time>5 uur geleden.</time>
-			<p>bla bla bla</p>
-		</a>
-	</article>
+    @foreach($articles as $article)
+        <article>
+            <a href="{{ route('artikel', ['id' => $article['id']]) }}">
+                <img src="{{ $article['image_url'] }}" alt="{{ $article['image_alt'] }}">
+                <h5>{{ $article['title'] }}</h5>
+                <time>5 uur geleden</time>
+                <p>{{ $article['content'] }}</p>
+            </a>
+        </article>
+    @endforeach
 @endsection
