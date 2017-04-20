@@ -1,15 +1,25 @@
 
 var activeItem = document.getElementsByClassName("active")[0];
 var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a,main.vrije_tijd ul li a");
-var searchButton = document.querySelector("header nav ul li form input[type=submit]");
+var searchButton = document.querySelector("header nav ul li form input[type=image]");
+var noAccent = true;
 
 activeItem.innerHTML += generateSVGLine();
 for(var i = 0, ilen = accentItems.length;i<ilen;++i){
 	if(randomYesOrNo()){
+		accentItems[i].className = "accent";
 		accentItems[i].innerHTML += generateSVGAccent();
+		noAccent = false;
 	}
 }
-searchButton.addEventListener("click",showSearch);
+if(noAccent && accentItems.length > 0){
+	var randomPlace = Math.floor(Math.random()*accentItems.length);
+	accentItems[randomPlace].className = "accent";
+	accentItems[randomPlace].innerHTML += generateSVGAccent();
+	noAccent = false;
+}
+
+searchButton.addEventListener("click", showSearch);
 
 function randomYesOrNo(){
 	return Math.floor(Math.random()*2) === 1;
