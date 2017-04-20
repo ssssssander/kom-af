@@ -7,11 +7,11 @@
 			<h5>Antwerpen Centrum</h5>
 		</a>
 		<ul>
-			<li><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></li>
-			<li><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></li>
-			<li><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></li>
-			<li><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></li>
-			<li><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></li>
+			<li><a href="http://delijn.be"><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></a></li>
+			<li><a href="http://delijn.be"><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></a></li>
+			<li><a href="http://delijn.be"><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></a></li>
+			<li><a href="http://delijn.be"><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></a></li>
+			<li><a href="http://delijn.be"><img src="/img/kotkamer.jpg" alt="kamer 1"><p>Paardenmarkt 5</p></a></li>
 		</ul>
 	</section>
 	<section>
@@ -20,9 +20,9 @@
 			<h5>Antwerpen Centraal</h5>
 		</a>
 		<ul>
-			<li><time>11:30</time><p>Sint-Niklaas</p></li>
-			<li><time>11:30</time><p>Sint-Niklaas</p></li>
-			<li><time>11:30</time><p>Sint-Niklaas</p></li>
+			<li><a href="http://delijn.be"><time>11:30</time><p>Sint-Niklaas</p><span>IC</span></a></li>
+			<li><a href="http://delijn.be"><time>11:30</time><p>Sint-Niklaas</p><span>IR</span></a></li>
+			<li><a href="http://delijn.be"><time>11:30</time><p>Sint-Niklaas</p><span>L</span></a></li>
 		</ul>
 	</section>
 	<section>
@@ -31,11 +31,11 @@
 			<h5>Franklin Rooseveltplaats</h5>
 		</a>
 		<ul>
-			<li><div>32</div><p>Edegem</p></li>
-			<li><div>32</div><p>Edegem</p></li>
-			<li><div>32</div><p>Edegem</p></li>
-			<li><div>32</div><p>Edegem</p></li>
-			<li><div>32</div><p>Edegem</p></li>
+			<li><a href="http://delijn.be"><div style="border-color: #FFCC11; color:#000000; background-color:#FFCC11;">32</div><p>Edegem</p></a></li>
+			<li><a href="http://delijn.be"><div style="border-color: #FFCC11; color:#000000; background-color:#FFCC11;">32</div><p>Edegem</p></a></li>
+			<li><a href="http://delijn.be"><div style="border-color: #FFCC11; color:#000000; background-color:#FFCC11;">32</div><p>Edegem</p></a></li>
+			<li><a href="http://delijn.be"><div style="border-color: #FFCC11; color:#000000; background-color:#FFCC11;">32</div><p>Edegem</p></a></li>
+			<li><a href="http://delijn.be"><div style="border-color: #FFCC11; color:#000000; background-color:#FFCC11;">32</div><p>Edegem</p></a></li>
 		</ul>
 	</section>
 @endsection
