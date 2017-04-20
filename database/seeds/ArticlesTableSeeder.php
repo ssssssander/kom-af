@@ -19,7 +19,7 @@ class ArticlesTableSeeder extends Seeder
                 'image_url' => 'Grote_Markt_Antwerpen.jpg'
             ],
             [
-                'user_id' => 1,
+                'user_id' => 2,
                 'title' => 'nog een testje',
                 'content' => 'bing bang tik tak',
                 'image_url' => 'Grote_Markt_Antwerpen.jpg'
