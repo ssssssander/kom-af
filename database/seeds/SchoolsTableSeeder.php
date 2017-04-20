@@ -12,8 +12,12 @@ class SchoolsTableSeeder extends Seeder
     public function run()
     {
         DB::table('schools')->insert([
-            ['name' => 'Karel de Grote Hogeschool', 'image_url' => 'aa'],
-            ['name' => 'Universiteit Antwerpen', 'image_url' => 'bb']
+            ['name' => 'Karel de Grote Hogeschool', 'image_url' => '/img/lgo KdG.jpg', 'website' => 'https://www.kdg.be/'],
+            ['name' => 'Universiteit Antwerpen', 'image_url' => '/img/logoUA.png', 'website' => 'https://www.uantwerpen.be/nl/'],
+            ['name' => 'Thomas More', 'image_url' => '/img/logoThomas More.png', 'website' => 'http://www.thomasmore.be/'],
+            ['name' => 'AP Hogeschool Antwerpen', 'image_url' => '/img/logo AP.png', 'website' => 'https://www.ap.be/'],
+            ['name' => 'Hogere Zeevaartschool Antwerpen', 'image_url' => '/img/logoAMA.jpg', 'website' => 'https://www.hzs.be/nl/'],
+            ['name' => 'Institute of Tropical Medicine Antwerp', 'image_url' => '/img/logoITM.png', 'website' => 'https://www.itg.be/']
         ]);
     }
 }

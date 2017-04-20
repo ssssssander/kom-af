@@ -5,7 +5,7 @@
     	<figure>
     		<a href="{{ route('opleidingen', ['id' => $school->id]) }}">
     			<div>
-    				<img src="{{ $school->image_url }}" alt="{{ $school->name }}">
+    				<img src=/img/"{{ $school->image_url }}" alt="{{ $school->name }}">
     			</div>
     			<figcaption>{{ $school->name }}</figcaption>
     		</a>
