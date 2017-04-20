@@ -14,7 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'PageController@nieuws')->name('nieuws');
-Route::get('/artikel/{id}', 'PageController@artikel')->name('artikel');
+Route::get('/artikel/{article}', 'PageController@artikel')->name('artikel');
 
 Route::get('/scholen', 'PageController@scholen')->name('scholen');
 Route::get('/opleidingen/{id}', 'PageController@opleidingen')->name('opleidingen');
