@@ -102,6 +102,9 @@ header{
 							max-width: 100%;
 						}
 					}
+					&:hover{
+						opacity: .6;
+					}
 				}
 			}
 		}
@@ -110,7 +113,7 @@ header{
 		position: absolute;
 		bottom: 0;
 		text-shadow: 0 0 10px darken($font-color-light,20%);
-		padding: 0 calc(40px + 2%) 5px;
+		padding: 0 calc(40px + 2%) 10px;
 	}
 }
 main{
