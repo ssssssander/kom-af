@@ -24,11 +24,27 @@ h6{font-size: 1.2em;}
 p{font-size: 1em;}
 small,time{font-size: 0.833em;}
 
+.accent{
+	svg{
+		display: block;
+		position: absolute;
+		width: 15%;
+		top: 0;
+		left: 0;
+	}
+	&:hover{
+		svg{
+			top: -1px;
+			left: -1px;
+		}
+	}
+}
+
 header{
 	&.nieuws,&.artikel{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
-	&.scholen,&.opleidingen,&.opleiding{
+	&.scholen,&.school,&.opleiding{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
 	&.vrije_tijd{
@@ -142,17 +158,6 @@ main{
 						padding-left: calc(1.5rem - 1px);
 						padding-right: calc(1.5rem - 1px);
 					}
-					svg{
-						top: -1px;
-						left: -1px;
-					}
-				}
-				svg{
-					display: block;
-					position: absolute;
-					width: 15%;
-					top: 0;
-					left: 0;
 				}
 				img{
 					width: 100%;
@@ -220,17 +225,10 @@ main{
 					text-align: center;
 					padding: $scholen-padding/2 0;
 				}
-				svg{
-					display: block;
-					position: absolute;
-					width: 15%;
-					top: 0;
-					left: 0;
-				}
 			}
 		}
 	}
-	&.opleidingen{
+	&.school{
 
 	}
 	&.opleiding{
@@ -274,17 +272,6 @@ main{
 						background: $bg-color-light;
 						border: 1px solid $border-color;
 						padding: calc(1.5rem - 1px);
-						svg{
-							top: -1px;
-							left: -1px;
-						}
-					}
-					svg{
-						display: block;
-						position: absolute;
-						width: 15%;
-						top: 0;
-						left: 0;
 					}
 				}
 
