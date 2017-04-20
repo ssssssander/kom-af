@@ -1,6 +1,5 @@
 <?php
 
-use App\Article;
 use Illuminate\Database\Seeder;
 
 class ArticlesTableSeeder extends Seeder
@@ -12,7 +11,7 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        Article::create([
+        DB::table('articles')->insert([
             [
                 'user_id' => 1,
                 'title' => 'testje',
