@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Artikel;
+use App\Article;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -25,19 +25,9 @@ class PageController extends Controller
      */
     public function nieuws()
     {
-        $articles =
-            array(
-                1 => array('id' => 2, 'title' => 'zing', 'content' => 'dingidy zoppety zingle boondle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                2 => array('id' => 7, 'title' => 'dingledoo', 'content' => 'riggidy dongle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                3 => array('id' => 8, 'title' => 'zippetidoodle', 'content' => 'skappity zoppety ningle nangle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                4 => array('id' => 22, 'title' => 'bojangle', 'content' => 'goppety zeppety',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt')
-            );
+        $articles = Article::all();
 
-        return view('nieuws', ['articles' => $articles]);
+        return view('nieuws', compact('articles'));
     }
 	public function artikel(Request $request)
 	{

@@ -6,7 +6,7 @@
 			<div>
 				<img src="/img/lgo%20KdG.jpg" alt="KdG">
 			</div>
-			<figcaption>Karel De Grote Hogeschool</figcaption>
+			<figcaption>Karel de Grote Hogeschool</figcaption>
 		</a>
 	</figure>
 	<figure>
