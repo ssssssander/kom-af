@@ -1,5 +1,6 @@
 <?php
 
+use App\School;
 use Illuminate\Database\Seeder;
 
 class SchoolsTableSeeder extends Seeder
@@ -11,7 +12,7 @@ class SchoolsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('schools')->insert([
+        School::create([
             ['name' => 'Karel de Grote Hogeschool', 'image_url' => 'aa'],
             ['name' => 'Universiteit Antwerpen', 'image_url' => 'bb']
         ]);
