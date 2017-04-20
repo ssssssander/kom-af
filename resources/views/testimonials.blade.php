@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('page', 'testimonials')
-
 @section('content')
 	<ul>
 		<li>
@@ -29,5 +27,4 @@
 			</a>
 		</li>
 	</ul>
-
 @endsection
