@@ -1,6 +1,7 @@
 
 var activeItem = document.getElementsByClassName("active")[0];
-var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a");
+var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a,main.vrije_tijd ul li a");
+var searchButton = document.getElementsByClassName("main article a svg:first-child");
 
 activeItem.innerHTML += generateSVGLine();
 for(var i = 0, ilen = accentItems.length;i<ilen;++i){
