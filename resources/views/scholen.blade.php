@@ -1,44 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-	<figure>
-		<a href="{{ route('opleidingen',['id' => 2]) }}">
-			<div>
-				<img src="/img/lgo%20KdG.jpg" alt="KdG">
-			</div>
-			<figcaption>Karel de Grote Hogeschool</figcaption>
-		</a>
-	</figure>
-	<figure>
-		<a href="{{ route('opleidingen',['id' => 2]) }}">
-			<div>
-				<img src="/img/lgo%20KdG.jpg" alt="KdG">
-			</div>
-			<figcaption>Karel De Grote Hogeschool</figcaption>
-		</a>
-	</figure>
-	<figure>
-		<a href="{{ route('opleidingen',['id' => 2]) }}">
-			<div>
-				<img src="/img/lgo%20KdG.jpg" alt="KdG">
-			</div>
-			<figcaption>Karel De Grote Hogeschool</figcaption>
-		</a>
-	</figure>
-	<figure>
-		<a href="{{ route('opleidingen',['id' => 2]) }}">
-			<div>
-				<img src="/img/lgo%20KdG.jpg" alt="KdG">
-			</div>
-			<figcaption>Karel De Grote Hogeschool</figcaption>
-		</a>
-	</figure>
-	<figure>
-		<a href="{{ route('opleidingen',['id' => 2]) }}">
-			<div>
-				<img src="/img/lgo%20KdG.jpg" alt="KdG">
-			</div>
-			<figcaption>Karel De Grote Hogeschool</figcaption>
-		</a>
-	</figure>
+    @foreach($schools as $school)
+    	<figure>
+    		<a href="{{ route('opleidingen', ['id' => $school->id]) }}">
+    			<div>
+    				<img src="{{ $school->image_url }}" alt="{{ $school->name }}">
+    			</div>
+    			<figcaption>{{ $school->name }}</figcaption>
+    		</a>
+    	</figure>
+    @endforeach
 @endsection
