@@ -40,9 +40,9 @@ class PageController extends Controller
 
 		return view('scholen', compact('schools'));
 	}
-	public function opleidingen($id)
+	public function school(School $school)
 	{
-		return view('opleidingen');
+		return view('school', compact('school'));
 	}
 	public function opleiding($id)
 	{
