@@ -12,26 +12,26 @@
 	</filter>
 	<ul>
 		<li>
-			<a href="http://henm.com">
+			<a href="http://hm.com">
 
 				<h5>H&M</h5>
 				<p>blablablablabla blablablalbalbal</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://henm.com">
+			<a href="http://hm.com">
 				<h5>H&M</h5>
 				<p>blablablablabla blablablalbalbal</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://henm.com">
+			<a href="http://hm.com">
 				<h5>H&M</h5>
 				<p>blablablablabla blablablalbalbal</p>
 			</a>
 		</li>
 		<li>
-			<a href="http://henm.com">
+			<a href="http://hm.com">
 				<h5>H&M</h5>
 				<p>blablablablabla blablablalbalbal</p>
 			</a>

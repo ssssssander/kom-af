@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Artikel;
+use App\Article;
+use App\School;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -25,41 +26,19 @@ class PageController extends Controller
      */
     public function nieuws()
     {
-        $articles =
-            array(
-                1 => array('id' => 2, 'title' => 'zing', 'content' => 'dingidy zoppety zingle boondle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                2 => array('id' => 7, 'title' => 'dingledoo', 'content' => 'riggidy dongle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                3 => array('id' => 8, 'title' => 'zippetidoodle', 'content' => 'skappity zoppety ningle nangle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                4 => array('id' => 22, 'title' => 'bojangle', 'content' => 'goppety zeppety',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt')
-            );
+        $articles = Article::all();
 
-        return view('nieuws', ['articles' => $articles]);
+        return view('nieuws', compact('articles'));
     }
-	public function artikel(Request $request)
+	public function artikel(Article $article)
 	{
-        $articles =
-            array(
-                1 => array('id' => 2, 'title' => 'zing', 'content' => 'dingidy zoppety zingle boondle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                2 => array('id' => 7, 'title' => 'dingledoo', 'content' => 'riggidy dongle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                3 => array('id' => 8, 'title' => 'zippetidoodle', 'content' => 'skappity zoppety ningle nangle',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt'),
-                4 => array('id' => 22, 'title' => 'bojangle', 'content' => 'goppety zeppety',
-                'image_url' => '/img/Grote_Markt_Antwerpen.jpg', 'image_alt' => 'Grote Markt')
-            );
-
-        $id = $request->route('id');
-
-		return view('artikel', ['articles' => $articles, 'id' => $id]);
+		return view('artikel', compact('article'));
 	}
 	public function scholen()
 	{
-		return view('scholen');
+        $schools = School::all();
+
+		return view('scholen', compact('schools'));
 	}
 	public function opleidingen($id)
 	{
@@ -82,6 +61,10 @@ class PageController extends Controller
 		return view('testimonials');
 	}
 	public function testimonial($id)
+	{
+		return view('testimonial');
+	}
+	public function zoeken($query)
 	{
 		return view('testimonial');
 	}

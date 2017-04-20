@@ -22,11 +22,12 @@
 	<nav>
 		<a href="{{ route('nieuws') }}"><img src="/img/A_logo_2925_PMS_NEG.png" alt=""></a>
 		<ul>
-			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"||Route::currentRouteName()==="artikel"? ' class=active':'' }}>nieuws</a></li>
-			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"||Route::currentRouteName()==="opleidingen"||Route::currentRouteName()==="opleiding"? ' class=active':'' }}>scholen</a></li>
-			<li><a href="{{ route('vrije_tijd') }}"{{ Route::currentRouteName()==="vrije_tijd"? ' class=active':'' }}>vrije tijd</a></li>
-			<li><a href="{{ route('omgeving') }}"{{ Route::currentRouteName()==="omgeving"? ' class=active':'' }}>omgeving</a></li>
-			<li><a href="{{ route('testimonials') }}"{{ Route::currentRouteName()==="testimonials"? ' class=active':'' }}>testimonials</a></li>
+			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"||Route::currentRouteName()==="artikel"? ' class=active':'' }}><p>nieuws</p></a></li>
+			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"||Route::currentRouteName()==="opleidingen"||Route::currentRouteName()==="opleiding"? ' class=active':'' }}><p>scholen</p></a></li>
+			<li><a href="{{ route('vrije_tijd') }}"{{ Route::currentRouteName()==="vrije_tijd"? ' class=active':'' }}><p>vrije tijd</p></a></li>
+			<li><a href="{{ route('omgeving') }}"{{ Route::currentRouteName()==="omgeving"? ' class=active':'' }}><p>omgeving</p></a></li>
+			<li><a href="{{ route('testimonials') }}"{{ Route::currentRouteName()==="testimonials"? ' class=active':'' }}><p>testimonials</p></a></li>
+			<li><form method="post" action="{{ route('zoeken') }}"><input type="image" src="/img/zoek.svg"></form></li>
 		</ul>
 	</nav>
     <h1>{{ str_replace('_', ' ', Route::currentRouteName()) }}</h1>
