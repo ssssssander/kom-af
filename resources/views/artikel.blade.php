@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('page', 'artikel')
-
 @section('content')
     @foreach($articles as $article)
         @if($article['id'] == $id)

@@ -20,7 +20,7 @@ Route::get('/scholen', 'PageController@scholen')->name('scholen');
 Route::get('/opleidingen/{id}', 'PageController@opleidingen')->name('opleidingen');
 Route::get('/opleiding/{id}', 'PageController@opleiding')->name('opleiding');
 
-Route::get('/vrijetijd', 'PageController@vrijetijd')->name('vrijetijd');
+Route::get('/vrijetijd', 'PageController@vrije_tijd')->name('vrije_tijd');
 
 Route::get('/omgeving', 'PageController@omgeving')->name('omgeving');
 

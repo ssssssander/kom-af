@@ -31,7 +31,7 @@ header{
 	&.scholen,&.opleidingen,&.opleiding{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
-	&.vrijetijd{
+	&.vrije_tijd{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
 	&.omgeving{
@@ -41,7 +41,7 @@ header{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
 	position: relative;
-	height: $header-height;
+	height: 400px;
 	overflow: hidden;
 	display: block;
 	background-position: center;
@@ -96,21 +96,22 @@ header{
 			}
 		}
 	}
+	h1{
+		position: absolute;
+		bottom: 0;
+		text-shadow: 0 0 10px darken($font-color-light,20%);
+		padding: 0 calc(40px + 2%) 5px;
+	}
 }
 main{
 	display: block;
 	background: white;
 	padding: 40px;
-	h1{
-		position: absolute;
-		top: $header-height - 64px;
-		text-shadow: 0 -3px 10px darken($font-color-light,20%);
-	}
 	&.nieuws{
 		display: flex;
 		flex-wrap: wrap;
 		article{
-			width: (100%/$lijstaantaln)-4;
+			width: (100%/$lijstaantaln)-4%;
 			padding: 2%;
 			a{
 				position: relative;
@@ -170,7 +171,7 @@ main{
 		display: flex;
 		flex-wrap: wrap;
 		figure{
-			width: (100%/$lijstaantals)-4;
+			width: (100%/$lijstaantals)-4%;
 			padding: 2%;
 			a{
 				position: relative;
@@ -217,12 +218,12 @@ main{
 	&.opleiding{
 
 	}
-	&.vrijetijd{
+	&.vrije_tijd{
 		display: flex;
 		filter{
 			border-right: 1px solid $border-color;
 			display: block;
-			padding-right: 2%;
+			padding:0 2%;
 			form{
 				h5{
 					display: block;
@@ -242,7 +243,7 @@ main{
 			display: flex;
 			flex-wrap: wrap;
 			li{
-				width: (100%/$lijstaantalvt)-4;
+				width: (100%/$lijstaantalvt)-4%;
 				padding: 2%;
 				a{
 					display: block;
@@ -263,7 +264,7 @@ main{
 	&.omgeving{
 		display: flex;
 		section{
-			width: (100%/$lijstaantalvt)-4;
+			width: (100%/$lijstaantalvt)-4%;
 			padding: 2%;
 			a{
 				text-decoration: none;
@@ -288,7 +289,7 @@ main{
 						height: 5vh;
 					}
 					p{
-						padding: ;
+
 					}
 				}
 			}

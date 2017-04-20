@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('page') - Kom Af</title>
+    <title>{{ str_replace('_', ' ', Route::currentRouteName()) }} | Kom Af</title>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <!-- Scripts -->
@@ -24,14 +24,14 @@
 		<ul>
 			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"||Route::currentRouteName()==="artikel"? ' class=active':'' }}>nieuws</a></li>
 			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"||Route::currentRouteName()==="opleidingen"||Route::currentRouteName()==="opleiding"? ' class=active':'' }}>scholen</a></li>
-			<li><a href="{{ route('vrijetijd') }}"{{ Route::currentRouteName()==="vrijetijd"? ' class=active':'' }}>vrije tijd</a></li>
+			<li><a href="{{ route('vrije_tijd') }}"{{ Route::currentRouteName()==="vrije_tijd"? ' class=active':'' }}>vrije tijd</a></li>
 			<li><a href="{{ route('omgeving') }}"{{ Route::currentRouteName()==="omgeving"? ' class=active':'' }}>omgeving</a></li>
 			<li><a href="{{ route('testimonials') }}"{{ Route::currentRouteName()==="testimonials"? ' class=active':'' }}>testimonials</a></li>
 		</ul>
 	</nav>
+    <h1>{{ str_replace('_', ' ', Route::currentRouteName()) }}</h1>
 </header>
 <main class="{{ Route::currentRouteName() }}">
-	<h1>@yield('page')</h1>
 	@yield('content')
 </main>
     <!-- Scripts -->

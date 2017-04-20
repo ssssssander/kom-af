@@ -69,9 +69,9 @@ class PageController extends Controller
 	{
 		return view('opleiding');
 	}
-	public function vrijetijd()
+	public function vrije_tijd()
 	{
-		return view('vrijetijd');
+		return view('vrije_tijd');
 	}
 	public function omgeving()
 	{

@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('page', 'omgeving')
-
 @section('content')
 	<section>
 		<a href="http://www.studentkotweb.be">

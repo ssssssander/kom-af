@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('page', 'scholen')
-
 @section('content')
 	<figure>
 		<a href="{{ route('opleidingen',['id' => 2]) }}">
