@@ -39,6 +39,12 @@ small,time{font-size: 0.833em;}
 		}
 	}
 }
+.scholen{
+	a:hover svg{
+		top: 0px;
+		left: 0px;
+	}
+}
 
 header{
 	&.nieuws,&.artikel{
