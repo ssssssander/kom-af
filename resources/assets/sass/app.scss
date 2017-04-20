@@ -91,6 +91,7 @@ header{
 						position: absolute;
 						bottom: 0;
 						width: 100%;
+						background: #1F97D3;
 					}
 				}
 			}
@@ -278,17 +279,51 @@ main{
 				h5{
 					text-align: center;
 				}
+				&:hover{
+					h5{
+						color: $primary-blue;
+					}
+				}
 			}
 			ul{
 				list-style: none;
-				li{
+				padding-top: $omgeving-padding;
+				li a{
 					display: flex;
-					padding: $omgeving-padding 0;
+					padding: $omgeving-padding;
 					img{
 						max-height: 100%;
-						height: 5vh;
+						height: 10vh;
+						margin: 0;
+					}
+					time{
+						margin: auto 0;
+					}
+					div{
+						display: block;
+						min-width: 2.75em;
+						text-align: center;
+						font-weight: bold;
+						color: #fff;
+						border-radius: 4px;
+						border: 3px solid #000;
+						font-size: 0.75rem;
+						line-height: 1.6em;
 					}
 					p{
+						margin: auto $omgeving-padding;
+					}
+					span{
+						font-weight: bold;
+						color: $font-color-white;
+						background: $primary-blue;
+						padding: 5px 10px;
+						border-radius: 3px;
+					}
+					&:hover{
+						background: $bg-color-light;
+						border: 1px solid $border-color;
+						padding: calc(1rem - 1px);
 
 					}
 				}
