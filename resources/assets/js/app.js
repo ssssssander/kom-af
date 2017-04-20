@@ -1,7 +1,7 @@
 
 var activeItem = document.getElementsByClassName("active")[0];
 var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a,main.vrije_tijd ul li a");
-var searchButton = document.getElementsByClassName("main article a svg:first-child");
+var searchButton = document.querySelector("header nav ul li form input[type=submit]");
 
 activeItem.innerHTML += generateSVGLine();
 for(var i = 0, ilen = accentItems.length;i<ilen;++i){
@@ -9,6 +9,7 @@ for(var i = 0, ilen = accentItems.length;i<ilen;++i){
 		accentItems[i].innerHTML += generateSVGAccent();
 	}
 }
+searchButton.addEventListener("click",showSearch);
 
 function randomYesOrNo(){
 	return Math.floor(Math.random()*2) === 1;
@@ -61,5 +62,13 @@ function getBlueColor(){
 	var red,green,blue=255;
 	red = Math.floor(Math.random()*16); // 0 tot 15
 	green = Math.floor((Math.random()*91) + 120); // 120 tot 210
-	return {r:red,g:green,b:blue}
+	return {r:red,g:green,b:blue} // 255
+}
+
+function showSearch(e){
+	e.preventDefault();
+	var input = document.createElement("input");
+	input.type="text";
+	input.name="zoek";
+	input.placeholder="zoeken";
 }
