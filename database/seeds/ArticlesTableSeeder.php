@@ -16,13 +16,13 @@ class ArticlesTableSeeder extends Seeder
                 'user_id' => 1,
                 'title' => 'testje',
                 'content' => 'lalalala bla zzz',
-                'image_url' => 'niks'
+                'image_url' => 'Grote_Markt_Antwerpen.jpg'
             ],
             [
                 'user_id' => 1,
                 'title' => 'nog een testje',
                 'content' => 'bing bang tik tak',
-                'image_url' => 'iets?'
+                'image_url' => 'Grote_Markt_Antwerpen.jpg'
             ]
         ]);
     }
