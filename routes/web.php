@@ -17,8 +17,8 @@ Route::get('/', 'PageController@nieuws')->name('nieuws');
 Route::get('/artikel/{article}', 'PageController@artikel')->name('artikel');
 
 Route::get('/scholen', 'PageController@scholen')->name('scholen');
-Route::get('/opleidingen/{id}', 'PageController@opleidingen')->name('opleidingen');
-Route::get('/opleiding/{id}', 'PageController@opleiding')->name('opleiding');
+Route::get('/school/{school}', 'PageController@school')->name('school');
+Route::get('/opleiding/{course}', 'PageController@opleiding')->name('opleiding');
 
 Route::get('/vrijetijd', 'PageController@vrije_tijd')->name('vrije_tijd');
 

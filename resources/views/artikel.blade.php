@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $article->title)
+
 @section('content')
 	<article>
 		<img src="/img/{{ $article->image_url }}" alt="{{ $article->title }}">
