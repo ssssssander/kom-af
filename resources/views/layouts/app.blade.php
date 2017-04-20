@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('page') - Kom Af</title>
+    <title>{{ Route::currentRouteName() }} | Kom Af</title>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <!-- Scripts -->
@@ -31,7 +31,7 @@
 	</nav>
 </header>
 <main class="{{ Route::currentRouteName() }}">
-	<h1>@yield('page')</h1>
+	<h1>{{ Route::currentRouteName() }}</h1>
 	@yield('content')
 </main>
     <!-- Scripts -->
