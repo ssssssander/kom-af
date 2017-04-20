@@ -77,21 +77,30 @@ header{
 				display: flex;
 				flex:1;
 				a{
-					font-family: "Antwerpen", Arial, sans-serif;
-					font-size: 1.44em;
+					position: relative;
+					text-decoration: none;
 					color: $primary-blue;
 					width: 100%;
-					padding: 1.5rem 0;
-					text-decoration: none;
-					text-align: center;
-					white-space: nowrap;
-					position: relative;
+					p{
+						font-family: "Antwerpen", Arial, sans-serif;
+						font-size: 1.44em;
+						text-align: center;
+						padding: $algemeen-padding 0;
+						white-space: nowrap;
+					}
 					svg{
 						display: block;
 						position: absolute;
 						bottom: 0;
 						width: 100%;
 						background: #1F97D3;
+						&:first-child{
+							padding: $algemeen-padding+.2rem 0;
+							background: none;
+							position: static;
+							max-height: 100%;
+							max-width: 100%;
+						}
 					}
 				}
 			}
@@ -129,6 +138,10 @@ main{
 					h5, time, p{
 						padding-left: calc(1.5rem - 1px);
 						padding-right: calc(1.5rem - 1px);
+					}
+					svg{
+						top: -1px;
+						left: -1px;
 					}
 				}
 				svg{
@@ -247,6 +260,7 @@ main{
 				width: (100%/$lijstaantalvt)-4%;
 				padding: 2%;
 				a{
+					position: relative;
 					display: block;
 					color: $font-color;
 					background: $bg-color;
@@ -256,6 +270,17 @@ main{
 						background: $bg-color-light;
 						border: 1px solid $border-color;
 						padding: calc(1.5rem - 1px);
+						svg{
+							top: -1px;
+							left: -1px;
+						}
+					}
+					svg{
+						display: block;
+						position: absolute;
+						width: 15%;
+						top: 0;
+						left: 0;
 					}
 				}
 

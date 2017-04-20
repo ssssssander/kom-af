@@ -85,4 +85,8 @@ class PageController extends Controller
 	{
 		return view('testimonial');
 	}
+	public function zoeken($query)
+	{
+		return view('testimonial');
+	}
 }

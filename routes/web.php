@@ -26,3 +26,5 @@ Route::get('/omgeving', 'PageController@omgeving')->name('omgeving');
 
 Route::get('/testimonials', 'PageController@testimonials')->name('testimonials');
 Route::get('/testimonial/{id}', 'PageController@testimonial')->name('testimonial');
+
+Route::get('/zoeken/{query}', 'PageController@zoeken')->name('zoeken');
