@@ -39,10 +39,12 @@ small,time{font-size: 0.833em;}
 		}
 	}
 }
-.scholen{
-	a:hover svg{
-		top: 0px;
-		left: 0px;
+main.scholen{
+	a:hover{
+		svg{
+			top: 0;
+			left: 0;
+		}
 	}
 }
 
@@ -60,6 +62,9 @@ header{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
 	&.testimonials,&.testimonial{
+		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
+	}
+	&.zoeken{
 		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
 	}
 	position: relative;
@@ -95,6 +100,10 @@ header{
 			flex: 1;
 			list-style: none;
 			justify-content: space-around;
+			position: relative;
+			li:first-child a p{
+				padding-left: 20px;
+			}
 			li{
 				display: flex;
 				flex:1;
@@ -103,11 +112,12 @@ header{
 					text-decoration: none;
 					color: $primary-blue;
 					width: 100%;
+					padding:0 10px 0 0;
 					p{
 						font-family: "Antwerpen", Arial, sans-serif;
 						font-size: 1.44em;
 						text-align: center;
-						padding: $algemeen-padding 0;
+						padding: $algemeen-padding 0 $algemeen-padding 10px;
 						white-space: nowrap;
 					}
 					svg{
@@ -126,6 +136,22 @@ header{
 					}
 					&:hover{
 						opacity: .6;
+					}
+				}
+				form{
+					width: 100%;
+					display: flex;
+					input[type=text]{
+						width: 90%;
+						width: calc(100% - ( 100px + 3rem ) );
+						font-size: 1em;
+						margin: $algemeen-padding 20px;
+						padding: 5px 7px;
+					}
+					input[type=image]{
+						display: block;
+						padding: $algemeen-padding+.2rem $algemeen-padding $algemeen-padding;
+						margin: 0 auto;
 					}
 				}
 			}
@@ -155,7 +181,8 @@ main{
 				color: $font-color;
 				background: $bg-color;
 				&:hover{
-					background: $bg-color-light;
+					background: url("/img/hover%20gray.png") repeat;
+					background-size: contain;
 					border: 1px solid $border-color;
 					p{
 						padding-bottom: calc(1.5rem - 2px);
@@ -209,7 +236,8 @@ main{
 				color: $font-color;
 				&:hover{
 					div{
-						background: $bg-color-light;
+						background: url("/img/hover%20gray.png") repeat;
+						background-size: contain;
 						border: 1px solid $border-color;
 						padding: calc(1rem - 1px);
 					}
@@ -275,7 +303,8 @@ main{
 					text-decoration: none;
 					padding: $vrijetijd-padding;
 					&:hover{
-						background: $bg-color-light;
+						background: url("/img/hover%20gray.png") repeat;
+						background-size: contain;
 						border: 1px solid $border-color;
 						padding: calc(1.5rem - 1px);
 					}
@@ -297,6 +326,9 @@ main{
 					max-width: 100%;
 					max-height: 5vh;
 					margin: 0 auto;
+				}
+				h4{
+					text-align: center;
 				}
 				h5{
 					text-align: center;
@@ -343,7 +375,8 @@ main{
 						border-radius: 3px;
 					}
 					&:hover{
-						background: $bg-color-light;
+						background: url("/img/hover%20gray.png") repeat;
+						background-size: cover;
 						border: 1px solid $border-color;
 						padding: calc(1rem - 1px);
 
