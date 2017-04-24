@@ -1,10 +1,14 @@
 
-var activeItem = document.getElementsByClassName("active")[0];
 var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a,main.vrije_tijd ul li a");
+var searchForm = document.querySelector("header nav ul li form");
 var searchButton = document.querySelector("header nav ul li form input[type=image]");
 var noAccent = true;
+var first = true;
 
-activeItem.innerHTML += generateSVGLine();
+if(document.getElementsByClassName("active").length > 0){
+	var activeItem = document.getElementsByClassName("active")[0];
+	activeItem.innerHTML += generateSVGLine();
+}
 for(var i = 0, ilen = accentItems.length;i<ilen;++i){
 	if(randomYesOrNo()){
 		accentItems[i].className = "accent";
@@ -76,9 +80,21 @@ function getBlueColor(){
 }
 
 function showSearch(e){
-	e.preventDefault();
-	var input = document.createElement("input");
-	input.type="text";
-	input.name="zoek";
-	input.placeholder="zoeken";
+	if(first){
+		e.preventDefault();
+		var startContent = searchForm.innerHTML;
+		var input = document.createElement("input");
+		input.type="text";
+		input.name="zoek";
+		input.placeholder="zoeken";
+		input.autofocus = true;
+		searchForm.innerHTML = "";
+		searchForm.appendChild(input);
+		searchForm.innerHTML += startContent;
+		var menu = document.querySelectorAll("nav ul li");
+		for(var i = 0,ilen = menu.length - 1;i< ilen;++i){
+			menu[i].remove();
+		}
+		first = false;
+	}
 }

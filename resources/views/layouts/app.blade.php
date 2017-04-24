@@ -27,7 +27,7 @@
 			<li><a href="{{ route('vrije_tijd') }}"{{ Route::currentRouteName()==="vrije_tijd"? ' class=active':'' }}><p>vrije tijd</p></a></li>
 			<li><a href="{{ route('omgeving') }}"{{ Route::currentRouteName()==="omgeving"? ' class=active':'' }}><p>omgeving</p></a></li>
 			<li><a href="{{ route('testimonials') }}"{{ Route::currentRouteName()==="testimonials"? ' class=active':'' }}><p>testimonials</p></a></li>
-			<li><form method="post" action="{{ route('zoeken') }}"><input type="image" src="/img/zoek.svg"></form></li>
+			<li><form method="get" action="{{ route('zoeken') }}">{{ csrf_field() }}<input type="image" src="/img/zoek.svg"></form></li>
 		</ul>
 	</nav>
     <h1>{{ str_replace('_', ' ', Route::currentRouteName()) }}</h1>
