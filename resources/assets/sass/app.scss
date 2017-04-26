@@ -25,26 +25,13 @@ p{font-size: 1em;}
 small,time{font-size: 0.833em;}
 
 .accent{
+	position: relative;
 	svg{
 		display: block;
 		position: absolute;
 		width: 15%;
 		top: 0;
 		left: 0;
-	}
-	&:hover{
-		svg{
-			top: -1px;
-			left: -1px;
-		}
-	}
-}
-main.scholen{
-	a:hover{
-		svg{
-			top: 0;
-			left: 0;
-		}
 	}
 }
 
@@ -88,6 +75,9 @@ header{
 		display: flex;
 		margin: 30px 0;
 		background: white;
+		&>a{
+			background: #1F97D4;
+		}
 		a{
 			display: block;
 			img{
@@ -98,6 +88,7 @@ header{
 		ul{
 			display: flex;
 			flex: 1;
+			flex-wrap: wrap;
 			list-style: none;
 			justify-content: space-around;
 			position: relative;
@@ -180,17 +171,11 @@ main{
 				text-decoration: none;
 				color: $font-color;
 				background: $bg-color;
+				border: 1px solid white;
 				&:hover{
 					background: url("/img/hover%20gray.png") repeat;
 					background-size: contain;
 					border: 1px solid $border-color;
-					p{
-						padding-bottom: calc(1.5rem - 2px);
-					}
-					h5, time, p{
-						padding-left: calc(1.5rem - 1px);
-						padding-right: calc(1.5rem - 1px);
-					}
 				}
 				img{
 					width: 100%;
@@ -234,6 +219,7 @@ main{
 				display: block;
 				text-decoration: none;
 				color: $font-color;
+				border: 1px solid white;
 				&:hover{
 					div{
 						background: url("/img/hover%20gray.png") repeat;
@@ -302,11 +288,11 @@ main{
 					background: $bg-color;
 					text-decoration: none;
 					padding: $vrijetijd-padding;
+					border: 1px solid white;
 					&:hover{
 						background: url("/img/hover%20gray.png") repeat;
 						background-size: contain;
 						border: 1px solid $border-color;
-						padding: calc(1.5rem - 1px);
 					}
 				}
 
@@ -386,9 +372,72 @@ main{
 		}
 	}
 	&.testimonials{
-
+		ul{
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+			li{
+				width: (100%/$lijstaantalte)-4%;
+				padding: 2%;
+				a{
+					text-decoration: none;
+					color: $font-color;
+					display: block;
+					width: 100%;
+					border: 1px solid white;
+					background: $bg-color;
+					img, iframe{
+						width: 100%;
+					}
+					iframe{
+						pointer-events: none;
+					}
+					h5{
+						padding: $testimonials-padding;
+					}
+					&:hover{
+						background: url("/img/hover%20gray.png") repeat;
+						background-size: cover;
+						border: 1px solid $border-color;
+					}
+				}
+			}
+		}
 	}
 	&.testimonial{
 
 	}
+	&.zoeken{
+		ul{
+			list-style: none;
+			li{
+				margin: $algemeen-padding;
+				a{
+					background: $bg-color;
+					display: flex;
+					height: 15vh;
+					width: 100%;
+					text-decoration: none;
+					color: $font-color;
+					border: 1px solid white;
+					&:hover{
+						background: url("/img/hover%20gray.png") repeat;
+						background-size: contain;
+						border: 1px solid $border-color;
+					}
+					img{
+						height: 100%;
+					}
+					p{
+						margin: auto 0;
+						padding: 0 $algemeen-padding;
+					}
+					svg{
+						width: 4%;
+					}
+				}
+			}
+		}
+	}
 }
+
