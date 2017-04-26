@@ -1,5 +1,5 @@
 
-var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a,main.vrije_tijd ul li a");
+var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a,main.vrije_tijd ul li a,main.testimonials ul li a,main.zoeken ul li a");
 var searchForm = document.querySelector("header nav ul li form");
 var searchButton = document.querySelector("header nav ul li form input[type=image]");
 var noAccent = true;
