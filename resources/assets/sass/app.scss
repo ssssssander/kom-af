@@ -145,7 +145,7 @@ header{
 						width: 90%;
 						width: calc(100% - ( 100px + 3rem ) );
 						font-size: 1em;
-						margin: $algemeen-padding 20px;
+						margin: $algemeen-padding 0 $algemeen-padding 20px;
 						padding: 5px 7px;
 					}
 					input[type=image]{
