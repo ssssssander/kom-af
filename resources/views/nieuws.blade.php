@@ -3,7 +3,7 @@
 @section('content')
     @foreach($articles as $article)
         <article>
-            <a href="{{ route('artikel', ['id' => $article->id]) }}">
+            <a href="{{ url($article->url) }}" target="_blank">
                 <img src="/img/{{ $article->image_url }}" alt="{{ $article->title }}">
                 <h5>{{ $article->title }}</h5>
                 <time>{{ $article->time_ago }} geleden</time>
