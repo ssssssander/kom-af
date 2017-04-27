@@ -6,6 +6,8 @@ use Auth;
 use App\Article;
 use App\School;
 use App\Course;
+use App\FreeTime;
+use App\Testimonial;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
