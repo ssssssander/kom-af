@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', str_replace('_', ' ', Route::currentRouteName())) | Kom Af</title>
+    <title>@yield('title', str_replace('_', ' ', Route::currentRouteName())) - Kom Af</title>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <!-- Scripts -->
@@ -30,6 +30,7 @@
 			<li><form method="get" action="{{ route('zoeken') }}">{{ csrf_field() }}<input type="image" src="/img/zoek.svg"></form></li>
 		</ul>
 	</nav>
+	<img src="/img/@yield('heroImg')" alt="@yield('heroAlt')">
     <h1>{{ str_replace('_', ' ', Route::currentRouteName()) }}</h1>
 </header>
 <main class="{{ Route::currentRouteName() }}">

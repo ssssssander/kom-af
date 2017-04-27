@@ -26,7 +26,7 @@ class PageController extends Controller
      */
     public function nieuws()
     {
-        $articles = Article::all();
+        $articles = Article::paginate(12);
 
         return view('nieuws', compact('articles'));
     }

@@ -36,31 +36,11 @@ small,time{font-size: 0.833em;}
 }
 
 header{
-	&.nieuws,&.artikel{
-		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
-	}
-	&.scholen,&.school,&.opleiding{
-		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
-	}
-	&.vrije_tijd{
-		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
-	}
-	&.omgeving{
-		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
-	}
-	&.testimonials,&.testimonial{
-		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
-	}
-	&.zoeken{
-		background-image: url("/img/Grote_Markt_Antwerpen.jpg");
-	}
 	position: relative;
 	height: 400px;
 	overflow: hidden;
 	display: block;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+	background: lighten($primary-blue,30%);
 	&>a{
 		position: absolute;
 		right: 0;
@@ -85,6 +65,9 @@ header{
 				display: block;
 			}
 		}
+		&.zoek ul li{
+			flex: 1;
+		}
 		ul{
 			display: flex;
 			flex: 1;
@@ -107,7 +90,7 @@ header{
 						font-family: "Antwerpen", Arial, sans-serif;
 						font-size: 1.44em;
 						text-align: center;
-						padding: $algemeen-padding 0 $algemeen-padding 10px;
+						padding: $general-padding 0 $general-padding 10px;
 						white-space: nowrap;
 					}
 					svg{
@@ -117,7 +100,7 @@ header{
 						width: 100%;
 						background: #1F97D3;
 						&:first-child{
-							padding: $algemeen-padding+.2rem 0;
+							padding: $general-padding+.2rem 0;
 							background: none;
 							position: static;
 							max-height: 100%;
@@ -135,21 +118,26 @@ header{
 						width: 90%;
 						width: calc(100% - ( 100px + 3rem ) );
 						font-size: 1em;
-						margin: $algemeen-padding 0 $algemeen-padding 20px;
+						margin: $general-padding 0 $general-padding 20px;
 						padding: 5px 7px;
 					}
 					input[type=image]{
 						display: block;
-						padding: $algemeen-padding+.2rem $algemeen-padding $algemeen-padding;
+						padding: $general-padding+.2rem $general-padding $general-padding;
 						margin: 0 auto;
 					}
 				}
 			}
 		}
 	}
+	&>img{
+		width: 100%;
+		min-height: 100%;
+	}
 	h1{
 		position: absolute;
 		bottom: 0;
+		left: 0;
 		text-shadow: 0 0 10px darken($font-color-light,20%);
 		padding: 0 calc(40px + 2%) 10px;
 	}
@@ -162,7 +150,7 @@ main{
 		display: flex;
 		flex-wrap: wrap;
 		article{
-			width: (100%/$lijstaantaln)-4%;
+			width: (100%/$desktop-list)-4%;
 			padding: 2%;
 			a{
 				position: relative;
@@ -182,28 +170,18 @@ main{
 					text-align: center;
 				}
 				h5, time, p{
-					padding: 10px $nieuws-padding 10px;
+					padding: 10px $general-padding 10px;
 				}
 				h5{
-					padding-top: $nieuws-padding;
+					padding-top: $general-padding;
 				}
 				time{
 					font-weight: bold;
 					display: block;
 				}
 				p{
-					padding-bottom: $nieuws-padding;
+					padding-bottom: $general-padding;
 				}
-			}
-		}
-	}
-	&.artikel{
-		article{
-			display: flex;
-			img{
-				width: 40%;
-				height: 100%;
-				padding-right: 20px;
 			}
 		}
 	}
@@ -211,7 +189,7 @@ main{
 		display: flex;
 		flex-wrap: wrap;
 		figure{
-			width: (100%/$lijstaantals)-4%;
+			width: (100%/$desktop-list)-4%;
 			padding: 2%;
 			a{
 				position: relative;
@@ -230,7 +208,7 @@ main{
 				div{
 					width: calc(100% - 2rem);
 					height: 15vh;
-					padding: $scholen-padding;
+					padding: $small-padding;
 					background: $bg-color;
 					display: flex;
 					img{
@@ -242,7 +220,7 @@ main{
 				}
 				figcaption{
 					text-align: center;
-					padding: $scholen-padding/2 0;
+					padding: $small-padding/2 0;
 				}
 			}
 		}
@@ -278,7 +256,7 @@ main{
 			display: flex;
 			flex-wrap: wrap;
 			li{
-				width: (100%/$lijstaantalvt)-4%;
+				width: (100%/$desktop-list)-4%;
 				padding: 2%;
 				a{
 					position: relative;
@@ -286,7 +264,7 @@ main{
 					color: $font-color;
 					background: $bg-color;
 					text-decoration: none;
-					padding: $vrijetijd-padding;
+					padding: $general-padding;
 					border: 1px solid white;
 					&:hover{
 						background: url("/img/hover%20gray.png") repeat;
@@ -300,8 +278,9 @@ main{
 	}
 	&.omgeving{
 		display: flex;
+		flex-wrap: wrap;
 		section{
-			width: (100%/$lijstaantalvt)-4%;
+			width: (100%/$desktop-list)-4%;
 			padding: 2%;
 			a{
 				text-decoration: none;
@@ -326,10 +305,10 @@ main{
 			}
 			ul{
 				list-style: none;
-				padding-top: $omgeving-padding;
+				padding-top: $small-padding;
 				li a{
 					display: flex;
-					padding: $omgeving-padding;
+					padding: $small-padding;
 					img{
 						max-height: 100%;
 						height: 10vh;
@@ -350,7 +329,7 @@ main{
 						line-height: 1.6em;
 					}
 					p{
-						margin: auto $omgeving-padding;
+						margin: auto $small-padding;
 					}
 					span{
 						font-weight: bold;
@@ -376,7 +355,7 @@ main{
 			display: flex;
 			flex-wrap: wrap;
 			li{
-				width: (100%/$lijstaantalte)-4%;
+				width: (100%/$desktop-list)-4%;
 				padding: 2%;
 				a{
 					text-decoration: none;
@@ -392,11 +371,11 @@ main{
 						pointer-events: none;
 					}
 					h5{
-						padding: $testimonials-padding;
+						padding: $general-padding;
 					}
 					&:hover{
 						background: url("/img/hover%20gray.png") repeat;
-						background-size: cover;
+						background-size: contain;
 						border: 1px solid $border-color;
 					}
 				}
@@ -410,7 +389,7 @@ main{
 		ul{
 			list-style: none;
 			li{
-				margin: $algemeen-padding;
+				margin: $general-padding;
 				a{
 					background: $bg-color;
 					display: flex;
@@ -429,7 +408,7 @@ main{
 					}
 					p{
 						margin: auto 0;
-						padding: 0 $algemeen-padding;
+						padding: 0 $general-padding;
 					}
 					svg{
 						width: 4%;
@@ -440,3 +419,53 @@ main{
 	}
 }
 
+
+@media all and (max-width: 750px) {
+	main{
+		&.nieuws article{
+			width: (100%/$tablet-list)-4%;
+		}
+		&.scholen figure{
+			width: (100%/$tablet-list)-4%;
+		}
+		&.vrije_tijd ul li{
+			width: (100%/$tablet-list)-4%;
+		}
+		&.omgeving  section{
+			width: (100%/$tablet-list)-4%;
+		}
+		&.testimonials ul li{
+			width: (100%/$tablet-list)-4%;
+		}
+	}
+}
+@media all and (max-width: 700px) {
+	header{
+		display: flex;
+		justify-content: center;
+		&>img{
+			height: 100%;
+			width: initial;
+		}
+	}
+}
+
+@media all and (max-width: 550px) {
+	main{
+		&.nieuws article{
+			width: (100%/$mobile-list)-4%;
+		}
+		&.scholen figure{
+			width: (100%/$mobile-list)-4%;
+		}
+		&.vrije_tijd ul li{
+			width: (100%/$mobile-list)-4%;
+		}
+		&.omgeving  section{
+			width: (100%/$mobile-list)-4%;
+		}
+		&.testimonials ul li{
+			width: (100%/$mobile-list)-4%;
+		}
+	}
+}
