@@ -2,10 +2,9 @@
 
 @section('content')
 	<figure>
-		<img src="/img/lgo%20KdG.jpg" alt="KdG">
-		<figcaption>Karel De Grote Hogeschool</figcaption>
+		<figcaption>{{ $course->school->name }}</figcaption>
 	</figure>
-	<img src="contact.png" alt="contactpersoon">
-	<h5>Jurgen De Deckere</h5>
-	<a href="mailto:info@kdg.be">info@kdg.be</a>
+	<img src="/img/{{ $course->contact_image }}" alt="{{ $course->contact_name }}">
+	<h5>{{ $course->contact_name }}</h5>
+	<a href="mailto:{{ $course->contact_email }}">{{ $course->contact_email }}</a>
 @endsection

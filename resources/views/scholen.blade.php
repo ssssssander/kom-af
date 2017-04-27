@@ -3,7 +3,7 @@
 @section('content')
     @foreach($schools as $school)
     	<figure>
-    		<a href="{{ route('school', ['id' => $school->id]) }}">
+    		<a href="{{ route('school', ['school' => $school->id]) }}">
     			<div>
     				<img src="/img/{{ $school->image_url }}" alt="{{ $school->name }}">
     			</div>
