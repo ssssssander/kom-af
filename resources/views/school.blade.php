@@ -11,7 +11,8 @@
 		<figcaption>{{ $school->name }}</figcaption>
 	</figure>
 	<ul>
-        <li><a href="{{ route('opleiding', ['id' => 2]) }}">Multimedia Technologie</a></li>
-		<li><a href="{{ route('opleiding', ['id' => 2]) }}">To do: richtingen scrapen</a></li>
+        @foreach($school->courses as $course)
+            <li><a href="{{ route('opleiding', ['course' => $course->id]) }}">{{ $course->name }}</a></li>
+        @endforeach
 	</ul>
 @endsection
