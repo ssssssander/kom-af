@@ -11,4 +11,5 @@
             </a>
         </article>
     @endforeach
+    {{ $articles->links() }}
 @endsection
