@@ -20,7 +20,6 @@ class CreateArticlesTable extends Migration
             $table->string('time_ago');
             $table->string('image_url');
             $table->string('url');
-            $table->timestamps();
         });
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Article;
 use App\School;
+use App\Course;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -30,10 +31,6 @@ class PageController extends Controller
 
         return view('nieuws', compact('articles'));
     }
-	public function artikel(Article $article)
-	{
-		return view('artikel', compact('article'));
-	}
 	public function scholen()
 	{
         $schools = School::all();
@@ -44,13 +41,15 @@ class PageController extends Controller
 	{
 		return view('school', compact('school'));
 	}
-	public function opleiding($id)
+	public function opleiding(Course $course)
 	{
-		return view('opleiding');
+		return view('opleiding', compact('course'));
 	}
 	public function vrije_tijd()
 	{
-		return view('vrije_tijd');
+        $free_time_items = FreeTime::all();
+
+		return view('vrije_tijd', compact('free_time_items'));
 	}
 	public function omgeving()
 	{
@@ -58,9 +57,11 @@ class PageController extends Controller
 	}
 	public function testimonials()
 	{
-		return view('testimonials');
+        $testimonials = Testimonial::all();
+
+		return view('testimonials', compact('testimonials'));
 	}
-	public function testimonial($id)
+	public function testimonial(Testimonial $testimonial)
 	{
 		return view('testimonial');
 	}
