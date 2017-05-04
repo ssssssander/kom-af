@@ -62,13 +62,47 @@ class PageController extends Controller
 	}
 	public function nieuws()
 	{
-        // $client = new Client();
-        // $crawler = $client->request('GET', 'http://php.net/');
-        // $crawler->filter('div.blurb > p')->each(function ($node) {
-        //     print $node->text()."\n";
-        // });
+        Article::where('scraped', true)->delete();
 
-		$articles = Article::paginate(12);
+        $url = 'https://www.gate15.be/nl/nieuws';
+
+        $titleCssSelector = 'article > h1 > span';
+        $contentCssSelector = 'article > p';
+        $timeAgoCssSelector = 'article > time';
+        $imageUrlCssSelector = 'div.image > img';
+        $articleUrlCssSelector = 'a.gate15-news-box';
+
+        $scrapeText = '_text';
+        $scrapeSrc = 'src';
+        $scrapeHref = 'href';
+
+        $client = new Client();
+        $guzzleClient = new \GuzzleHttp\Client(array(
+            'curl' => array(
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false
+            ),
+        ));
+        $client->setClient($guzzleClient);
+        $crawler = $client->request('GET', $url);
+        $scrapedTitles = $crawler->filter($titleCssSelector)->extract($scrapeText);
+        $scrapedContent = $crawler->filter($contentCssSelector)->extract($scrapeText);
+        $scrapedTimeAgoes = $crawler->filter($timeAgoCssSelector)->extract($scrapeText);
+        $scrapedImageUrls = $crawler->filter($imageUrlCssSelector)->extract($scrapeSrc);
+        $scrapedArticleUrls = $crawler->filter($articleUrlCssSelector)->extract($scrapeHref);
+
+        for($i = 0; $i < count($scrapedTitles); $i++) {
+            $scrapedArticle = new Article;
+            $scrapedArticle->title = $scrapedTitles[$i];
+            $scrapedArticle->content = $scrapedContent[$i];
+            $scrapedArticle->time_ago = $scrapedTimeAgoes[$i];
+            $scrapedArticle->image_url = $scrapedImageUrls[$i];
+            $scrapedArticle->article_url = $scrapedArticleUrls[$i];
+            $scrapedArticle->scraped = true;
+            $scrapedArticle->save();
+        }
+
+        $articles = Article::paginate(12);
 
 		return view('nieuws', compact('articles'));
 	}
