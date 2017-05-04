@@ -18,7 +18,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('student_name');
             $table->string('student_image_url');
             $table->string('title');
-            $table->string('content');
+            $table->longText('content');
             $table->string('video_url');
             $table->string('image_url');
         });
