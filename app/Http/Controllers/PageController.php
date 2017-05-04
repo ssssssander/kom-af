@@ -8,6 +8,7 @@ use App\School;
 use App\Course;
 use App\FreeTime;
 use App\Testimonial;
+use Goutte\Client;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -58,6 +59,13 @@ class PageController extends Controller
 	}
 	public function nieuws()
 	{
+        // $client = new Client();
+        // $crawler = $client->request('GET', 'https://www.symfony.com/blog/');
+        // $link = $crawler->selectLink('Security Advisories')->link();
+        // $crawler = $client->click($link);
+        // $crawler->filter('h2 > a')->each(function ($node) {
+        //     print $node->text()."\n";
+        // });
 		$articles = Article::paginate(12);
 
 		return view('nieuws', compact('articles'));
