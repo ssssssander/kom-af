@@ -63,8 +63,8 @@ class PageController extends Controller
 	public function nieuws()
 	{
         // $client = new Client();
-        // $crawler = $client->request('GET', 'http://motherfuckingwebsite.com/');
-        // $crawler->filter('h1')->each(function ($node) {
+        // $crawler = $client->request('GET', 'http://php.net/');
+        // $crawler->filter('div.blurb > p')->each(function ($node) {
         //     print $node->text()."\n";
         // });
 
