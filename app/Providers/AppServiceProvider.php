@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\HeroImage;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,8 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $heroImages = HeroImage::all();
-        view()->share('heroImages', $heroImages);
+        //
     }
 
     /**
