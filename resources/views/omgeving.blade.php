@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('heroImg',"Grote_Markt_Antwerpen.jpg")
+@section('heroAlt',"GroteMarkt van Antwerpen")
+
 @section('content')
 	<section>
 		<a href="http://www.studentkotweb.be">

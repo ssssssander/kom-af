@@ -83,6 +83,7 @@ function showSearch(e){
 	if(first){
 		e.preventDefault();
 		var startContent = searchForm.innerHTML;
+		document.querySelector("header nav").classList.add("zoek");
 		var input = document.createElement("input");
 		input.type="text";
 		input.name="zoek";

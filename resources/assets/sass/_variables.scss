@@ -37,16 +37,18 @@ $bg-color: #E5E5E6;
 $bg-color-light: #F3F3F5;
 $border-color: #BABABA;
 
-$algemeen-padding: 1.5rem;
-$nieuws-padding: 1.5rem;
-$scholen-padding: 1rem;
-$vrijetijd-padding: 1.5rem;
-$omgeving-padding: 1rem;
-$testimonials-padding: 1.5rem;
-$zoeken-padding: 1.5rem;
+$general-padding: 1.5rem;
+$small-padding: 1rem;
+
+$desktop-list: 3;
+$tablet-list: 2;
+$mobile-list: 1;
 
 $lijstaantaln: 3;
 $lijstaantals: 3;
 $lijstaantalvt: 3;
 $lijstaantalom: 3;
 $lijstaantalte: 3;
+
+// 650px 	2 rijen (en switch van width nr height 100%)
+// 			display flex; justify content center;
