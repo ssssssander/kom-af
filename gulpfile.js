@@ -2,7 +2,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const image = require('gulp-image');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
 
@@ -31,9 +30,20 @@ gulp.task('sass:watch', function () {
  */
 gulp.task('image', function () {
 	gulp.src('resources/assets/img/*')
-		.pipe(image())
 		.pipe(gulp.dest('public/img'));
 });
+
+
+/*
+ *
+ * video
+ *
+ */
+gulp.task('video', function () {
+	gulp.src('resources/assets/vid/*')
+		.pipe(gulp.dest('public/vid'));
+});
+
 
 /*
  *

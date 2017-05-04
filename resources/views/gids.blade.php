@@ -3,6 +3,8 @@
 @section('heroImg',"Grote_Markt_Antwerpen.jpg")
 @section('heroAlt',"GroteMarkt van Antwerpen")
 
+@section('title', "studentengids")
+
 @section('content')
 	<filter>
 		<form action="">

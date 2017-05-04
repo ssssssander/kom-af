@@ -231,7 +231,7 @@ main{
 	&.opleiding{
 
 	}
-	&.vrije_tijd{
+	&.gids{
 		display: flex;
 		filter{
 			border-right: 1px solid $border-color;
@@ -276,7 +276,7 @@ main{
 			}
 		}
 	}
-	&.omgeving{
+	&.algemeen{
 		display: flex;
 		flex-wrap: wrap;
 		section{
@@ -428,10 +428,10 @@ main{
 		&.scholen figure{
 			width: (100%/$tablet-list)-4%;
 		}
-		&.vrije_tijd ul li{
+		&.gids ul li{
 			width: (100%/$tablet-list)-4%;
 		}
-		&.omgeving  section{
+		&.algemeen  section{
 			width: (100%/$tablet-list)-4%;
 		}
 		&.testimonials ul li{
@@ -458,10 +458,10 @@ main{
 		&.scholen figure{
 			width: (100%/$mobile-list)-4%;
 		}
-		&.vrije_tijd ul li{
+		&.gids ul li{
 			width: (100%/$mobile-list)-4%;
 		}
-		&.omgeving  section{
+		&.algemeen  section{
 			width: (100%/$mobile-list)-4%;
 		}
 		&.testimonials ul li{
