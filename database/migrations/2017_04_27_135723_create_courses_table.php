@@ -24,7 +24,7 @@ class CreateCoursesTable extends Migration
             $table->string('contact_phone');
             $table->string('contact_image');
 
-            $table->foreign('school_id')->references('id')->on('school')->onDelete('cascade');
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
         });
     }
 
