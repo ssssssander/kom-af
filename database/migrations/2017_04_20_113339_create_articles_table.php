@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('content');
             $table->string('time_ago');
             $table->string('image_url');
-            $table->string('url');
+            $table->string('article_url');
         });
     }
 

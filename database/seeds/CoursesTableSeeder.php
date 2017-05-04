@@ -21,7 +21,7 @@ class CoursesTableSeeder extends Seeder
                     Naast die stevige basis is er ruimte voor specialisatie. In welke technologie? Dat kies je zelf.
                     Tijdens je opleiding werk je regelmatig samen met bedrijven en organisaties aan concrete projecten.
                     Je studeert af met een welbepaald keuzepakket: Web&UX, Virtual&3D, Audio&Video.',
-                'url' => 'https://www.kdg.be/multimedia-technology',
+                'course_url' => 'https://www.kdg.be/multimedia-technology',
                 'contact_name' => 'Jurgen Dedeckere',
                 'contact_email' => 'jurgen.dedeckere@kdg.be',
                 'contact_phone' => '+32 3 613 17 52',
@@ -35,7 +35,7 @@ class CoursesTableSeeder extends Seeder
                     Je kan bij ons deze bruisende wetenschap vanuit verschillende invalshoeken bestuderen.
                     Je kan kiezen uit 3 afstudeerrichtingen: Biochemie, Chemie en Procestechnologie.
                     Wat die 3 richtingen bindt? Milieubewustzijn en zorg voor duurzaamheid.',
-                'url' => 'https://www.kdg.be/bachelor-chemie',
+                'course_url' => 'https://www.kdg.be/bachelor-chemie',
                 'contact_name' => 'Imanol Michelena',
                 'contact_email' => 'imanol.michelena@kdg.be',
                 'contact_phone' => '+32 3 613 17 55',
@@ -53,11 +53,11 @@ class CoursesTableSeeder extends Seeder
                     De meesterproef verbindt de wetenschappelijke opleiding met een stage in de advocatuur, magistratuur, het notariaat, de overheid, sociale organisaties of ondernemingen.
 
                     De Antwerpse masteropleiding in de rechten heeft een heel eigen profiel. Naast de zeven verplichte opleidingsonderdelen die door alle studenten worden gevolgd, geef je zelf in grote mate een invulling aan je masteropleiding. Je kan opteren voor een verder doorgedreven algemene vorming in het recht of voor een specialisatie in één van de zeven rechtsdomeinen.',
-                'url' => 'https://www.kdg.be/bachelor-chemie',
-                'contact_name' => '?',
-                'contact_email' => '?',
-                'contact_phone' => '?',
-                'contact_image' => '?'
+                'course_url' => 'https://www.kdg.be/bachelor-chemie',
+                'contact_name' => 'Een contact_name',
+                'contact_email' => 'Een contact_email',
+                'contact_phone' => 'Een contact_phone',
+                'contact_image' => 'Een contact_image'
             ]
         ]);
     }

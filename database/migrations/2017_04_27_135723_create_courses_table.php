@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->integer('school_id')->unsigned();
             $table->string('name');
             $table->string('description');
-            $table->string('url');
+            $table->string('course_url');
             $table->string('contact_name');
             $table->string('contact_email');
             $table->string('contact_phone');

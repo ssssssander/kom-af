@@ -36,7 +36,7 @@
 		@else
 			<img src="/img/@yield('heroImg')" alt="@yield('heroAlt')">
 		@endif
-    <h1>@yield('title',str_replace('_', ' ', Route::currentRouteName()))</h1>
+    <h1>@yield('title', str_replace('_', ' ', Route::currentRouteName()))</h1>
 </header>
 <main class="{{ Route::currentRouteName() }}">
 	@yield('content')
