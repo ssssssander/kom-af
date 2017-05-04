@@ -35,11 +35,11 @@
     @foreach($heroImages as $heroImage)
 		@if($vid && Route::currentRouteName() == $heroImage->template_name)
 			<video src="/vid/{{ $heroImage->hero_image_url }}"></video>
-        @endif
-		@if(Route::currentRouteName() == $heroImage->template_name)
+		@elseif(Route::currentRouteName() == $heroImage->template_name)
 			<img src="/img/hero_images/{{ $heroImage->hero_image_url }}" alt="{{ $heroImage->template_name }}">
-		@endif
+        @endif
     @endforeach
+
     <h1>@yield('title', str_replace('_', ' ', Route::currentRouteName()))</h1>
 </header>
 <main class="{{ Route::currentRouteName() }}">

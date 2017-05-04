@@ -11,7 +11,10 @@
     </a>
 	<ul>
         @foreach($school->courses as $course)
-            <li><a href="{{ route('opleiding', ['course' => $course->id]) }}">{{ $course->name }}</a></li>
+            <li>
+                <a href="{{ route('opleiding', ['course' => $course->id]) }}">{{ $course->name }}</a>
+                <span>{{ $course->description }}</span>
+            </li>
         @endforeach
 	</ul>
 @endsection

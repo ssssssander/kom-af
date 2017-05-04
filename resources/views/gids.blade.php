@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "studentengids")
+@section('title', 'studentengids')
 
 @section('content')
 	<filter>

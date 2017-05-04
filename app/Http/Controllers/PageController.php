@@ -54,6 +54,44 @@ class PageController extends Controller
 	}
 	public function school(School $school)
 	{
+        Course::truncate();
+
+        $url = 'https://www.kdg.be/opleidingen/professionele-bachelor';
+
+        $nameCssSelector = 'article > header > h4 > a';
+        $descriptionCssSelector = 'div.field-item > h3 + p';
+
+        $scrapeText = '_text';
+        $scrapeSrc = 'src';
+        $scrapeHref = 'href';
+
+        $client = new Client();
+        $guzzleClient = new \GuzzleHttp\Client(array(
+            'curl' => array(
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false
+            ),
+        ));
+        $client->setClient($guzzleClient);
+        $crawler = $client->request('GET', $url);
+
+        $scrapedNames = $crawler->filter($nameCssSelector)->extract($scrapeText);
+        $scrapedDescriptions = $crawler->filter($nameCssSelector)->extract($scrapeText);
+        $scrapedCourseUrls = $crawler->filter($nameCssSelector)->extract($scrapeHref);
+
+        for($i = 0; $i < count($scrapedNames); $i++) {
+            $scrapedCourseUrls[$i] = 'https://www.kdg.be' . $scrapedCourseUrls[$i];
+
+            $scrapedCourse = new Course;
+            $scrapedCourse->school_id = $school->id;
+            $scrapedCourse->name = $scrapedNames[$i];
+            $scrapedCourse->description = $scrapedDescriptions[$i];
+            $scrapedCourse->course_url = $scrapedCourseUrls[$i];
+            $scrapedCourse->save();
+        }
+
+        $courses = Course::all();
+
 		return view('school', compact('school'));
 	}
 	public function opleiding(Course $course)
@@ -85,6 +123,7 @@ class PageController extends Controller
         ));
         $client->setClient($guzzleClient);
         $crawler = $client->request('GET', $url);
+
         $scrapedTitles = $crawler->filter($titleCssSelector)->extract($scrapeText);
         $scrapedContent = $crawler->filter($contentCssSelector)->extract($scrapeText);
         $scrapedTimeAgoes = $crawler->filter($timeAgoCssSelector)->extract($scrapeText);
@@ -102,7 +141,7 @@ class PageController extends Controller
             $scrapedArticle->save();
         }
 
-        $articles = Article::paginate(12);
+        $articles = Article::paginate(6);
 
 		return view('nieuws', compact('articles'));
 	}
