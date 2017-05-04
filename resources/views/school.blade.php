@@ -1,14 +1,11 @@
 @extends('layouts.app')
 
-@section('heroImg',"Grote_Markt_Antwerpen.jpg")
-@section('heroAlt',"GroteMarkt van Antwerpen")
-
 @section('title', $school->name)
 
 @section('content')
     <a href="{{ $school->school_url }}">
     	<figure>
-    		<img src="/img/{{ $school->image_url }}" alt="{{ $school->name }}">
+    		<img src="/img/school_images{{ $school->image_url }}" alt="{{ $school->name }}">
     		<figcaption>{{ $school->name }}</figcaption>
     	</figure>
     </a>

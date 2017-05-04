@@ -30,12 +30,16 @@
 			<li><form method="get" action="{{ route('zoeken') }}">{{ csrf_field() }}<input type="image" src="/img/zoek.svg"></form></li>
 		</ul>
 	</nav>
-		@yield('vid',$vid = false)
-		@if($vid)
-			<video src="/vid/@yield('heroImg')"></video>
-		@else
-			<img src="/img/@yield('heroImg')" alt="@yield('heroAlt')">
+	@yield('vid', $vid = false)
+
+    @foreach($heroImages as $heroImage)
+		@if($vid && Route::currentRouteName() == $heroImage->template_name)
+			<video src="/vid/{{ $heroImage->hero_image_url }}"></video>
+        @endif
+		@if(Route::currentRouteName() == $heroImage->template_name)
+			<img src="/img/hero_images/{{ $heroImage->hero_image_url }}" alt="{{ $heroImage->template_name }}">
 		@endif
+    @endforeach
     <h1>@yield('title', str_replace('_', ' ', Route::currentRouteName()))</h1>
 </header>
 <main class="{{ Route::currentRouteName() }}">

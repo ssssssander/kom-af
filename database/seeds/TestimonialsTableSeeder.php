@@ -42,7 +42,7 @@ class TestimonialsTableSeeder extends Seeder
                 'title' => 'Julie Vrijens: van artdirector tot ontwerpster van een Oscarjurk',
                 'content' => 'Content',
                 'video_url' => '?',
-                'image_url' => 'Red_Juliet.jpg'
+                'image_url' => 'julie.jpg'
             ],
         ]);
     }
