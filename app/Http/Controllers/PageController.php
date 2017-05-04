@@ -8,6 +8,7 @@ use App\School;
 use App\Course;
 use App\FreeTime;
 use App\Testimonial;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -28,7 +29,7 @@ class PageController extends Controller
      */
 	public function algemeen()
 	{
-		$news = Article::query("SELECT * FROM articles ORDER BY time_ago LIMIT 3");
+		$news = false; //DB::table("articles")->latest()->first();
 		return view('algemeen',compact('news'));
 	}
 	public function testimonials()
