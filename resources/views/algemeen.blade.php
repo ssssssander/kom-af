@@ -34,6 +34,20 @@
 		<a href="https://studentkotweb.be">Kotweb is de site om gemakkelijk een kot te vinden. </a>
 	</section>
 	<section>
-		<h2></h2>
+		<h2>Nieuws speciaal voor jou</h2>
+		@foreach($news as $article)
+			<article>
+				<a href="{{ url($article->url) }}" target="_blank">
+					<time>{{ $article->time_ago }} geleden</time>
+					<img src="/img/{{ $article->image_url }}" alt="{{ $article->title }}">
+					<h5>{{ $article->title }}</h5>
+					<p>{{ $article->content }}</p>
+				</a>
+			</article>
+		@endforeach
+	</section>
+	<section>
+		<h2>de online studentengids wijst je de weg</h2>
+		<a href="{{ route('gids') }}">Vind de leukste en goedkoopste plekken in Antwerpen</a>
 	</section>
 @endsection
