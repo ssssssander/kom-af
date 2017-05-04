@@ -29,7 +29,7 @@ gulp.task('sass:watch', function () {
  *
  */
 gulp.task('image', function () {
-	gulp.src('resources/assets/img/*')
+	gulp.src('resources/assets/img/*/*')
 		.pipe(gulp.dest('public/img'));
 });
 
@@ -40,7 +40,7 @@ gulp.task('image', function () {
  *
  */
 gulp.task('video', function () {
-	gulp.src('resources/assets/vid/*')
+	gulp.src('resources/assets/vid/*/*')
 		.pipe(gulp.dest('public/vid'));
 });
 
