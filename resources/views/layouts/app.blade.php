@@ -20,18 +20,23 @@
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
-		<a href="{{ route('nieuws') }}"><img src="/img/A_logo_2925_PMS_NEG.png" alt=""></a>
+		<a href="{{ route('algemeen') }}"><img src="/img/A_logo_2925_PMS_NEG.png" alt=""></a>
 		<ul>
-			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"||Route::currentRouteName()==="artikel"? ' class=active':'' }}><p>nieuws</p></a></li>
-			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"||Route::currentRouteName()==="school"||Route::currentRouteName()==="opleiding"? ' class=active':'' }}><p>scholen</p></a></li>
-			<li><a href="{{ route('vrije_tijd') }}"{{ Route::currentRouteName()==="vrije_tijd"? ' class=active':'' }}><p>vrije tijd</p></a></li>
-			<li><a href="{{ route('omgeving') }}"{{ Route::currentRouteName()==="omgeving"? ' class=active':'' }}><p>omgeving</p></a></li>
+			<li><a href="{{ route('algemeen') }}"{{ Route::currentRouteName()==="algemeen"? ' class=active':'' }}><p>algemeen</p></a></li>
 			<li><a href="{{ route('testimonials') }}"{{ Route::currentRouteName()==="testimonials"? ' class=active':'' }}><p>testimonials</p></a></li>
+			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"||Route::currentRouteName()==="school"||Route::currentRouteName()==="opleiding"? ' class=active':'' }}><p>scholen</p></a></li>
+			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"||Route::currentRouteName()==="artikel"? ' class=active':'' }}><p>nieuws</p></a></li>
+			<li><a href="{{ route('gids') }}"{{ Route::currentRouteName()==="gids"? ' class=active':'' }}><p>studentengids</p></a></li>
 			<li><form method="get" action="{{ route('zoeken') }}">{{ csrf_field() }}<input type="image" src="/img/zoek.svg"></form></li>
 		</ul>
 	</nav>
-	<img src="/img/@yield('heroImg')" alt="@yield('heroAlt')">
-    <h1>{{ str_replace('_', ' ', Route::currentRouteName()) }}</h1>
+		@yield('vid',$vid = false)
+		@if($vid)
+			<video src="/vid/@yield('heroImg')"></video>
+		@else
+			<img src="/img/@yield('heroImg')" alt="@yield('heroAlt')">
+		@endif
+    <h1>@yield('title',str_replace('_', ' ', Route::currentRouteName()))</h1>
 </header>
 <main class="{{ Route::currentRouteName() }}">
 	@yield('content')
