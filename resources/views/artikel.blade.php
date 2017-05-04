@@ -7,7 +7,7 @@
     @foreach($article as $info)
         <article>
             <a href="{{ url($info->url) }}" target="_blank">
-                <img src="/img/{{ $info->image_url }}" alt="{{ $info->title }}">
+                <img src="/img/article_images/{{ $info->image_url }}" alt="{{ $info->title }}">
                 <h5>{{ $info->title }}</h5>
                 <time>{{ $info->time_ago }} geleden</time>
                 <p>{{ $info->content }}</p>

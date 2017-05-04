@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
-@section('vid',$vid = false)
-
-@section('heroImg',"Grote_Markt_Antwerpen.jpg")
-@section('heroAlt',"GroteMarkt van Antwerpen")
+@section('vid', $vid = false)
 
 @section('content')
 	<section>

@@ -25,7 +25,7 @@ class CoursesTableSeeder extends Seeder
                 'contact_name' => 'Jurgen Dedeckere',
                 'contact_email' => 'jurgen.dedeckere@kdg.be',
                 'contact_phone' => '+32 3 613 17 52',
-                'contact_image' => 'jurgen-dedeckere.jpg'
+                'contact_image' => 'jurgen_dedeckere.jpg'
             ],
             [
                 'school_id' => 1,
@@ -39,7 +39,7 @@ class CoursesTableSeeder extends Seeder
                 'contact_name' => 'Imanol Michelena',
                 'contact_email' => 'imanol.michelena@kdg.be',
                 'contact_phone' => '+32 3 613 17 55',
-                'contact_image' => 'imanol-michelena.jpg'
+                'contact_image' => 'imanol_michelena.jpg'
             ],
             [
                 'school_id' => 2,
