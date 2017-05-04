@@ -8,6 +8,8 @@ use App\School;
 use App\Course;
 use App\FreeTime;
 use App\Testimonial;
+use App\HeroImage;
+use Goutte\Client;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -17,10 +19,12 @@ class PageController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+   public function __construct()
+   {
+        $heroImages = HeroImage::all();
+        view()->share('heroImages', $heroImages);
+        // $this->middleware('auth');
+   }
 
     /**
      * Show the application dashboard.
@@ -58,6 +62,13 @@ class PageController extends Controller
 	}
 	public function nieuws()
 	{
+        // $client = new Client();
+        // $crawler = $client->request('GET', 'https://www.symfony.com/blog/');
+        // $link = $crawler->selectLink('Security Advisories')->link();
+        // $crawler = $client->click($link);
+        // $crawler->filter('h2 > a')->each(function ($node) {
+        //     print $node->text()."\n";
+        // });
 		$articles = Article::paginate(12);
 
 		return view('nieuws', compact('articles'));
