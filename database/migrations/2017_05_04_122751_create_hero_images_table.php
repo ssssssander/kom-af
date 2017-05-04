@@ -17,6 +17,7 @@ class CreateHeroImagesTable extends Migration
             $table->increments('id');
             $table->string('template_name');
             $table->string('hero_image_url');
+            $table->boolean('video');
             $table->timestamps();
         });
     }
