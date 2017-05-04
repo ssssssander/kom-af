@@ -27,12 +27,20 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function nieuws()
-    {
-        $articles = Article::paginate(12);
+	public function algemeen()
+	{
+		return view('algemeen');
+	}
+	public function testimonials()
+	{
+		$testimonials = Testimonial::all();
 
-        return view('nieuws', compact('articles'));
-    }
+		return view('testimonials', compact('testimonials'));
+	}
+	public function testimonial(Testimonial $testimonial)
+	{
+		return view('testimonial');
+	}
 	public function scholen()
 	{
         $schools = School::all();
@@ -47,25 +55,17 @@ class PageController extends Controller
 	{
 		return view('opleiding', compact('course'));
 	}
-	public function vrije_tijd()
+	public function nieuws()
+	{
+		$articles = Article::paginate(12);
+
+		return view('nieuws', compact('articles'));
+	}
+	public function gids()
 	{
         $free_time_items = FreeTime::all();
 
-		return view('vrije_tijd', compact('free_time_items'));
-	}
-	public function omgeving()
-	{
-		return view('omgeving');
-	}
-	public function testimonials()
-	{
-        $testimonials = Testimonial::all();
-
-		return view('testimonials', compact('testimonials'));
-	}
-	public function testimonial(Testimonial $testimonial)
-	{
-		return view('testimonial');
+		return view('gids', compact('free_time_items'));
 	}
 	public function zoeken()
 	{
