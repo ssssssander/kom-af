@@ -54,10 +54,10 @@ class CoursesTableSeeder extends Seeder
 
                     De Antwerpse masteropleiding in de rechten heeft een heel eigen profiel. Naast de zeven verplichte opleidingsonderdelen die door alle studenten worden gevolgd, geef je zelf in grote mate een invulling aan je masteropleiding. Je kan opteren voor een verder doorgedreven algemene vorming in het recht of voor een specialisatie in één van de zeven rechtsdomeinen.',
                 'course_url' => 'https://www.kdg.be/bachelor-chemie',
-                'contact_name' => '?',
-                'contact_email' => '?',
-                'contact_phone' => '?',
-                'contact_image' => '?'
+                'contact_name' => 'Een contact_name',
+                'contact_email' => 'Een contact_email',
+                'contact_phone' => 'Een contact_phone',
+                'contact_image' => 'Een contact_image'
             ]
         ]);
     }

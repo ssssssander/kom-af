@@ -39,7 +39,7 @@ class PageController extends Controller
 	}
 	public function testimonial(Testimonial $testimonial)
 	{
-		return view('testimonial');
+		return view('testimonial', compact('testimonial'));
 	}
 	public function scholen()
 	{

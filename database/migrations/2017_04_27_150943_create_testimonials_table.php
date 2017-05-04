@@ -20,6 +20,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('title');
             $table->string('content');
             $table->string('video_url');
+            $table->string('image_url');
         });
     }
 
