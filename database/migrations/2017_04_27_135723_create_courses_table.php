@@ -19,10 +19,11 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->string('course_url');
-            $table->string('contact_name');
-            $table->string('contact_email');
-            $table->string('contact_phone');
-            $table->string('contact_image');
+            $table->string('contact_name')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->string('contact_phone')->nullable();
+            $table->string('contact_image')->nullable();
+            $table->timestamps();
 
             $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
         });
