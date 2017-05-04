@@ -8,7 +8,6 @@ use App\School;
 use App\Course;
 use App\FreeTime;
 use App\Testimonial;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -29,7 +28,8 @@ class PageController extends Controller
      */
 	public function algemeen()
 	{
-		return view('algemeen');
+		$news = Article::query("SELECT * FROM articles ORDER BY time_ago LIMIT 3");
+		return view('algemeen',compact('news'));
 	}
 	public function testimonials()
 	{
@@ -60,6 +60,12 @@ class PageController extends Controller
 		$articles = Article::paginate(12);
 
 		return view('nieuws', compact('articles'));
+	}
+	public function artikel(Article $article)
+	{
+		;
+
+		return view('artikel', compact('article'));
 	}
 	public function gids()
 	{
