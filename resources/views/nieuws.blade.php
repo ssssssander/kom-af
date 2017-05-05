@@ -4,7 +4,7 @@
     @foreach($articles as $article)
         <article>
             @if($article->scraped)
-                <a href="{{ $article->article_url }}" target="_blank">
+                <a href="{{ $article->article_url }}">
                     <img src="{{ $article->image_url }}" alt="{{ $article->title }}">
             @else
                 <a href="{{ route('artikel', ['article' => $article->id]) }}">
