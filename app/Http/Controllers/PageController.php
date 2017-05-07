@@ -61,23 +61,11 @@ class PageController extends Controller
         $nameCssSelector = 'article > header > h4 > a';
         $descriptionCssSelector = 'div.field-item > h3 + p';
 
-        $scrapeText = '_text';
-        $scrapeSrc = 'src';
-        $scrapeHref = 'href';
+        $crawlInfo = $this->getCrawlInfo($url);
 
-        $client = new Client();
-        $guzzleClient = new \GuzzleHttp\Client(array(
-            'curl' => array(
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_SSL_VERIFYPEER => false
-            ),
-        ));
-        $client->setClient($guzzleClient);
-        $crawler = $client->request('GET', $url);
-
-        $scrapedNames = $crawler->filter($nameCssSelector)->extract($scrapeText);
-        $scrapedDescriptions = $crawler->filter($nameCssSelector)->extract($scrapeText);
-        $scrapedCourseUrls = $crawler->filter($nameCssSelector)->extract($scrapeHref);
+        $scrapedNames = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
+        $scrapedDescriptions = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
+        $scrapedCourseUrls = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['href']);
 
         for($i = 0; $i < count($scrapedNames); $i++) {
             $scrapedCourseUrls[$i] = 'https://www.kdg.be' . $scrapedCourseUrls[$i];
@@ -110,25 +98,13 @@ class PageController extends Controller
         $imageUrlCssSelector = 'div.image > img';
         $articleUrlCssSelector = 'a.gate15-news-box';
 
-        $scrapeText = '_text';
-        $scrapeSrc = 'src';
-        $scrapeHref = 'href';
+        $crawlInfo = $this->getCrawlInfo($url);
 
-        $client = new Client();
-        $guzzleClient = new \GuzzleHttp\Client(array(
-            'curl' => array(
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_SSL_VERIFYPEER => false
-            ),
-        ));
-        $client->setClient($guzzleClient);
-        $crawler = $client->request('GET', $url);
-
-        $scrapedTitles = $crawler->filter($titleCssSelector)->extract($scrapeText);
-        $scrapedContent = $crawler->filter($contentCssSelector)->extract($scrapeText);
-        $scrapedTimeAgoes = $crawler->filter($timeAgoCssSelector)->extract($scrapeText);
-        $scrapedImageUrls = $crawler->filter($imageUrlCssSelector)->extract($scrapeSrc);
-        $scrapedArticleUrls = $crawler->filter($articleUrlCssSelector)->extract($scrapeHref);
+        $scrapedTitles = $crawlInfo['crawler']->filter($titleCssSelector)->extract($crawlInfo['text']);
+        $scrapedContent = $crawlInfo['crawler']->filter($contentCssSelector)->extract($crawlInfo['text']);
+        $scrapedTimeAgoes = $crawlInfo['crawler']->filter($timeAgoCssSelector)->extract($crawlInfo['text']);
+        $scrapedImageUrls = $crawlInfo['crawler']->filter($imageUrlCssSelector)->extract($crawlInfo['src']);
+        $scrapedArticleUrls = $crawlInfo['crawler']->filter($articleUrlCssSelector)->extract($crawlInfo['href']);
 
         for($i = 0; $i < count($scrapedTitles); $i++) {
             $scrapedArticle = new Article;
@@ -159,4 +135,30 @@ class PageController extends Controller
 	{
 		return view('zoek');
 	}
+
+    public function getCrawlInfo($url) {
+        $scrapeText = '_text';
+        $scrapeSrc = 'src';
+        $scrapeHref = 'href';
+
+        $client = new Client();
+        $guzzleClient = new \GuzzleHttp\Client(array(
+            'curl' => array(
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false
+            ),
+        ));
+        $client->setClient($guzzleClient);
+        $crawler = $client->request('GET', $url);
+
+        $crawlInfo =
+        [
+            'crawler' => $crawler,
+            'text' => $scrapeText,
+            'src' => $scrapeSrc,
+            'href' => $scrapeHref
+        ];
+
+        return $crawlInfo;
+    }
 }
