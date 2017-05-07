@@ -54,26 +54,36 @@ class PageController extends Controller
 	}
 	public function school(School $school)
 	{
-        Course::truncate();
+        Course::where('school_id', $school->id)->delete();
 
-        $url = 'https://www.kdg.be/opleidingen/professionele-bachelor';
-
-        $nameCssSelector = 'article > header > h4 > a';
-        $descriptionCssSelector = 'div.field-item > h3 + p';
+        if($school->id == 1) {
+            $url = 'https://www.kdg.be/opleidingen/professionele-bachelor';
+            $nameCssSelector = 'article > header > h4 > a';
+            $descriptionCssSelector = 'div.field-item > h3 + p';
+        }
+        elseif($school->id == 2) {
+            $url = 'https://www.uantwerpen.be/nl/onderwijs/opleidingsaanbod/';
+            $nameCssSelector = 'section > h2 > a';
+        }
 
         $crawlInfo = $this->getCrawlInfo($url);
 
         $scrapedNames = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
-        $scrapedDescriptions = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
+        // $scrapedDescriptions = $crawlInfo['crawler']->filter($descriptionCssSelector)->extract($crawlInfo['text']);
         $scrapedCourseUrls = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['href']);
 
         for($i = 0; $i < count($scrapedNames); $i++) {
-            $scrapedCourseUrls[$i] = 'https://www.kdg.be' . $scrapedCourseUrls[$i];
+            if($school->id == 1) {
+                $scrapedCourseUrls[$i] = 'https://www.kdg.be' . $scrapedCourseUrls[$i];
+            }
+            elseif($school->id == 2) {
+                $scrapedCourseUrls[$i] = 'https://www.uantwerpen.be' . $scrapedCourseUrls[$i];
+            }
 
             $scrapedCourse = new Course;
             $scrapedCourse->school_id = $school->id;
             $scrapedCourse->name = $scrapedNames[$i];
-            $scrapedCourse->description = $scrapedDescriptions[$i];
+            // $scrapedCourse->description = $scrapedDescriptions[$i];
             $scrapedCourse->course_url = $scrapedCourseUrls[$i];
             $scrapedCourse->save();
         }
@@ -91,7 +101,6 @@ class PageController extends Controller
         Article::where('scraped', true)->delete();
 
         $url = 'https://www.gate15.be/nl/nieuws';
-
         $titleCssSelector = 'article > h1 > span';
         $contentCssSelector = 'article > p';
         $timeAgoCssSelector = 'article > time';
