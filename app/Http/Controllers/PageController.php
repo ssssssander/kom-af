@@ -59,18 +59,32 @@ class PageController extends Controller
         if($school->id == 1) {
             $url = 'https://www.kdg.be/opleidingen/professionele-bachelor';
             $nameCssSelector = 'article > header > h4 > a';
-            $descriptionCssSelector = 'div.field-item > h3 + p';
+            // $descriptionCssSelector = 'div.field-item > h3 + p';
         }
         elseif($school->id == 2) {
             $url = 'https://www.uantwerpen.be/nl/onderwijs/opleidingsaanbod/';
             $nameCssSelector = 'section > h2 > a';
         }
+        elseif($school->id == 3) {
+            $url = 'http://www.thomasmore.be/opleidingen/zoeken?f[0]=im_field_opleidingstype%3A6&f[1]=im_field_opleidingstype%3A64';
+            $nameCssSelector = 'div.field > h2';
+        }
 
         $crawlInfo = $this->getCrawlInfo($url);
 
         $scrapedNames = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
-        // $scrapedDescriptions = $crawlInfo['crawler']->filter($descriptionCssSelector)->extract($crawlInfo['text']);
         $scrapedCourseUrls = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['href']);
+        // $scrapedDescriptions = $crawlInfo['crawler']->filter($descriptionCssSelector)->extract($crawlInfo['text']);
+
+        // Thomas More moet speciaal doen ze
+        if($school->id == 3) {
+            $link = $crawlInfo['crawler']->selectLink('2')->link();
+            $crawlInfo['crawler'] = $crawlInfo['client']->click($link);
+            $scrapedNames = array_merge($scrapedNames, $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']));
+            $link = $crawlInfo['crawler']->selectLink('3')->link();
+            $crawlInfo['crawler'] = $crawlInfo['client']->click($link);
+            $scrapedNames = array_merge($scrapedNames, $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']));
+        }
 
         for($i = 0; $i < count($scrapedNames); $i++) {
             if($school->id == 1) {
@@ -78,6 +92,11 @@ class PageController extends Controller
             }
             elseif($school->id == 2) {
                 $scrapedCourseUrls[$i] = 'https://www.uantwerpen.be' . $scrapedCourseUrls[$i];
+            }
+            elseif($school->id == 3) {
+                $urlFromName = trim(strtolower($scrapedNames[$i]));
+                $urlFromName = str_replace(explode(',', '- en , en , & , '), array_fill(0, 4, '-'), $urlFromName);
+                $scrapedCourseUrls[$i] = 'http://www.thomasmore.be/ons-aanbod/' . $urlFromName;
             }
 
             $scrapedCourse = new Course;
@@ -87,8 +106,6 @@ class PageController extends Controller
             $scrapedCourse->course_url = $scrapedCourseUrls[$i];
             $scrapedCourse->save();
         }
-
-        $courses = Course::all();
 
 		return view('school', compact('school'));
 	}
@@ -162,6 +179,7 @@ class PageController extends Controller
 
         $crawlInfo =
         [
+            'client' => $client,
             'crawler' => $crawler,
             'text' => $scrapeText,
             'src' => $scrapeSrc,
