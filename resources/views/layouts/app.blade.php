@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', str_replace('_', ' ', Route::currentRouteName())) - Kom Af</title>
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};
@@ -20,23 +20,49 @@
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
-		<a href="{{ route('algemeen') }}"><img src="/img/A_logo_2925_PMS_NEG.png" alt=""></a>
+		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/antwerpen_logo.png') }}" alt="Antwerpen"></a>
 		<ul>
-			<li><a href="{{ route('algemeen') }}"{{ Route::currentRouteName()==="algemeen"? ' class=active':'' }}><p>algemeen</p></a></li>
-			<li><a href="{{ route('testimonials') }}"{{ Route::currentRouteName()==="testimonials"? ' class=active':'' }}><p>testimonials</p></a></li>
-			<li><a href="{{ route('scholen') }}"{{ Route::currentRouteName()==="scholen"||Route::currentRouteName()==="school"||Route::currentRouteName()==="opleiding"? ' class=active':'' }}><p>scholen</p></a></li>
-			<li><a href="{{ route('nieuws') }}"{{ Route::currentRouteName()==="nieuws"||Route::currentRouteName()==="artikel"? ' class=active':'' }}><p>nieuws</p></a></li>
-			<li><a href="{{ route('gids') }}"{{ Route::currentRouteName()==="gids"? ' class=active':'' }}><p>studentengids</p></a></li>
-			<li><form method="get" action="{{ route('zoeken') }}">{{ csrf_field() }}<input type="image" src="/img/zoek.svg"></form></li>
+			<li>
+                <a href="{{ route('algemeen') }}" {{ Route::currentRouteName() === "algemeen" ? 'class=active' : '' }}>
+                    <p>algemeen</p>
+                </a>
+            </li>
+			<li>
+                <a href="{{ route('testimonials') }} "{{ Route::currentRouteName() === "testimonials" ||
+                    Route::currentRouteName() === "testimonial" ? 'class=active' : '' }}>
+                    <p>testimonials</p>
+                </a>
+            </li>
+			<li>
+                <a href="{{ route('scholen') }}" {{ Route::currentRouteName() === "scholen" ||
+                    Route::currentRouteName() === "school" ? 'class=active' : '' }}>
+                    <p>scholen</p>
+                </a>
+            </li>
+			<li>
+                <a href="{{ route('nieuws') }}" {{ Route::currentRouteName() === "nieuws" ||
+                    Route::currentRouteName() === "artikel" ? 'class=active' : '' }}>
+                    <p>nieuws</p>
+                </a>
+            </li>
+			<li>
+                <a href="{{ route('gids') }}" {{ Route::currentRouteName() === "gids" ? 'class=active' : '' }}>
+                    <p>studentengids</p>
+                </a>
+            </li>
+			<li>
+                <form method="get" action="{{ route('zoeken') }}">{{ csrf_field() }}<input type="image" src="{{ asset('img/zoek.svg') }}">
+                </form>
+            </li>
 		</ul>
 	</nav>
 	@yield('vid', $vid = false)
 
     @foreach($heroImages as $heroImage)
 		@if($vid && Route::currentRouteName() == $heroImage->template_name)
-			<video src="/vid/{{ $heroImage->hero_image_url }}"></video>
+			<video src="{{ asset('vid/' . $heroImage->hero_image_url) }}"></video>
 		@elseif(Route::currentRouteName() == $heroImage->template_name)
-			<img src="/img/hero_images/{{ $heroImage->hero_image_url }}" alt="{{ $heroImage->template_name }}">
+			<img src="{{ asset('img/hero_images/' . $heroImage->hero_image_url) }}" alt="{{ $heroImage->template_name }}">
         @endif
     @endforeach
 
@@ -46,6 +72,6 @@
 	@yield('content')
 </main>
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

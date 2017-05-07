@@ -4,7 +4,7 @@
 
 @section('content')
     <a href="{{ $school->school_url }}">
-    	<img src="/img/school_images/{{ $school->image_url }}" alt="{{ $school->name }}">
+    	<img src="{{ asset('img/school_images/' . $school->image_url) }}" alt="{{ $school->name }}">
     </a>
 	<ul>
         @foreach($school->courses as $course)
