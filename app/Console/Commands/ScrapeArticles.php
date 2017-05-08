@@ -54,22 +54,39 @@ class ScrapeArticles extends Command
         $scrapedImageUrls = $crawlInfo['crawler']->filter($imageUrlCssSelector)->extract($crawlInfo['src']);
         $scrapedArticleUrls = $crawlInfo['crawler']->filter($articleUrlCssSelector)->extract($crawlInfo['href']);
 
-        $bar = $this->output->createProgressBar(count($scrapedTitles) + 1);
+        $bar = $this->output->createProgressBar(count($scrapedTitles));
+        // $scrapedArticleIds = Article::select('id')->where('user_id', null)->get();
 
-        Article::where('user_id', null)->delete();
-        $bar->advance();
+        // if($scrapedArticleIds->isEmpty()) {
+            for($i = 0; $i < count($scrapedTitles); $i++) {
+                $scrapedArticle = new Article;
+                $scrapedArticle->title = $scrapedTitles[$i];
+                $scrapedArticle->content = $scrapedContent[$i];
+                $scrapedArticle->time_ago = $scrapedTimeAgoes[$i];
+                $scrapedArticle->image_url = $scrapedImageUrls[$i];
+                $scrapedArticle->article_url = $scrapedArticleUrls[$i];
+                $scrapedArticle->save();
+                // Article::find($scrapedArticle->id)->delete();
 
-        for($i = 0; $i < count($scrapedTitles); $i++) {
-            $scrapedArticle = new Article;
-            $scrapedArticle->title = $scrapedTitles[$i];
-            $scrapedArticle->content = $scrapedContent[$i];
-            $scrapedArticle->time_ago = $scrapedTimeAgoes[$i];
-            $scrapedArticle->image_url = $scrapedImageUrls[$i];
-            $scrapedArticle->article_url = $scrapedArticleUrls[$i];
-            $scrapedArticle->save();
+                $bar->advance();
+            }
+        // }
+        // else {
+        //     for($i = 0; $i < $scrapedArticleIds->count(); $i++) {
+        //         Article::find($scrapedArticleIds[$i]->id)
+        //             ->update(
+        //                 [
+        //                     'title' => $scrapedTitles[$i],
+        //                     'content' => $scrapedContent[$i],
+        //                     'time_ago' => $scrapedTimeAgoes[$i],
+        //                     'image_url' => $scrapedImageUrls[$i],
+        //                     'article_url' => $scrapedArticleUrls[$i],
+        //                 ]
+        //             );
 
-            $bar->advance();
-        }
+        //         $bar->advance();
+        //     }
+        // }
 
         $bar->finish();
     }
