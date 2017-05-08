@@ -9,6 +9,7 @@ use App\Course;
 use App\FreeTime;
 use App\Testimonial;
 use App\HeroImage;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller {
@@ -72,8 +73,19 @@ class PageController extends Controller {
 		return view('gids', compact('free_time_items'));
 	}
 
-	public function zoeken() {
-		return view('zoek');
+	public function zoeken(Request $request) {
+        $query = $request->input('zoek');
+        $query = trim(strtolower($query));
+
+        if($request->has('zoek')) {
+            $articleResults = Article::where('title', 'LIKE', "%$query%")->get();
+            $courseResults = Course::where('name', 'LIKE', "%$query%")->get();
+
+            return view('zoek', ['query' => $query, 'articleResults' => $articleResults, 'courseResults' => $courseResults]);
+        }
+        else {
+            return back();
+        }
 	}
 
     // public function getFullUris($crawlInfo, $scrapedNamesCount, $schoolId) {

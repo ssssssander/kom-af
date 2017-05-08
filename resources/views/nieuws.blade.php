@@ -3,7 +3,7 @@
 @section('content')
     @foreach($articles as $article)
         <article>
-            @if($article->scraped)
+            @if($article->user_id == '')
                 <a href="{{ $article->article_url }}">
                     <img src="{{ $article->image_url }}" alt="{{ $article->title }}">
             @else

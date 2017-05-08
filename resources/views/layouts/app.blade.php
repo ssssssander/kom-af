@@ -48,7 +48,9 @@
                 </a>
             </li>
 			<li>
-                <form method="get" action="{{ route('zoeken') }}">{{ csrf_field() }}<input type="image" src="{{ asset('img/zoek.svg') }}">
+                <form method="get" action="{{ route('zoeken') }}">
+                    {{ csrf_field() }}
+                    <input type="image" src="{{ asset('img/zoek.svg') }}">
                 </form>
             </li>
 		</ul>

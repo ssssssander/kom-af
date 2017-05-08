@@ -66,7 +66,6 @@ class ScrapeArticles extends Command
             $scrapedArticle->time_ago = $scrapedTimeAgoes[$i];
             $scrapedArticle->image_url = $scrapedImageUrls[$i];
             $scrapedArticle->article_url = $scrapedArticleUrls[$i];
-            $scrapedArticle->scraped = true;
             $scrapedArticle->save();
 
             $bar->advance();
