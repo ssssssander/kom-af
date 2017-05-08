@@ -23,30 +23,27 @@
 		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/antwerpen_logo.png') }}" alt="Antwerpen"></a>
 		<ul>
 			<li>
-                <a href="{{ route('algemeen') }}" {{ Route::currentRouteName() === "algemeen" ? 'class=active' : '' }}>
+                <a href="{{ route('algemeen') }}" class="{{ Route::is('algemeen') ? 'active' : null }}">
                     <p>algemeen</p>
                 </a>
             </li>
 			<li>
-                <a href="{{ route('testimonials') }} "{{ Route::currentRouteName() === "testimonials" ||
-                    Route::currentRouteName() === "testimonial" ? 'class=active' : '' }}>
+                <a href="{{ route('testimonials') }}" class="{{ Route::is('testimonial*') ? 'active' : null }}">
                     <p>testimonials</p>
                 </a>
             </li>
 			<li>
-                <a href="{{ route('scholen') }}" {{ Route::currentRouteName() === "scholen" ||
-                    Route::currentRouteName() === "school" ? 'class=active' : '' }}>
+                <a href="{{ route('scholen') }}" class="{{ Route::is('scho*') ? 'active' : null }}">
                     <p>scholen</p>
                 </a>
             </li>
 			<li>
-                <a href="{{ route('nieuws') }}" {{ Route::currentRouteName() === "nieuws" ||
-                    Route::currentRouteName() === "artikel" ? 'class=active' : '' }}>
+                <a href="{{ route('nieuws') }}" class="{{ (Route::is('nieuws') || Route::is('artikel')) ? 'active' : null }}">
                     <p>nieuws</p>
                 </a>
             </li>
 			<li>
-                <a href="{{ route('gids') }}" {{ Route::currentRouteName() === "gids" ? 'class=active' : '' }}>
+                <a href="{{ route('gids') }}" class="{{ Route::is('gids') ? 'active' : null }}">
                     <p>studentengids</p>
                 </a>
             </li>
