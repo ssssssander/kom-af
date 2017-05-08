@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'zoeken naar "' . $query . '"');
+@section('title', 'zoeken naar "' . $query . '"')
 
 @section('content')
 	<ul>
