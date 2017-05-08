@@ -50,7 +50,7 @@ class PageController extends Controller {
 	}
 
 	public function school(School $school) {
-        $courses = Course::paginate(12);
+        $courses = Course::where('school_id', $school->id)->paginate(12);
 
 		return view('school', ['school' => $school, 'courses' => $courses]);
 	}
