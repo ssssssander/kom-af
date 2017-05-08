@@ -50,7 +50,9 @@ class PageController extends Controller {
 	}
 
 	public function school(School $school) {
-		return view('school', compact('school'));
+        $courses = Course::paginate(12);
+
+		return view('school', ['school' => $school, 'courses' => $courses]);
 	}
 
     // public function opleiding(Course $course) {
@@ -75,16 +77,23 @@ class PageController extends Controller {
 
 	public function zoeken(Request $request) {
         $query = $request->input('zoek');
-        $query = trim(strtolower($query));
+        $query = preg_replace('/\s+/', ' ', $query);
 
         if($request->has('zoek')) {
-            $articleResults = Article::where('title', 'LIKE', "%$query%")->get();
-            $courseResults = Course::where('name', 'LIKE', "%$query%")->get();
+            $articleResults = Article::search($query)->get();
+            $courseResults = Course::search($query)->get();
+            $schoolResults = School::search($query)->get();
 
             // $results = $articleResults->merge($courseResults);
             // $results = $results->forPage($_GET['page'], 6);
 
-            return view('zoek', ['query' => $query, 'articleResults' => $articleResults, 'courseResults' => $courseResults]);
+            return view('zoek',
+                [
+                    'query' => $query,
+                    'articleResults' => $articleResults,
+                    'courseResults' => $courseResults,
+                    'schoolResults' => $schoolResults
+                ]);
         }
         else {
             return back();

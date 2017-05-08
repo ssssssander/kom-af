@@ -2,10 +2,15 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
+    use Searchable;
+
+    protected $searchableColumns = ['name'];
+
     protected $dates = ['created_at', 'updated_at'];
 
     public function courses() {

@@ -56,7 +56,7 @@ class ScrapeArticles extends Command
 
         $bar = $this->output->createProgressBar(count($scrapedTitles) + 1);
 
-        Article::where('scraped', true)->delete();
+        Article::where('user_id', null)->delete();
         $bar->advance();
 
         for($i = 0; $i < count($scrapedTitles); $i++) {

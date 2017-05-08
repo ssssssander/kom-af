@@ -4,10 +4,11 @@
 
 @section('content')
 	<ul>
-        @if($articleResults)
+        @if(!$articleResults->isEmpty())
+            <h2>Nieuws</h2>
             @foreach($articleResults as $articleResult)
                 <li>
-                    @if($articleResult->user_id == '')
+                    @if($articleResult->user_id == null)
                         <a href="{{ $articleResult->article_url }}">
                             <img src="{{ $articleResult->image_url }}" alt="{{ $articleResult->title }}">
                             <p>{{ $articleResult->title }}</p>
@@ -22,12 +23,24 @@
                 </li>
             @endforeach
         @endif
-        @if($courseResults)
+        @if(!$courseResults->isEmpty())
+            <h2>Opleidingen</h2>
             @foreach($courseResults as $courseResult)
                 <li>
                     <a href="{{ $courseResult->course_url }}">
                         <img src="{{ asset('img/school_images/' . $courseResult->school->image_url) }}" alt="{{ $courseResult->school->name }}">
                         <p>{{ $courseResult->name }}</p>
+                    </a>
+                </li>
+            @endforeach
+        @endif
+        @if(!$schoolResults->isEmpty())
+            <h2>Scholen</h2>
+            @foreach($schoolResults as $schoolResult)
+                <li>
+                    <a href="{{ $schoolResult->school_url }}">
+                        <img src="{{ asset('img/school_images/' . $schoolResult->image_url) }}" alt="{{ $schoolResult->name }}">
+                        <p>{{ $schoolResult->name }}</p>
                     </a>
                 </li>
             @endforeach
