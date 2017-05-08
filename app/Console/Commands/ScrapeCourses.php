@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Helpers\CrawlInfo;
 use App\Course;
-use Goutte\Client;
 use Illuminate\Console\Command;
 
 class ScrapeCourses extends Command
@@ -44,22 +44,22 @@ class ScrapeCourses extends Command
         for($j = 1; $j <= $amountOfSchools; $j++) { // This is bad
             switch($j) {
                 case 1:
-                    $this->info(PHP_EOL . 'Scraping KdG...');
+                    $this->info("\r\n\r\n" . 'Scraping KdG... (school ' . $j . '/' . $amountOfSchools . ')');
                     $url = 'https://www.kdg.be/opleidingen/professionele-bachelor';
                     $nameCssSelector = 'article > header > h4 > a';
                     break;
                 case 2:
-                    $this->info(PHP_EOL . 'Scraping UA...');
+                    $this->info("\r\n\r\n" . 'Scraping UA... (school ' . $j . '/' . $amountOfSchools . ')');
                     $url = 'https://www.uantwerpen.be/nl/onderwijs/opleidingsaanbod/';
                     $nameCssSelector = 'section > h2 > a';
                     break;
                 case 3:
-                    $this->info(PHP_EOL . 'Scraping TM...');
+                    $this->info("\r\n\r\n" . 'Scraping TM... (school ' . $j . '/' . $amountOfSchools . ')');
                     $url = 'http://www.thomasmore.be/opleidingen/zoeken?f[0]=im_field_opleidingstype%3A6&f[1]=im_field_opleidingstype%3A64';
                     $nameCssSelector = 'div.field > h2';
                     break;
                 case 4:
-                    $this->info(PHP_EOL . 'Scraping AP...');
+                    $this->info("\r\n\r\n" . 'Scraping AP... (school ' . $j . '/' . $amountOfSchools . ')');
                     $url = 'https://www.ap.be/bachelors-en-masters/459';
                     $nameCssSelector = 'div.field-item > p > a';
                     break;
@@ -73,7 +73,7 @@ class ScrapeCourses extends Command
                     break;
             }
 
-            $crawlInfo = $this->getCrawlInfo($url);
+            $crawlInfo = CrawlInfo::getCrawlInfo($url);
 
             $scrapedNames = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
             $scrapedCourseUrls = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['href']);

@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Helpers\CrawlInfo;
 use App\Article;
-use Goutte\Client;
 use Illuminate\Console\Command;
 
 class ScrapeArticles extends Command
@@ -46,7 +46,7 @@ class ScrapeArticles extends Command
         $imageUrlCssSelector = 'div.image > img';
         $articleUrlCssSelector = 'a.gate15-news-box';
 
-        $crawlInfo = $this->getCrawlInfo($url);
+        $crawlInfo = CrawlInfo::getCrawlInfo($url);
 
         $scrapedTitles = $crawlInfo['crawler']->filter($titleCssSelector)->extract($crawlInfo['text']);
         $scrapedContent = $crawlInfo['crawler']->filter($contentCssSelector)->extract($crawlInfo['text']);
@@ -73,32 +73,5 @@ class ScrapeArticles extends Command
         }
 
         $bar->finish();
-    }
-
-    public function getCrawlInfo($url) {
-        $scrapeText = '_text';
-        $scrapeSrc = 'src';
-        $scrapeHref = 'href';
-
-        $client = new Client();
-        $guzzleClient = new \GuzzleHttp\Client(array(
-            'curl' => array(
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_SSL_VERIFYPEER => false
-            ),
-        ));
-        $client->setClient($guzzleClient);
-        $crawler = $client->request('GET', $url);
-
-        $crawlInfo =
-        [
-            'client' => $client,
-            'crawler' => $crawler,
-            'text' => $scrapeText,
-            'src' => $scrapeSrc,
-            'href' => $scrapeHref
-        ];
-
-        return $crawlInfo;
     }
 }
