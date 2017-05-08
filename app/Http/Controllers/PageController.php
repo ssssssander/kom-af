@@ -81,6 +81,9 @@ class PageController extends Controller {
             $articleResults = Article::where('title', 'LIKE', "%$query%")->get();
             $courseResults = Course::where('name', 'LIKE', "%$query%")->get();
 
+            // $results = $articleResults->merge($courseResults);
+            // $results = $results->forPage($_GET['page'], 6);
+
             return view('zoek', ['query' => $query, 'articleResults' => $articleResults, 'courseResults' => $courseResults]);
         }
         else {

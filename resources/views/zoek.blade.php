@@ -32,5 +32,34 @@
                 </li>
             @endforeach
         @endif
+        {{--
+            @if($results)
+                @foreach($results as $result)
+                    @if(isset($result['title']))
+                        <li>
+                            @if($result['user_id'] == '')
+                                <a href="{{ $result['article_url'] }}">
+                                    <img src="{{ $result['image_url'] }}" alt="{{ $result['title'] }}">
+                                    <p>{{ $result['title'] }}</p>
+                                </a>
+                            @else
+                                <a href="{{ route('artikel', ['article' => $result['id']]) }}">
+                                    <img src="{{ asset('img/article_images/' . $result['image_url']) }}" alt="{{ $result['title'] }}">
+                                    <p>{{ $result['title'] }}</p>
+                                    <p>Door {{ $result['user_id'] . ' ' . $result['user_id'] }}</p>
+                                </a>
+                            @endif
+                        </li>
+                    @elseif(isset($result['name']))
+                        <li>
+                            <a href="{{ $result['course_url'] }}">
+                                <img src="{{ asset('img/school_images/' . $result['school_id']) }}" alt="{{ $result['school_id'] }}">
+                                <p>{{ $result['name'] }}</p>
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
+            @endif
+        --}}
 	</ul>
 @endsection
