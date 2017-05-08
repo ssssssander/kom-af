@@ -40,26 +40,27 @@ class ScrapeCourses extends Command
     public function handle()
     {
         $amountOfSchools = 4;
+        $loadingTextTemplate = "\r\n\r\nScraping :school... (school :x/$amountOfSchools)";
 
         for($j = 1; $j <= $amountOfSchools; $j++) { // This is bad
             switch($j) {
                 case 1:
-                    $this->info("\r\n\r\n" . 'Scraping KdG... (school ' . $j . '/' . $amountOfSchools . ')');
+                    $this->info(strtr($loadingTextTemplate, array(':school' => 'KdG', ':x' => $j)));
                     $url = 'https://www.kdg.be/opleidingen/professionele-bachelor';
                     $nameCssSelector = 'article > header > h4 > a';
                     break;
                 case 2:
-                    $this->info("\r\n\r\n" . 'Scraping UA... (school ' . $j . '/' . $amountOfSchools . ')');
+                    $this->info(strtr($loadingTextTemplate, array(':school' => 'UA', ':x' => $j)));
                     $url = 'https://www.uantwerpen.be/nl/onderwijs/opleidingsaanbod/';
                     $nameCssSelector = 'section > h2 > a';
                     break;
                 case 3:
-                    $this->info("\r\n\r\n" . 'Scraping TM... (school ' . $j . '/' . $amountOfSchools . ')');
+                    $this->info(strtr($loadingTextTemplate, array(':school' => 'TM', ':x' => $j)));
                     $url = 'http://www.thomasmore.be/opleidingen/zoeken?f[0]=im_field_opleidingstype%3A6&f[1]=im_field_opleidingstype%3A64';
                     $nameCssSelector = 'div.field > h2';
                     break;
                 case 4:
-                    $this->info("\r\n\r\n" . 'Scraping AP... (school ' . $j . '/' . $amountOfSchools . ')');
+                    $this->info(strtr($loadingTextTemplate, array(':school' => 'AP', ':x' => $j)));
                     $url = 'https://www.ap.be/bachelors-en-masters/459';
                     $nameCssSelector = 'div.field-item > p > a';
                     break;
