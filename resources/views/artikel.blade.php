@@ -1,17 +1,12 @@
 @extends('layouts.app')
 
-@section('heroImg',"Grote_Markt_Antwerpen.jpg")
-@section('heroAlt',"GroteMarkt van Antwerpen")
+@section('title', $article->title)
 
 @section('content')
-    @foreach($article as $info)
-        <article>
-            <a href="{{ url($info->url) }}" target="_blank">
-                <img src="/img/{{ $info->image_url }}" alt="{{ $info->title }}">
-                <h5>{{ $info->title }}</h5>
-                <time>{{ $info->time_ago }} geleden</time>
-                <p>{{ $info->content }}</p>
-            </a>
-        </article>
-    @endforeach
+    <article>
+        <h5>{{ $article->title }}</h5>
+        <p>Door {{ $article->user->first_name . ' ' . $article->user->last_name }}</p>
+        <time>{{ $article->time_ago }} geleden</time>
+        <p>{{ $article->content }}</p>
+    </article>
 @endsection

@@ -25,7 +25,7 @@ class CoursesTableSeeder extends Seeder
                 'contact_name' => 'Jurgen Dedeckere',
                 'contact_email' => 'jurgen.dedeckere@kdg.be',
                 'contact_phone' => '+32 3 613 17 52',
-                'contact_image' => 'jurgen-dedeckere.jpg'
+                'contact_image' => 'jurgen_dedeckere.jpg'
             ],
             [
                 'school_id' => 1,
@@ -39,7 +39,7 @@ class CoursesTableSeeder extends Seeder
                 'contact_name' => 'Imanol Michelena',
                 'contact_email' => 'imanol.michelena@kdg.be',
                 'contact_phone' => '+32 3 613 17 55',
-                'contact_image' => 'imanol-michelena.jpg'
+                'contact_image' => 'imanol_michelena.jpg'
             ],
             [
                 'school_id' => 2,
@@ -53,7 +53,7 @@ class CoursesTableSeeder extends Seeder
                     De meesterproef verbindt de wetenschappelijke opleiding met een stage in de advocatuur, magistratuur, het notariaat, de overheid, sociale organisaties of ondernemingen.
 
                     De Antwerpse masteropleiding in de rechten heeft een heel eigen profiel. Naast de zeven verplichte opleidingsonderdelen die door alle studenten worden gevolgd, geef je zelf in grote mate een invulling aan je masteropleiding. Je kan opteren voor een verder doorgedreven algemene vorming in het recht of voor een specialisatie in één van de zeven rechtsdomeinen.',
-                'course_url' => 'https://www.kdg.be/bachelor-chemie',
+                'course_url' => 'https://www.uantwerpen.be/nl/onderwijs/opleidingsaanbod/master-rechten/studieprogramma/',
                 'contact_name' => 'Een contact_name',
                 'contact_email' => 'Een contact_email',
                 'contact_phone' => 'Een contact_phone',
