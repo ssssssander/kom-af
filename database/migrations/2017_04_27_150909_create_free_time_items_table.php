@@ -15,6 +15,7 @@ class CreateFreeTimeItemsTable extends Migration
     {
         Schema::create('free_time_items', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamps();
         });
     }
 

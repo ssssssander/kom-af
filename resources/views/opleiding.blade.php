@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $course->name)
+
 @section('content')
 	<figure>
 		<figcaption>{{ $course->school->name }}</figcaption>

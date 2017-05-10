@@ -160,7 +160,7 @@ main{
 				background: $bg-color;
 				border: 1px solid white;
 				&:hover{
-					background: url("/img/hover%20gray.png") repeat;
+					background: url("/img/hover_gray.png") repeat;
 					background-size: contain;
 					border: 1px solid $border-color;
 				}
@@ -199,7 +199,7 @@ main{
 				border: 1px solid white;
 				&:hover{
 					div{
-						background: url("/img/hover%20gray.png") repeat;
+						background: url("/img/hover_gray.png") repeat;
 						background-size: contain;
 						border: 1px solid $border-color;
 						padding: calc(1rem - 1px);
@@ -267,7 +267,7 @@ main{
 					padding: $general-padding;
 					border: 1px solid white;
 					&:hover{
-						background: url("/img/hover%20gray.png") repeat;
+						background: url("/img/hover_gray.png") repeat;
 						background-size: contain;
 						border: 1px solid $border-color;
 					}
@@ -278,7 +278,7 @@ main{
 	}
 	&.algemeen{
 		padding: 0;
-		background:url("/img/hover%20gray.png") repeat;
+		background:url("/img/hover_gray.png") repeat;
 		background-size: 50%;
 		&>section{
 			a{
@@ -351,7 +351,7 @@ main{
 							border-radius: 3px;
 						}
 						&:hover{
-							background: url("/img/hover%20gray.png") repeat;
+							background: url("/img/hover_gray.png") repeat;
 							background-size: cover;
 							border: 1px solid $border-color;
 							padding: calc(1rem - 1px);
@@ -387,7 +387,7 @@ main{
 						padding: $general-padding;
 					}
 					&:hover{
-						background: url("/img/hover%20gray.png") repeat;
+						background: url("/img/hover_gray.png") repeat;
 						background-size: contain;
 						border: 1px solid $border-color;
 					}
@@ -412,7 +412,7 @@ main{
 					color: $font-color;
 					border: 1px solid white;
 					&:hover{
-						background: url("/img/hover%20gray.png") repeat;
+						background: url("/img/hover_gray.png") repeat;
 						background-size: contain;
 						border: 1px solid $border-color;
 					}

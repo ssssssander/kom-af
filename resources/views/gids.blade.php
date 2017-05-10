@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "studentengids")
+@section('title', 'studentengids')
 
 @section('content')
 	<filter>
@@ -15,7 +15,6 @@
 	<ul>
 		<li>
 			<a href="http://hm.com">
-
 				<h5>H&M</h5>
 				<p>blablablablabla blablablalbalbal</p>
 			</a>
