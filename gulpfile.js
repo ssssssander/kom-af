@@ -6,7 +6,7 @@ const uglify = require('gulp-uglify');
 const pump = require('pump');
 
 gulp.task('default', ['sass','image','js','font']);
-gulp.task('watch', ['sass:watch','js:watch']);
+gulp.task('watch', ['sass:watch','js:watch','image:watch','video:watch']);
 
 /*
  *
@@ -32,7 +32,9 @@ gulp.task('image', function () {
 	gulp.src('resources/assets/img/*/*')
 		.pipe(gulp.dest('public/img'));
 });
-
+gulp.task('image:watch', function () {
+	gulp.watch('resources/assets/img/*/*', ['image']);
+});
 
 /*
  *
@@ -43,7 +45,9 @@ gulp.task('video', function () {
 	gulp.src('resources/assets/vid/*/*')
 		.pipe(gulp.dest('public/vid'));
 });
-
+gulp.task('video:watch', function () {
+	gulp.watch('resources/assets/vid/*/*', ['video']);
+});
 
 /*
  *
