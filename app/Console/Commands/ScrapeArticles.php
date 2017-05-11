@@ -39,26 +39,17 @@ class ScrapeArticles extends Command
      */
     public function handle()
     {
-        $url = 'https://www.gate15.be/nl/nieuws';
-        $titleCssSelector = 'article > h1 > span';
-        $contentCssSelector = 'article > p';
-        $timeAgoCssSelector = 'article > time';
-        $imageUrlCssSelector = 'div.image > img';
-        $articleUrlCssSelector = 'a.gate15-news-box';
+        $url = 'https://www.gate15.be/srv/content/d/content-type/10/start/0/limit/11/excluded_tags/trots';
+        $json = file_get_contents($url);
+        $articles = json_decode($json);
 
-        $crawlInfo = CrawlInfo::getCrawlInfo($url);
-
-        $scrapedTitles = $crawlInfo['crawler']->filter($titleCssSelector)->extract($crawlInfo['text']);
-        $scrapedContent = $crawlInfo['crawler']->filter($contentCssSelector)->extract($crawlInfo['text']);
-        $scrapedTimeAgoes = $crawlInfo['crawler']->filter($timeAgoCssSelector)->extract($crawlInfo['text']);
-        $scrapedImageUrls = $crawlInfo['crawler']->filter($imageUrlCssSelector)->extract($crawlInfo['src']);
-        $scrapedArticleUrls = $crawlInfo['crawler']->filter($articleUrlCssSelector)->extract($crawlInfo['href']);
+        var_dump($articles->data[0]);
 
         $bar = $this->output->createProgressBar(count($scrapedTitles));
         // $scrapedArticleIds = Article::select('id')->where('user_id', null)->get();
 
         // if($scrapedArticleIds->isEmpty()) {
-            for($i = 0; $i < count($scrapedTitles); $i++) {
+            for($i = 0; $i < count($articles->data); $i++) {
                 $scrapedArticle = new Article;
                 $scrapedArticle->title = $scrapedTitles[$i];
                 $scrapedArticle->content = $scrapedContent[$i];
