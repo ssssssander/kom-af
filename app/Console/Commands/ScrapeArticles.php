@@ -57,6 +57,9 @@ class ScrapeArticles extends Command
             Article::where('user_id', null)->delete();
         }
 
+        $loadingText = "\r\n\r\n" . 'Getting data from GATE15 news API...' . "\r\n";
+        $this->info($loadingText);
+
         for($i = 0; $i < count($articles->data); $i++) {
             $createdAt = new Carbon($articles->data[$i]->latestVersion->createdAt);
 
