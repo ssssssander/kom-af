@@ -17,7 +17,8 @@ class HeroImagesTableSeeder extends Seeder
             ['template_name' => 'scholen', 'hero_image_url' => 'scholen.jpeg', 'video' => false],
             ['template_name' => 'nieuws', 'hero_image_url' => 'nieuws.jpeg', 'video' => false],
             ['template_name' => 'gids', 'hero_image_url' => 'gids.jpeg', 'video' => false],
-            ['template_name' => 'zoeken', 'hero_image_url' => 'zoeken.jpeg', 'video' => false]
+            ['template_name' => 'zoeken', 'hero_image_url' => 'zoeken.jpeg', 'video' => false],
+            ['template_name' => 'school', 'hero_image_url' => 'kdg.jpeg', 'video' => false]
         ]);
     }
 }
