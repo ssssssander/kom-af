@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('page', 'login')
-
 @section('content')
 
 	<form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">

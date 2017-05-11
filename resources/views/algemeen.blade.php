@@ -5,55 +5,62 @@
 @section('content')
 	<a href="{{ route('testimonial', ['testimonial' => 2]) }}">
 		<section>
-			<h2>Wat studenten vinden van Antwerpen</h2>
-			<blockquote>Antwerpen is de stad die mij leerde terug te genieten</blockquote>
+			<h2>Wat studenten vinden van Antwerpen?</h2>
 			<figure>
-				<img src="{{ asset('img/testimonial_images/julie.jpg') }}" alt="red juliet">
-				<figcaption>Red Juliet</figcaption>
+				<figcaption>"Antwerpen is de stad die mij leerde terug te genieten."</figcaption>
+				<img src="{{ asset('img/testimonial_images/julie%20focus.jpg') }}" alt="red juliet">
 			</figure>
 		</section>
 	</a>
 	<section>
-		<h2>Ondek unieke plekken dankzij onze game "KomAf"</h2>
+		<h2>Ondek unieke plekken dankzij onze game "KomAf".</h2>
 		<a href="https://apple.be/benl/">
-			<p>AppStore</p>
-			<img src="{{ asset('img/alien_sitting.png') }}" alt="alien">
+			<img src="{{ asset('img/appStore.svg') }}" alt="AppStore">
+			<img src="{{ asset('img/alien_sitting.png') }}" alt="alien" role="presentation">
 		</a>
 		<a href="https://google.be">
-			<p>PlayStore</p>
+			<img src="{{ asset('img/playStore.png') }}" alt="PlayStore">
 		</a>
 	</section>
 	<section>
-		<h2>Alle wegen leiden naar Antwerpen</h2>
+		<h2>Alle wegen leiden naar Antwerpen.</h2>
 		<a href="http://delijn.be">
 			<img src="{{ asset('img/de_lijn.svg') }}" alt="de lijn - busregeling">
-			<img src="{{ asset('img/bus.png') }}" alt="bus">
+			<img src="{{ asset('img/bus.svg') }}" alt="bus" role="presentation">
 		</a>
 		<a href="http://nmbs.be/">
 			<img src="{{ asset('img/nmbs.svg') }}" alt="nmbs - treinregeling">
-			<img src="{{ asset('img/trein.png') }}" alt="trein">
+			<img src="{{ asset('img/trein.svg') }}" alt="trein" role="presentation">
 		</a>
 	</section>
 	<a href="https://studentkotweb.be">
 		<section>
-			<h2>Beleef Antwerpen vanop kot</h2>
+			<h2>Beleef Antwerpen vanop kot.</h2>
 			<p>Kotweb is de site om gemakkelijk een kot te vinden</p>
 		</section>
 	</a>
 	@if($news)
-		@foreach($news as $article)
-			<a href="{{ $article->url }}">
+		{{--@foreach($news as $article)--}}
+			@if($news->user_id)
+			<a href="{{ $news->article_url }}">
+				@else
+					<a href="{{ route('artikel',['article',$news->id]) }}">
+				@endif
 				<section>
-					<h2>Nieuws speciaal voor jou</h2>
+					<h2>Nieuws speciaal voor jou.</h2>
 					<article>
-						<time>{{ $article->time_ago }} geleden</time>
-						<img src="{{ asset('img/' . $article->image_url) }}" alt="{{ $article->title }}">
-						<h5>{{ $article->title }}</h5>
-						<p>{{ $article->content }}</p>
+						<time>{{ $news->time_ago }} geleden</time>
+						@if($news->user_id)
+							<img src="{{ asset('img/article_images/' . $news->image_url) }}" alt="{{ $news->title }}">
+							@else
+							<img src="{{ $news->image_url }}" alt="{{ $news->title }}">
+						@endif
+						<h5>{{ $news->title }}</h5>
+						<p>{{ $news->content }}</p>
 					</article>
 				</section>
 			</a>
-		@endforeach
+		{{--@endforeach--}}
 	@endif
 	<a href="{{ route('gids') }}">
 		<section>
