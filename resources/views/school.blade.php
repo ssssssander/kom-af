@@ -38,6 +38,9 @@
             background-image: url('/img/hover_gray.png');
             background-size: cover;
         }
+        .active span, .disabled span {
+            cursor: default;
+        }
     </style>
 	<ul>
         @foreach($courses as $course)

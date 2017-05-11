@@ -9,7 +9,6 @@ use App\Course;
 use App\FreeTime;
 use App\Testimonial;
 use App\HeroImage;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
