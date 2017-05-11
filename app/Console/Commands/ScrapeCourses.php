@@ -107,7 +107,11 @@ class ScrapeCourses extends Command
         }
 
         $bar = $this->output->createProgressBar(count($scrapedNames));
-        // $scrapedCourseIds = Course::select('id')->get();
+        $scrapedCourseIds = Course::select('id')->get();
+
+        if(!$scrapedCourseIds->isEmpty()) {
+            Course::truncate();
+        }
 
         for($i = 0; $i < count($scrapedNames); $i++) {
             if($schoolId == 1) {
@@ -139,7 +143,6 @@ class ScrapeCourses extends Command
             // $scrapedCourse->description = $scrapedDescriptions[$i];
             $scrapedCourse->course_url = $scrapedCourseUrls[$i];
             $scrapedCourse->save();
-            Course::find($scrapedCourse->id)->delete();
 
             $bar->advance();
         }

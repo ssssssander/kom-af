@@ -58,7 +58,6 @@ class ScrapeArticles extends Command
         }
 
         for($i = 0; $i < count($articles->data); $i++) {
-
             $createdAt = new Carbon($articles->data[$i]->latestVersion->createdAt);
 
             $title = $articles->data[$i]->latestVersion->title;
