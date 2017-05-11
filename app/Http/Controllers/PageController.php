@@ -31,7 +31,7 @@ class PageController extends Controller {
      * @return \Illuminate\Http\Response
      */
 	public function algemeen() {
-		$news = false; //DB::table("articles")->latest()->first();
+		$news = DB::table('articles')->orderby('created_at','desc')->first();
 		return view('algemeen',compact('news'));
     }
 
