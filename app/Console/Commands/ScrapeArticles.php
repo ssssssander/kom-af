@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Helpers\CrawlInfo;
 use App\Article;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class ScrapeArticles extends Command
@@ -48,14 +49,17 @@ class ScrapeArticles extends Command
 
         // if($scrapedArticleIds->isEmpty()) {
             for($i = 0; $i < count($articles->data); $i++) {
+                $now = Carbon::now();
+                $createdAt = new Carbon($articles->data[$i]->latestVersion->createdAt);
+
                 $scrapedArticle = new Article;
                 $scrapedArticle->title = $articles->data[$i]->latestVersion->title;
                 $scrapedArticle->content = strip_tags($articles->data[$i]->latestVersion->snippets[1]->body->text);
-                $scrapedArticle->time_ago = $articles->data[$i]->latestVersion->createdAt;
+                $scrapedArticle->time_ago = $now->diffForHumans($createdAt);
                 $scrapedArticle->image_url = $articles->data[$i]->latestVersion->snippets[0]->body->file[0]->src;
                 $scrapedArticle->article_url = 'https://www.gate15.be/nl/nieuws/' . $articles->data[$i]->slug;
                 $scrapedArticle->save();
-                // Article::find($scrapedArticle->id)->delete();
+                Article::find($scrapedArticle->id)->delete();
 
                 $bar->advance();
             }
