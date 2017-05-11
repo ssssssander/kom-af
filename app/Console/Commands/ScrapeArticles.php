@@ -55,7 +55,7 @@ class ScrapeArticles extends Command
                 $scrapedArticle->image_url = $articles->data[$i]->latestVersion->snippets[0]->body->file[0]->src;
                 $scrapedArticle->article_url = 'https://www.gate15.be/nl/nieuws/' . $articles->data[$i]->slug;
                 $scrapedArticle->save();
-                // Article::find($scrapedArticle->id)->delete();
+                Article::find($scrapedArticle->id)->delete();
 
                 $bar->advance();
             }

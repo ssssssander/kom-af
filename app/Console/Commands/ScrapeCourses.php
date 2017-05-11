@@ -139,7 +139,7 @@ class ScrapeCourses extends Command
             // $scrapedCourse->description = $scrapedDescriptions[$i];
             $scrapedCourse->course_url = $scrapedCourseUrls[$i];
             $scrapedCourse->save();
-            // Course::find($scrapedCourse->id)->delete();
+            Course::find($scrapedCourse->id)->delete();
 
             $bar->advance();
         }
