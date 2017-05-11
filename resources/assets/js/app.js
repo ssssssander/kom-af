@@ -56,8 +56,8 @@ function generateSVGLine(){
 		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M144 24h-24V0M96 24V0h24"/>' +
 		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M120 0h24v24"/>' +
 		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M168 0v24h-24"/>' +
-		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M192 0v24h-24"/>' +
-		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M216 24h-24V0"/>' +
+		'<path fill="#fff" d="M192 0v24h-24"/>' +
+		'<path fill="#fff" d="M216 24h-24V0"/>' +
 		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M216 24V0h24"/>' +
 		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M264 24h-24V0"/>' +
 		'<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M264 24V0h24"/>' +
@@ -76,6 +76,7 @@ function getBlueColor(){
 	var red,green,blue=255;
 	red = Math.floor(Math.random()*16); // 0 tot 15
 	green = Math.floor((Math.random()*91) + 120); // 120 tot 210
+	red= 31;green = 151;blue = 211;
 	return {r:red,g:green,b:blue} // 255
 }
 
