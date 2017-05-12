@@ -45,6 +45,9 @@
                 </li>
             @endforeach
         @endif
+        @if($articleResults->isEmpty() && $courseResults->isEmpty() && $schoolResults->isEmpty())
+            <h2>Niets gevonden!</h2>
+        @endif
         {{--
             @if($results)
                 @foreach($results as $result)
