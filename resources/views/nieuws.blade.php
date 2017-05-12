@@ -8,7 +8,7 @@
                     <img src="{{ $article->image_url }}" alt="{{ $article->title }}">
             @else
                 <a href="{{ route('artikel', ['article' => $article->id]) }}">
-                    <img src="{{ asset('img/article_images/' . $article->image_url) }}" alt="{{ $article->title }}">
+                    <img src="{{ asset('img/' . $article->image_url) }}" alt="{{ $article->title }}">
             @endif
                 <h5>{{ $article->title }}</h5>
                 @if($article->user_id != null)

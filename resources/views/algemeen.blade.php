@@ -8,7 +8,7 @@
 			<h2>Wat studenten vinden van Antwerpen?</h2>
 			<figure>
 				<figcaption>"Antwerpen is de stad die mij leerde terug te genieten."</figcaption>
-				<img src="{{ asset('img/testimonial_images/julie%20focus.jpg') }}" alt="red juliet">
+				<img src="{{ asset('img/testimonial_images/julie_focus.jpg') }}" alt="julie">
 			</figure>
 		</section>
 	</a>
@@ -19,7 +19,7 @@
 			<img src="{{ asset('img/alien_sitting.png') }}" alt="alien" role="presentation">
 		</a>
 		<a href="https://google.be">
-			<img src="{{ asset('img/playStore.png') }}" alt="PlayStore">
+			<img src="{{ asset('img/play_store.png') }}" alt="PlayStore">
 		</a>
 	</section>
 	<section>
@@ -51,7 +51,7 @@
 					<article>
 						<time>{{ $news->time_ago }} geleden</time>
 						@if($news->user_id)
-							<img src="{{ asset('img/article_images/' . $news->image_url) }}" alt="{{ $news->title }}">
+							<img src="{{ asset('img/' . $news->image_url) }}" alt="{{ $news->title }}">
 							@else
 							<img src="{{ $news->image_url }}" alt="{{ $news->title }}">
 						@endif
@@ -62,7 +62,7 @@
 			</a>
 		{{--@endforeach--}}
 	@endif
-	<a href="{{ route('gids') }}">
+	<a href="{{ route('studentengids') }}">
 		<section>
 			<h2>De online studentengids wijst je de weg</h2>
 			<p>Vind de leukste en goedkoopste plekken in Antwerpen</p>

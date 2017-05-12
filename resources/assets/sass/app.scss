@@ -231,7 +231,7 @@ main{
 	&.opleiding{
 
 	}
-	&.gids{
+	&.studentengids{
 		display: flex;
 		filter{
 			border-right: 1px solid $border-color;
@@ -278,7 +278,7 @@ main{
 	}
 	&.algemeen{
 		padding: 0;
-		background:url("/img/hover%20dark%20gray.png") repeat;
+		background:url("/img/hover_dark_gray.png") repeat;
 		background-size: 50%;
 		h2{
 			text-align: center;
@@ -585,7 +585,7 @@ main{
 		&.scholen figure{
 			width: (100%/$tablet-list)-4%;
 		}
-		&.gids ul li{
+		&.studentengids ul li{
 			width: (100%/$tablet-list)-4%;
 		}
 		&.algemeen  section{
@@ -615,7 +615,7 @@ main{
 		&.scholen figure{
 			width: (100%/$mobile-list)-4%;
 		}
-		&.gids ul li{
+		&.studentengids ul li{
 			width: (100%/$mobile-list)-4%;
 		}
 		&.algemeen  section{
