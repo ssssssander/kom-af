@@ -42,8 +42,8 @@ class ScrapeCourses extends Command
     {
         $schools = $this->argument('schools');
         $schools = array_map('strtolower', $schools);
-        $amountOfSchools = 4;
-        $possibleSchools = array('kdg', 'ua', 'tm', 'ap');
+        $amountOfSchools = 6;
+        $possibleSchools = array('kdg', 'ua', 'tm', 'ap', 'hzs', 'itm');
         $amountOfSchoolsArray = range(1, $amountOfSchools);
 
         $scrapedCourseIds = Course::select('id')->get();
@@ -76,8 +76,8 @@ class ScrapeCourses extends Command
             'https://www.uantwerpen.be/nl/onderwijs/opleidingsaanbod',
             'http://www.thomasmore.be/opleidingen/zoeken?f[0]=im_field_opleidingstype%3A6&f[1]=im_field_opleidingstype%3A64',
             'https://www.ap.be/bachelors-en-masters/459',
-            '',
-            ''
+            'https://www.hzs.be/nl',
+            'https://edu.itg.be/course'
         );
 
         $nameCssSelectors = array(
@@ -85,8 +85,8 @@ class ScrapeCourses extends Command
             'section > h2 > a',
             'div.field > h2',
             'div.field-item > p > a',
-            '',
-            ''
+            '.moduletable:nth-child(1) a',
+            'div.row.course-list-item > a'
         );
 
         $crawlInfo = CrawlInfo::getCrawlInfo($urls[$schoolIdIndex]);
@@ -132,10 +132,12 @@ class ScrapeCourses extends Command
                 }
             }
             elseif($schoolId == 5) {
-
+                $scrapedCourseUrls[$i] = 'https://www.hzs.be' . $scrapedCourseUrls[$i];
             }
             elseif($schoolId == 6) {
-
+                if(strpos($scrapedCourseUrls[$i], 'itg.be') === false && strpos($scrapedCourseUrls[$i], 'ecte.org') === false) {
+                    $scrapedCourseUrls[$i] = 'https://edu.itg.be' . $scrapedCourseUrls[$i];
+                }
             }
 
             $scrapedCourse = new Course;
