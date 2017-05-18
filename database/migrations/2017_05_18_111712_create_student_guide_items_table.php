@@ -16,10 +16,8 @@ class CreateStudentGuideItemsTable extends Migration
         Schema::create('student_guide_items', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('address')->nullable();
-            $table->string('phone_number')->nullable();
-            $table->string('opening_hours')->nullable();
             $table->string('item_url')->nullable();
+            $table->string('category');
             $table->timestamps();
         });
     }
