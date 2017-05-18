@@ -4,36 +4,19 @@
 	<filter>
 		<form action="">
 			{{ csrf_field() }}
-			<h5>Categoriën</h5>
-			<label><input type="checkbox">bla</label>
-			<label><input type="checkbox">bla</label>
-			<label><input type="checkbox">bla</label>
+			<h5>Categorieën</h5>
+			<label><input type="checkbox" name="category" value="drinken">Drinken</label>
+			<label><input type="checkbox" name="category" value="eten">Eten</label>
+			<label><input type="checkbox" name="category" value="ontspanning">Ontspanning</label>
 		</form>
 	</filter>
 	<ul>
-		<li>
-			<a href="http://hm.com">
-				<h5>H&M</h5>
-				<p>blablablablabla blablablalbalbal</p>
-			</a>
-		</li>
-		<li>
-			<a href="http://hm.com">
-				<h5>H&M</h5>
-				<p>blablablablabla blablablalbalbal</p>
-			</a>
-		</li>
-		<li>
-			<a href="http://hm.com">
-				<h5>H&M</h5>
-				<p>blablablablabla blablablalbalbal</p>
-			</a>
-		</li>
-		<li>
-			<a href="http://hm.com">
-				<h5>H&M</h5>
-				<p>blablablablabla blablablalbalbal</p>
-			</a>
-		</li>
+        @foreach($studentGuideItems as $studentGuideItem)
+            <li>
+                <a href="{{ $studentGuideItem->item_url }}">
+                    <h5>{{ $studentGuideItem->name }}</h5>
+                </a>
+            </li>
+        @endforeach
 	</ul>
 @endsection

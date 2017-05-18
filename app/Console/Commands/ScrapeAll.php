@@ -39,5 +39,6 @@ class ScrapeAll extends Command
     {
         $this->call('scrape:articles');
         $this->call('scrape:courses');
+        $this->call('scrape:studentguide');
     }
 }

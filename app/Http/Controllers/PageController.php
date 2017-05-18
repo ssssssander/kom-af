@@ -6,9 +6,8 @@ use Auth;
 use App\Article;
 use App\School;
 use App\Course;
-use App\FreeTime;
 use App\Testimonial;
-use App\HeroImage;
+use App\StudentGuideItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -68,9 +67,9 @@ class PageController extends Controller {
 	}
 
 	public function studentengids() {
-        $free_time_items = FreeTime::all();
+        $studentGuideItems = StudentGuideItem::all();
 
-		return view('studentengids', compact('free_time_items'));
+		return view('studentengids', compact('studentGuideItems'));
 	}
 
 	public function zoeken(Request $request) {
