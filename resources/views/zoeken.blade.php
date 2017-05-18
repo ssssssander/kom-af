@@ -45,7 +45,17 @@
                 </li>
             @endforeach
         @endif
-        @if($articleResults->isEmpty() && $courseResults->isEmpty() && $schoolResults->isEmpty())
+        @if(!$studentGuideResults->isEmpty())
+            <h2>Studentengids</h2>
+            @foreach($studentGuideResults as $studentGuideResult)
+                <li>
+                    <a href="{{ $studentGuideResult->item_url }}">
+                        <p>{{ $studentGuideResult->name }}</p>
+                    </a>
+                </li>
+            @endforeach
+        @endif
+        @if($articleResults->isEmpty() && $courseResults->isEmpty() && $schoolResults->isEmpty() && $studentGuideResults->isEmpty())
             <h2>Niets gevonden!</h2>
         @endif
         {{--

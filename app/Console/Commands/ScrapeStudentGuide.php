@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Helpers\CrawlInfo;
 use App\StudentGuideItem;
+use DB;
 use Illuminate\Console\Command;
 
 class ScrapeStudentGuide extends Command
@@ -29,7 +30,7 @@ class ScrapeStudentGuide extends Command
      */
     public function __construct()
     {
-        parent::__construct();#dnn_ctr775_ModuleContent h4
+        parent::__construct();
     }
 
     /**
@@ -62,7 +63,7 @@ class ScrapeStudentGuide extends Command
             $scrapedNames = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
             $scrapedItemUrls = $crawlInfo['crawler']->filter($itemUrlCssSelector)->extract($crawlInfo['text']);
 
-            for($i = 2; $i <= 5; $i++) {
+            for($i = 2; $i <= 6; $i++) {
                 $link = $crawlInfo['crawler']->selectLink(strval($i))->link();
                 $crawlInfo['crawler'] = $crawlInfo['client']->click($link);
                 $scrapedNames =
@@ -74,17 +75,28 @@ class ScrapeStudentGuide extends Command
             $bar = $this->output->createProgressBar(count($scrapedNames));
 
             for($i = 0; $i < count($scrapedNames); $i++) {
-                $scrapedStudentGuideItem = new StudentGuideItem;
-                $scrapedStudentGuideItem->name = trim($scrapedNames[$i]);
-                $scrapedStudentGuideItem->item_url = trim($scrapedItemUrls[$i]);
-                $scrapedStudentGuideItem->category = $categories[$categoriesIndex];
+                if(trim($scrapedItemUrls[$i]) != '') {
+                    StudentGuideItem::where('name', trim($scrapedNames[$i]))->delete();
 
-                $scrapedStudentGuideItem->save();
+                    $scrapedStudentGuideItem = new StudentGuideItem;
+                    $scrapedStudentGuideItem->name = trim($scrapedNames[$i]);
+                    $scrapedStudentGuideItem->item_url = $this->addHttp(trim($scrapedItemUrls[$i]));
+                    $scrapedStudentGuideItem->category = $categories[$categoriesIndex];
 
-                $bar->advance();
+                    $scrapedStudentGuideItem->save();
+
+                    $bar->advance();
+                }
             }
         }
 
         $bar->finish();
+    }
+
+    function addHttp($url) {
+        if(!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+            $url = "http://" . $url;
+        }
+        return $url;
     }
 }

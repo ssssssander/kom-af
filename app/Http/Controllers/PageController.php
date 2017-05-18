@@ -67,7 +67,7 @@ class PageController extends Controller {
 	}
 
 	public function studentengids() {
-        $studentGuideItems = StudentGuideItem::all();
+        $studentGuideItems = StudentGuideItem::paginate(12);
 
 		return view('studentengids', compact('studentGuideItems'));
 	}
@@ -80,6 +80,7 @@ class PageController extends Controller {
             $articleResults = Article::search($query)->get();
             $courseResults = Course::search($query)->get();
             $schoolResults = School::search($query)->get();
+            $studentGuideResults = StudentGuideItem::search($query)->get();
 
             // $results = $articleResults->merge($courseResults);
             // $results = $results->forPage($_GET['page'], 6);
@@ -89,7 +90,8 @@ class PageController extends Controller {
                     'query' => $query,
                     'articleResults' => $articleResults,
                     'courseResults' => $courseResults,
-                    'schoolResults' => $schoolResults
+                    'schoolResults' => $schoolResults,
+                    'studentGuideResults' => $studentGuideResults
                 ]);
         }
         else {

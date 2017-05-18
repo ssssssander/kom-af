@@ -18,5 +18,6 @@
                 </a>
             </li>
         @endforeach
+        {{ $studentGuideItems->links() }}
 	</ul>
 @endsection

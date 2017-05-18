@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-@section('heroImage', $school->image_url)
 @section('title', $school->name)
 
 @section('content')
