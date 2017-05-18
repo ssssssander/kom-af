@@ -8,6 +8,7 @@ use App\School;
 use App\Course;
 use App\Testimonial;
 use App\StudentGuideItem;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -66,10 +67,35 @@ class PageController extends Controller {
 		return view('artikel', compact('article'));
 	}
 
-	public function studentengids() {
-        $studentGuideItems = StudentGuideItem::paginate(12);
+	public function studentengids(Request $request) {
+        $categories = ['drinken', 'eten', 'ontspanning'];
+        $selectedCategories = [];
+        $studentGuideItems = [];
 
-		return view('studentengids', compact('studentGuideItems'));
+        foreach($categories as $category) {
+            array_push($selectedCategories, $request->input($category));
+        }
+
+        for($i = 0; $i < count($selectedCategories); $i++) {
+            if(!array_filter($selectedCategories)) {
+                $studentGuideItems = StudentGuideItem::all();
+            }
+            elseif(isset($selectedCategories[$i])) {
+                if(Cache::has('firstLoop')) {
+                    $studentGuideItems = $studentGuideItems->merge(StudentGuideItem::where('category', $categories[$i])->get());
+                }
+                else {
+                    $studentGuideItems = StudentGuideItem::where('category', $categories[$i])->get();
+                    Cache::put('firstLoop', true, 1000);
+                }
+            }
+        }
+
+        Cache::flush();
+
+        $studentGuideItems = $studentGuideItems->sortBy('name');
+
+		return view('studentengids', ['studentGuideItems' => $studentGuideItems, 'selectedCategories' => $selectedCategories]);
 	}
 
 	public function zoeken(Request $request) {
