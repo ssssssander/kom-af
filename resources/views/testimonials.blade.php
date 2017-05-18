@@ -9,7 +9,7 @@
                         <iframe src="{{ $testimonial->video_url }}" frameborder="0" allowfullscreen></iframe>
                     @endif
                     @if($testimonial->image_url != '')
-                        <img src="{{ asset('img/testimonial_images/' . $testimonial->image_url) }}" alt="{{ $testimonial->title }}">
+                        <img src="{{ asset('img/' . $testimonial->image_url) }}" alt="{{ $testimonial->title }}">
                     @endif
                     <h5>{{ $testimonial->title }}</h5>
                 </a>

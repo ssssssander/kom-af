@@ -1,38 +1,38 @@
 @extends('layouts.app')
 
+@section('heroImage', $school->image_url)
 @section('title', $school->name)
 
 @section('content')
     <style>
         .school + .school ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    list-style: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            list-style: none;
         }
 
         .school + .school a, .active span, .disabled span {
             background-color: #e5e5e6;
-    width: 25%;
-    text-align: center;
-    padding: 15px;
-    margin: 20px;
-    cursor: pointer;
-    display: inherit;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: inherit;
-    -ms-flex-pack: inherit;
-    justify-content: inherit;
-    overflow: auto;
-    color: black;
-    text-decoration: none;
+            width: 25%;
+            text-align: center;
+            padding: 15px;
+            margin: 20px;
+            display: inherit;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: inherit;
+            -ms-flex-pack: inherit;
+            justify-content: inherit;
+            overflow: auto;
+            color: #000000;
+            text-decoration: none;
         }
         .school + .school a:hover {
             background-image: url('/img/hover_gray.png');

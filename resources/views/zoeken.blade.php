@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'zoeken naar "' . $query . '"')
+@section('title', 'Zoeken naar "' . $query . '"')
 
 @section('content')
 	<ul>
@@ -15,7 +15,7 @@
                         </a>
                     @else
                         <a href="{{ route('artikel', ['article' => $articleResult->id]) }}">
-                            <img src="{{ asset('img/article_images/' . $articleResult->image_url) }}" alt="{{ $articleResult->title }}">
+                            <img src="{{ asset('img/' . $articleResult->image_url) }}" alt="{{ $articleResult->title }}">
                             <p>{{ $articleResult->title }}</p>
                             <p>Door {{ $articleResult->user->first_name . ' ' . $articleResult->user->last_name }}</p>
                         </a>
@@ -28,7 +28,7 @@
             @foreach($courseResults as $courseResult)
                 <li>
                     <a href="{{ $courseResult->course_url }}">
-                        <img src="{{ asset('img/school_images/' . $courseResult->school->image_url) }}" alt="{{ $courseResult->school->name }}">
+                        <img src="{{ asset('img/' . $courseResult->school->image_url) }}" alt="{{ $courseResult->school->name }}">
                         <p>{{ $courseResult->name }}</p>
                     </a>
                 </li>
@@ -39,11 +39,14 @@
             @foreach($schoolResults as $schoolResult)
                 <li>
                     <a href="{{ $schoolResult->school_url }}">
-                        <img src="{{ asset('img/school_images/' . $schoolResult->image_url) }}" alt="{{ $schoolResult->name }}">
+                        <img src="{{ asset('img/' . $schoolResult->image_url) }}" alt="{{ $schoolResult->name }}">
                         <p>{{ $schoolResult->name }}</p>
                     </a>
                 </li>
             @endforeach
+        @endif
+        @if($articleResults->isEmpty() && $courseResults->isEmpty() && $schoolResults->isEmpty())
+            <h2>Niets gevonden!</h2>
         @endif
         {{--
             @if($results)
@@ -57,7 +60,7 @@
                                 </a>
                             @else
                                 <a href="{{ route('artikel', ['article' => $result['id']]) }}">
-                                    <img src="{{ asset('img/article_images/' . $result['image_url']) }}" alt="{{ $result['title'] }}">
+                                    <img src="{{ asset('img/' . $result['image_url']) }}" alt="{{ $result['title'] }}">
                                     <p>{{ $result['title'] }}</p>
                                     <p>Door {{ $result['user_id'] . ' ' . $result['user_id'] }}</p>
                                 </a>
@@ -66,7 +69,7 @@
                     @elseif(isset($result['name']))
                         <li>
                             <a href="{{ $result['course_url'] }}">
-                                <img src="{{ asset('img/school_images/' . $result['school_id']) }}" alt="{{ $result['school_id'] }}">
+                                <img src="{{ asset('img/' . $result['school_id']) }}" alt="{{ $result['school_id'] }}">
                                 <p>{{ $result['name'] }}</p>
                             </a>
                         </li>

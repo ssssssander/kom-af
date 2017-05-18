@@ -9,7 +9,6 @@ use App\Course;
 use App\FreeTime;
 use App\Testimonial;
 use App\HeroImage;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,8 +20,6 @@ class PageController extends Controller {
      * @return void
      */
     public function __construct() {
-        $heroImages = HeroImage::all();
-        view()->share('heroImages', $heroImages);
         // $this->middleware('auth');
     }
 
@@ -70,10 +67,10 @@ class PageController extends Controller {
 		return view('artikel', compact('article'));
 	}
 
-	public function gids() {
+	public function studentengids() {
         $free_time_items = FreeTime::all();
 
-		return view('gids', compact('free_time_items'));
+		return view('studentengids', compact('free_time_items'));
 	}
 
 	public function zoeken(Request $request) {
@@ -88,7 +85,7 @@ class PageController extends Controller {
             // $results = $articleResults->merge($courseResults);
             // $results = $results->forPage($_GET['page'], 6);
 
-            return view('zoek',
+            return view('zoeken',
                 [
                     'query' => $query,
                     'articleResults' => $articleResults,

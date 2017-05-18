@@ -26,7 +26,7 @@ class TestimonialsTableSeeder extends Seeder
                 'title' => 'Straf Antwerps project: ratten trainen om levens te redden',
                 'content' => 'Content',
                 'video_url' => '',
-                'image_url' => 'rat.jpeg'
+                'image_url' => 'testimonial_images/rat.jpeg'
             ],
             [
                 'student_name' => 'Een student_name',
@@ -42,7 +42,7 @@ class TestimonialsTableSeeder extends Seeder
                 'title' => 'Julie Vrijens: van artdirector tot ontwerpster van een Oscarjurk',
                 'content' => 'Content',
                 'video_url' => '',
-                'image_url' => 'julie.jpg'
+                'image_url' => 'testimonial_images/julie.jpg'
             ],
         ]);
     }

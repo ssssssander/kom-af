@@ -46,6 +46,12 @@ class ScrapeCourses extends Command
         $possibleSchools = array('kdg', 'ua', 'tm', 'ap');
         $amountOfSchoolsArray = range(1, $amountOfSchools);
 
+        $scrapedCourseIds = Course::select('id')->get();
+
+        if(!$scrapedCourseIds->isEmpty()) {
+            Course::truncate();
+        }
+
         if(empty($schools) || in_array('all', $schools)) {
             for($i = 1; $i <= $amountOfSchools; $i++) {
                 $this->scrapeCourse($i);
@@ -61,7 +67,7 @@ class ScrapeCourses extends Command
     }
 
     public function scrapeCourse($schoolId) {
-        $loadingText = "\r\n\r\n" . 'Scraping ' . School::find($schoolId)->name . '...';
+        $loadingText = "\r\n\r\n" . 'Scraping ' . School::find($schoolId)->name . '...' . "\r\n";;
         $this->info($loadingText);
         $schoolIdIndex = $schoolId - 1;
 
@@ -107,7 +113,6 @@ class ScrapeCourses extends Command
         }
 
         $bar = $this->output->createProgressBar(count($scrapedNames));
-        // $scrapedCourseIds = Course::select('id')->get();
 
         for($i = 0; $i < count($scrapedNames); $i++) {
             if($schoolId == 1) {
@@ -139,7 +144,6 @@ class ScrapeCourses extends Command
             // $scrapedCourse->description = $scrapedDescriptions[$i];
             $scrapedCourse->course_url = $scrapedCourseUrls[$i];
             $scrapedCourse->save();
-            Course::find($scrapedCourse->id)->delete();
 
             $bar->advance();
         }
