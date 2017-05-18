@@ -127,7 +127,7 @@ class ScrapeCourses extends Command
                 $scrapedCourseUrls[$i] = 'http://www.thomasmore.be/ons-aanbod/' . $urlFromName;
             }
             elseif($schoolId == 4) {
-                if(strpos($scrapedCourseUrls[$i], 'ap.be') === false) {
+                if(!contains('ap.be', $scrapedCourseUrls[$i]))  {
                     $scrapedCourseUrls[$i] = 'https://www.ap.be' . $scrapedCourseUrls[$i];
                 }
             }
@@ -135,7 +135,7 @@ class ScrapeCourses extends Command
                 $scrapedCourseUrls[$i] = 'https://www.hzs.be' . $scrapedCourseUrls[$i];
             }
             elseif($schoolId == 6) {
-                if(strpos($scrapedCourseUrls[$i], 'itg.be') === false && strpos($scrapedCourseUrls[$i], 'ecte.org') === false) {
+                if(!contains('itg.be', $scrapedCourseUrls[$i]) && !contains('ecte.org', $scrapedCourseUrls[$i])) {
                     $scrapedCourseUrls[$i] = 'https://edu.itg.be' . $scrapedCourseUrls[$i];
                 }
             }
@@ -151,5 +151,9 @@ class ScrapeCourses extends Command
         }
 
         $bar->finish();
+    }
+
+    function contains($needle, $haystack) {
+        return strpos($haystack, $needle) !== false;
     }
 }
