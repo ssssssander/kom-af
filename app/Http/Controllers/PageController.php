@@ -11,6 +11,7 @@ use App\StudentGuideItem;
 use App\Helpers\CollectionPaginate;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller {
@@ -30,8 +31,8 @@ class PageController extends Controller {
      * @return \Illuminate\Http\Response
      */
 	public function algemeen() {
-		$news = DB::table('articles')->orderby('created_at','desc')->first();
-		return view('algemeen',compact('news'));
+		$news = DB::table('articles')->orderby('created_at', 'desc')->first();
+		return view('algemeen', compact('news'));
     }
 
 	public function testimonials() {
@@ -51,7 +52,7 @@ class PageController extends Controller {
 	public function school(School $school) {
         $courses = Course::where('school_id', $school->id)->paginate(12);
 
-		return view('school', ['school' => $school, 'courses' => $courses]);
+		return view('school', compact('school', 'courses'));
 	}
 
 	public function nieuws() {
@@ -93,7 +94,7 @@ class PageController extends Controller {
         $studentGuideItems = $studentGuideItems->sortBy('name');
         $studentGuideItems = CollectionPaginate::paginate($studentGuideItems, 12, $request);
 
-		return view('studentengids', ['studentGuideItems' => $studentGuideItems, 'selectedCategories' => $selectedCategories]);
+		return view('studentengids', compact('studentGuideItems', 'selectedCategories'));
 	}
 
 	public function zoeken(Request $request) {
@@ -105,16 +106,10 @@ class PageController extends Controller {
             $courseResults = Course::search($query)->get();
             $studentGuideResults = StudentGuideItem::search($query)->get();
 
-            // $results = $articleResults->merge($courseResults);
-            // $results = $results->forPage($_GET['page'], 6);
+            $searchResults = $articleResults->merge($courseResults)->merge($studentGuideResults);
+            $searchResults = CollectionPaginate::paginate($searchResults, 12, $request);
 
-            return view('zoeken',
-                [
-                    'query' => $query,
-                    'articleResults' => $articleResults,
-                    'courseResults' => $courseResults,
-                    'studentGuideResults' => $studentGuideResults
-                ]);
+            return view('zoeken', compact('query', 'searchResults', 'articleResults', 'courseResults', 'studentGuideResults'));
         }
         else {
             return back();
