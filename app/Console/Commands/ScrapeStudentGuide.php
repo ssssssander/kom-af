@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Helpers\CrawlInfo;
 use App\StudentGuideItem;
-use DB;
 use Illuminate\Console\Command;
 
 class ScrapeStudentGuide extends Command

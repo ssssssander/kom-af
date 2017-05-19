@@ -8,6 +8,7 @@ use App\School;
 use App\Course;
 use App\Testimonial;
 use App\StudentGuideItem;
+use App\Helpers\CollectionPaginate;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -94,6 +95,7 @@ class PageController extends Controller {
         Cache::flush();
 
         $studentGuideItems = $studentGuideItems->sortBy('name');
+        $studentGuideItems = CollectionPaginate::paginate($studentGuideItems, 12, $request);
 
 		return view('studentengids', ['studentGuideItems' => $studentGuideItems, 'selectedCategories' => $selectedCategories]);
 	}

@@ -26,7 +26,7 @@
                 </a>
             </li>
         @endforeach
-
+        {{ $studentGuideItems->links() }}
 	</ul>
     <script>
         let categories = document.getElementsByClassName('category');
