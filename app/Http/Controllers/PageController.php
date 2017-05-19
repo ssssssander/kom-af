@@ -54,10 +54,6 @@ class PageController extends Controller {
 		return view('school', ['school' => $school, 'courses' => $courses]);
 	}
 
-    // public function opleiding(Course $course) {
-    //     return view('opleiding', compact('course'));
-    // }
-
 	public function nieuws() {
         $articles = Article::paginate(6);
 
@@ -107,7 +103,6 @@ class PageController extends Controller {
         if($request->has('zoek')) {
             $articleResults = Article::search($query)->get();
             $courseResults = Course::search($query)->get();
-            $schoolResults = School::search($query)->get();
             $studentGuideResults = StudentGuideItem::search($query)->get();
 
             // $results = $articleResults->merge($courseResults);
@@ -118,7 +113,6 @@ class PageController extends Controller {
                     'query' => $query,
                     'articleResults' => $articleResults,
                     'courseResults' => $courseResults,
-                    'schoolResults' => $schoolResults,
                     'studentGuideResults' => $studentGuideResults
                 ]);
         }
@@ -126,25 +120,4 @@ class PageController extends Controller {
             return back();
         }
 	}
-
-    // public function getFullUris($crawlInfo, $scrapedNamesCount, $schoolId) {
-    //     $scrapedCourseUrls = array();
-
-    //     for($i = 1; $i <= $scrapedNamesCount; $i++) {
-    //         if($schoolId == 1) {
-    //             array_push(
-    //                 $scrapedCourseUrls,
-    //                 $crawlInfo['crawler']->filter("article:nth-of-type($i) > header > h4 > a")->link()->getUri()
-    //             );
-    //     }
-    //         elseif($schoolId == 2) {
-    //             array_push(
-    //                 $scrapedCourseUrls,
-    //                 $crawlInfo['crawler']->filter("h2:nth-of-type($i) > a")->link()->getUri()
-    //             );
-    //         }
-    //     }
-
-    //     return $scrapedCourseUrls;
-    // }
 }

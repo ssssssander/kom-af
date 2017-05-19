@@ -34,17 +34,6 @@
                 </li>
             @endforeach
         @endif
-        @if(!$schoolResults->isEmpty())
-            <h2>Scholen</h2>
-            @foreach($schoolResults as $schoolResult)
-                <li>
-                    <a href="{{ $schoolResult->school_url }}">
-                        <img src="{{ asset('img/' . $schoolResult->image_url) }}" alt="{{ $schoolResult->name }}">
-                        <p>{{ $schoolResult->name }}</p>
-                    </a>
-                </li>
-            @endforeach
-        @endif
         @if(!$studentGuideResults->isEmpty())
             <h2>Studentengids</h2>
             @foreach($studentGuideResults as $studentGuideResult)
@@ -55,7 +44,7 @@
                 </li>
             @endforeach
         @endif
-        @if($articleResults->isEmpty() && $courseResults->isEmpty() && $schoolResults->isEmpty() && $studentGuideResults->isEmpty())
+        @if($articleResults->isEmpty() && $courseResults->isEmpty() && $studentGuideResults->isEmpty())
             <h2>Niets gevonden!</h2>
         @endif
         {{--
