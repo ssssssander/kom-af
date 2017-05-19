@@ -23,6 +23,7 @@
                 <a href="{{ $studentGuideItem->item_url }}">
                     <h5>{{ $studentGuideItem->name }}</h5>
                     <h5>{{ $studentGuideItem->category }}</h5>
+                    <p>{{ $studentGuideItem->description }}</p>
                 </a>
             </li>
         @endforeach
