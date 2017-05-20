@@ -4,78 +4,19 @@
 
 @section('content')
 	<ul>
-        @if(!$articleResults->isEmpty())
-            <h2>Nieuws</h2>
-            @foreach($articleResults as $articleResult)
+        @if(!$searchResults->isEmpty())
+            @foreach($searchResults as $searchResult)
                 <li>
-                    @if($articleResult->user_id == null)
-                        <a href="{{ $articleResult->article_url }}">
-                            <img src="{{ $articleResult->image_url }}" alt="{{ $articleResult->title }}">
-                            <p>{{ $articleResult->title }}</p>
-                        </a>
+                    @if(isset($searchResult->name))
+                        <p>{{ $searchResult->name }}</p>
                     @else
-                        <a href="{{ route('artikel', ['article' => $articleResult->id]) }}">
-                            <img src="{{ asset('img/' . $articleResult->image_url) }}" alt="{{ $articleResult->title }}">
-                            <p>{{ $articleResult->title }}</p>
-                            <p>Door {{ $articleResult->user->first_name . ' ' . $articleResult->user->last_name }}</p>
-                        </a>
+                        <p>{{ $searchResult->title }}</p>
                     @endif
                 </li>
             @endforeach
-        @endif
-        @if(!$courseResults->isEmpty())
-            <h2>Opleidingen</h2>
-            @foreach($courseResults as $courseResult)
-                <li>
-                    <a href="{{ $courseResult->course_url }}">
-                        <img src="{{ asset('img/' . $courseResult->school->image_url) }}" alt="{{ $courseResult->school->name }}">
-                        <p>{{ $courseResult->name }}</p>
-                    </a>
-                </li>
-            @endforeach
-        @endif
-        @if(!$schoolResults->isEmpty())
-            <h2>Scholen</h2>
-            @foreach($schoolResults as $schoolResult)
-                <li>
-                    <a href="{{ $schoolResult->school_url }}">
-                        <img src="{{ asset('img/' . $schoolResult->image_url) }}" alt="{{ $schoolResult->name }}">
-                        <p>{{ $schoolResult->name }}</p>
-                    </a>
-                </li>
-            @endforeach
-        @endif
-        @if($articleResults->isEmpty() && $courseResults->isEmpty() && $schoolResults->isEmpty())
+        @else
             <h2>Niets gevonden!</h2>
         @endif
-        {{--
-            @if($results)
-                @foreach($results as $result)
-                    @if(isset($result['title']))
-                        <li>
-                            @if($result['user_id'] == '')
-                                <a href="{{ $result['article_url'] }}">
-                                    <img src="{{ $result['image_url'] }}" alt="{{ $result['title'] }}">
-                                    <p>{{ $result['title'] }}</p>
-                                </a>
-                            @else
-                                <a href="{{ route('artikel', ['article' => $result['id']]) }}">
-                                    <img src="{{ asset('img/' . $result['image_url']) }}" alt="{{ $result['title'] }}">
-                                    <p>{{ $result['title'] }}</p>
-                                    <p>Door {{ $result['user_id'] . ' ' . $result['user_id'] }}</p>
-                                </a>
-                            @endif
-                        </li>
-                    @elseif(isset($result['name']))
-                        <li>
-                            <a href="{{ $result['course_url'] }}">
-                                <img src="{{ asset('img/' . $result['school_id']) }}" alt="{{ $result['school_id'] }}">
-                                <p>{{ $result['name'] }}</p>
-                            </a>
-                        </li>
-                    @endif
-                @endforeach
-            @endif
-        --}}
 	</ul>
+    {{ $searchResults->links() }}
 @endsection

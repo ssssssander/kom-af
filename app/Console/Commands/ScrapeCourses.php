@@ -140,6 +140,8 @@ class ScrapeCourses extends Command
                 }
             }
 
+            Course::where('name', $scrapedNames[$i])->delete();
+
             $scrapedCourse = new Course;
             $scrapedCourse->school_id = $schoolId;
             $scrapedCourse->name = $scrapedNames[$i];

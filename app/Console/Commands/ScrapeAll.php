@@ -18,7 +18,7 @@ class ScrapeAll extends Command
      *
      * @var string
      */
-    protected $description = 'Runs scrape:articles and scrape:courses';
+    protected $description = 'Runs scrape:articles, scrape:courses and scrape:studentguide';
 
     /**
      * Create a new command instance.

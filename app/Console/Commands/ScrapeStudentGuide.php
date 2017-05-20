@@ -20,7 +20,7 @@ class ScrapeStudentGuide extends Command
      *
      * @var string
      */
-    protected $description = 'Scrapes data from the Guido student guide and inserts them in the database';
+    protected $description = 'Scrapes items from the Guido student guide and inserts them in the database';
 
     /**
      * Create a new command instance.
@@ -29,7 +29,7 @@ class ScrapeStudentGuide extends Command
      */
     public function __construct()
     {
-        parent::__construct();#dnn_ctr775_ModuleContent h4
+        parent::__construct();
     }
 
     /**
@@ -57,31 +57,40 @@ class ScrapeStudentGuide extends Command
             $this->info($loadingText);
 
             $nameCssSelector = '#dnn_ctr775_ModuleContent h4';
+            $descriptionCssSelector = '.spacetop .large-12';
             $itemUrlCssSelector = '.gginfo .underline';
 
             $scrapedNames = $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']);
-            $scrapedItemUrls = $crawlInfo['crawler']->filter($itemUrlCssSelector)->extract($crawlInfo['text']);
+            $scrapedDescriptions = $crawlInfo['crawler']->filter($descriptionCssSelector)->extract($crawlInfo['text']);
+            $scrapedItemUrls = $crawlInfo['crawler']->filter($itemUrlCssSelector)->extract($crawlInfo['href']);
 
-            for($i = 2; $i <= 5; $i++) {
-                $link = $crawlInfo['crawler']->selectLink(strval($i))->link();
+            for($i = 2; $i <= 6; $i++) {
+                $link = $crawlInfo['crawler']->selectLink($i)->link();
                 $crawlInfo['crawler'] = $crawlInfo['client']->click($link);
                 $scrapedNames =
                     array_merge($scrapedNames, $crawlInfo['crawler']->filter($nameCssSelector)->extract($crawlInfo['text']));
+                $scrapedDescriptions =
+                    array_merge($scrapedDescriptions, $crawlInfo['crawler']->filter($descriptionCssSelector)->extract($crawlInfo['text']));
                 $scrapedItemUrls =
-                    array_merge($scrapedItemUrls, $crawlInfo['crawler']->filter($itemUrlCssSelector)->extract($crawlInfo['text']));
+                    array_merge($scrapedItemUrls, $crawlInfo['crawler']->filter($itemUrlCssSelector)->extract($crawlInfo['href']));
             }
 
             $bar = $this->output->createProgressBar(count($scrapedNames));
 
             for($i = 0; $i < count($scrapedNames); $i++) {
-                $scrapedStudentGuideItem = new StudentGuideItem;
-                $scrapedStudentGuideItem->name = trim($scrapedNames[$i]);
-                $scrapedStudentGuideItem->item_url = trim($scrapedItemUrls[$i]);
-                $scrapedStudentGuideItem->category = $categories[$categoriesIndex];
+                if($scrapedItemUrls[$i] != 'http://') {
+                    StudentGuideItem::where('name', trim($scrapedNames[$i]))->delete();
 
-                $scrapedStudentGuideItem->save();
+                    $scrapedStudentGuideItem = new StudentGuideItem;
+                    $scrapedStudentGuideItem->name = trim($scrapedNames[$i]);
+                    $scrapedStudentGuideItem->description = trim($scrapedDescriptions[$i]);
+                    $scrapedStudentGuideItem->item_url = $scrapedItemUrls[$i];
+                    $scrapedStudentGuideItem->category = $categories[$categoriesIndex];
 
-                $bar->advance();
+                    $scrapedStudentGuideItem->save();
+
+                    $bar->advance();
+                }
             }
         }
 

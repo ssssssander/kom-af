@@ -17,7 +17,6 @@ Route::get('/', 'PageController@algemeen')->name('algemeen');
 
 Route::get('/scholen', 'PageController@scholen')->name('scholen');
 Route::get('/school/{school}', 'PageController@school')->name('school');
-Route::get('/opleiding/{course}', 'PageController@opleiding')->name('opleiding');
 
 Route::get('/testimonials', 'PageController@testimonials')->name('testimonials');
 Route::get('/testimonial/{testimonial}', 'PageController@testimonial')->name('testimonial');
