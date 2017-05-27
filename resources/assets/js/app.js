@@ -1,85 +1,106 @@
+var menuBackground = document.querySelector("nav ul");
+var inner = menuBackground.innerHTML;
+menuBackground.innerHTML = generateMenuSVG() + inner;
 
-var accentItems = document.querySelectorAll("main.nieuws article a,main.scholen a,main.vrije_tijd ul li a,main.testimonials ul li a,main.zoeken ul li a");
+function generateMenuSVG(){
+	return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3200 80">' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M80 0v80h-80"></path>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M80 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M240 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M240 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M400 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M400 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M560 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M560 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M720 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M720 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M880 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M880 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1040 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1040 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1200 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1200 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1360 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1360 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1520 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1520 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1680 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1680 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1840 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1840 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2000 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2000 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2160 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2160 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2320 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2320 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2480 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2480 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2640 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2640 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2800 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2800 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2960 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2960 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M3120 0v80h-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M3120 0h80v80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M160 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M160 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M320 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M320 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M480 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M480 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M640 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M640 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M800 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M800 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M960 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M960 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1120 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1120 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1280 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1280 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1440 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1440 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1600 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1600 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1760 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1760 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1920 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M1920 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2080 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2080 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2240 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2240 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2400 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2400 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2560 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2560 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2720 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2720 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2880 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M2880 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M3040 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M3040 80v-80h80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M3200 80h-80v-80"/>' +
+		'<path fill="rgb('+ getGrayColor() +')" d="M0 80v-80h80"/>' +
+		'</svg>';
+}
+
+function getGrayColor(){
+	var grijstint;
+	var max = 150;
+	var min = 100;
+	grijstint = Math.floor((Math.random()*(max-min+1))+ min); // 100 tot 150
+	return grijstint+","+grijstint+","+grijstint;
+}
+
+
+// search
 var searchForm = document.querySelector("header nav ul li form");
 var searchButton = document.querySelector("header nav ul li form input[type=image]");
-var noAccent = true;
 var first = true;
-
-if(document.getElementsByClassName("active").length > 0){
-    var activeItem = document.getElementsByClassName("active")[0];
-    activeItem.innerHTML += generateSVGLine();
-}
-for(var i = 0, ilen = accentItems.length;i<ilen;++i){
-    if(randomYesOrNo()){
-        accentItems[i].className = "accent";
-        accentItems[i].innerHTML += generateSVGAccent();
-        noAccent = false;
-    }
-}
-if(noAccent && accentItems.length > 0){
-    var randomPlace = Math.floor(Math.random()*accentItems.length);
-    accentItems[randomPlace].className = "accent";
-    accentItems[randomPlace].innerHTML += generateSVGAccent();
-    noAccent = false;
-}
-
 searchButton.addEventListener("click", showSearch);
-
-function randomYesOrNo(){
-    return Math.floor(Math.random()*2) === 1;
-}
-
-function generateSVGAccent(){
-    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M0 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M24 48H0V24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M24 48V24h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M0 24h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M24 0v24H0"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M0 72V48h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M48 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M72 0v24H48"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M24 0h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M48 24H24V0"/>' +
-        '</svg>';
-}
-
-function generateSVGLine(){
-    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 24">' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M0 0h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M24 0h24v24H24zm0 24H0V0"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M48 0v24H24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M72 24H48V0"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M96 24H72V0M48 0h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M72 0h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M96 24h24V0"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M144 24h-24V0M96 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M120 0h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M168 0v24h-24"/>' +
-        '<path fill="#fff" d="M192 0v24h-24"/>' +
-        '<path fill="#fff" d="M216 24h-24V0"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M216 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M264 24h-24V0"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M264 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M288 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M144 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M168 24V0h24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M192 0h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M240 0v24h-24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M240 0h24v24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M288 0v24h-24"/>' +
-        '<path fill="rgb('+ getBlueColor().r +','+ getBlueColor().g +','+ getBlueColor().b +')" d="M312 0v24h-24"/>' +
-        '</svg>';
-}
-
-function getBlueColor(){
-    var red,green,blue=255;
-    red = Math.floor(Math.random()*16); // 0 tot 15
-    green = Math.floor((Math.random()*91) + 120); // 120 tot 210
-    red= 31;green = 151;blue = 211;
-    return {r:red,g:green,b:blue} // 255
-}
-
 function showSearch(e){
     if(first){
         e.preventDefault();

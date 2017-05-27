@@ -24,16 +24,16 @@ h6{font-size: 1.2em;}
 p{font-size: 1em;}
 small,time{font-size: 0.833em;}
 
-.accent{
-	position: relative;
-	svg{
-		display: none;
-		position: absolute;
-		width: 15%;
-		top: 0;
-		left: 0;
-	}
-}
+//.accent{
+//	position: relative;
+//	svg{
+//		display: none;
+//		position: absolute;
+//		width: 15%;
+//		top: 0;
+//		left: 0;
+//	}
+//}
 
 header{
 	position: relative;
@@ -60,6 +60,7 @@ header{
 		}
 		a{
 			display: block;
+			z-index: 1;
 			img{
 				height: 5rem;
 				display: block;
@@ -75,17 +76,32 @@ header{
 			list-style: none;
 			justify-content: space-around;
 			position: relative;
+
+			svg{
+				position: absolute;
+				height: 100%;
+			}
+
 			li:first-child a p{
 				padding-left: 20px;
 			}
 			li{
 				display: flex;
+				flex:1;
 				a{
 					position: relative;
 					text-decoration: none;
 					color: $primary-blue;
 					width: 100%;
 					padding:0 10px 0 0;
+					background: white;
+					&.active{
+						background: $algemeen-background;
+						color: white;
+						&:hover{
+							color: rgba(255,255,255,$opacity);
+						}
+					}
 					p{
 						font-family: "Antwerpen", Arial, sans-serif;
 						font-size: 1.44em;
@@ -107,13 +123,12 @@ header{
 							max-width: 100%;
 						}
 					}
-					&:hover{
-						opacity: .6;
-					}
 				}
 				form{
 					width: 100%;
+					z-index: 1;
 					display: flex;
+					background: white;
 					input[type=text]{
 						width: 90%;
 						width: calc(100% - ( 100px + 3rem ) );
