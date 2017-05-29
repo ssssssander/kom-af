@@ -20,7 +20,7 @@
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
-		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/logos/logo.svg') }}" alt="Antwerpen"></a>
+		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/logo.svg') }}" alt="Antwerpen"></a>
 		<ul>
 			<li>
                 <a href="{{ route('algemeen') }}" class="{{ Route::is('algemeen') ? 'active' : null }}">
