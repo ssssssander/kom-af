@@ -24,16 +24,139 @@ h6{font-size: 1.2em;}
 p{font-size: 1em;}
 small,time{font-size: 0.833em;}
 
-//.accent{
-//	position: relative;
-//	svg{
-//		display: none;
-//		position: absolute;
-//		width: 15%;
-//		top: 0;
-//		left: 0;
-//	}
-//}
+// colors menu
+
+header{
+	&.algemeen{
+		&>a{
+			background: $algemeen-color;
+			color: white;
+		}
+		nav{
+			&>a{
+				background: $algemeen-color;
+			}
+			a{
+				color: $algemeen-color;
+				&.active{
+					background: $algemeen-background;
+					color: white;
+					&:hover{
+						color: rgba(255, 255, 255, $opacity);
+					}
+				}
+			}
+		}
+	}
+	&.testimonials,&.testimonial{
+		&>a{
+			background: $testimonials-color;
+			color: white;
+		}
+		nav{
+			&>a{
+				background: $testimonials-color;
+			}
+			a{
+				color: $testimonials-color;
+				&.active{
+					background: $testimonials-background;
+					color: white;
+					&:hover{
+						color: rgba(255, 255, 255, $opacity);
+					}
+				}
+			}
+		}
+	}
+	&.scholen,&.school{
+		&>a{
+			background: $scholen-color;
+			color: white;
+		}
+		nav{
+			&>a{
+				background: $scholen-color;
+			}
+			a{
+				color: $scholen-color;
+				&.active{
+					background: $scholen-background;
+					color: white;
+					&:hover{
+						color: rgba(255, 255, 255, $opacity);
+					}
+				}
+			}
+		}
+	}
+	&.nieuws,&.artikel{
+		&>a{
+			background: $nieuws-color;
+			color: white;
+		}
+		nav{
+			& > a{
+				background: $nieuws-color;
+			}
+			a{
+				color: $nieuws-color;
+				&.active{
+					background: $nieuws-background;
+					color: white;
+					&:hover{
+						color: rgba(255, 255, 255, $opacity);
+					}
+				}
+			}
+		}
+	}
+	&.studentengids{
+		&>a{
+			background: $studentengids-color;
+			color: white;
+		}
+		nav{
+			& > a{
+				background: $studentengids-color;
+			}
+			a{
+				color: $studentengids-color;
+				&.active{
+					background: $studentengids-background;
+					color: white;
+					&:hover{
+						color: rgba(255, 255, 255, $opacity);
+					}
+				}
+			}
+		}
+	}
+	&.zoeken{
+		& > a{
+			background: $zoeken-color;
+			color: white;
+		}
+		nav{
+			& > a{
+				background: $zoeken-color;
+			}
+			a{
+				color: $zoeken-color;
+				&.active{
+					background: $zoeken-background;
+					color: white;
+					&:hover{
+						color: rgba(255, 255, 255, $opacity);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
 
 header{
 	position: relative;
@@ -80,6 +203,7 @@ header{
 			svg{
 				position: absolute;
 				height: 100%;
+				//z-index: 2;
 			}
 
 			li:first-child a p{
@@ -157,6 +281,11 @@ header{
 		padding: 0 calc(40px + 2%) 10px;
 	}
 }
+
+
+
+
+
 main{
 	display: block;
 	background: white;
