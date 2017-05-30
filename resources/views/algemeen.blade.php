@@ -3,15 +3,13 @@
 @section('vid', $vid = false)
 
 @section('content')
-	<a href="{{ route('testimonial', ['testimonial' => 2]) }}">
-		<section>
+	@if($testimonial)
+		<a href="{{ route('testimonial', ['testimonial' => $testimonial->id]) }}">
+			<img src="{{ asset('img/'.$testimonial->image_url) }}" alt="{{ $testimonial->student_name }}">
 			<h2>Wat studenten vinden van Antwerpen?</h2>
-			<figure>
-				<figcaption>"Antwerpen is de stad die mij leerde terug te genieten."</figcaption>
-				<img src="{{ asset('img/testimonial_images/julie_focus.jpg') }}" alt="julie">
-			</figure>
-		</section>
-	</a>
+			<h3>"{{ $testimonial->quote }}"</h3>
+		</a>
+	@endif
 	<section>
 		<h2>Ondek unieke plekken dankzij onze game "KomAf".</h2>
 		<a href="https://apple.be/benl/">

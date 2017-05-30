@@ -30,20 +30,15 @@ header{
 	&.algemeen{
 		&>a{
 			background: $algemeen-color;
-			color: white;
 		}
 		nav{
-			&>a{
+			& > a{
 				background: $algemeen-color;
 			}
-			a{
+			a,form{
 				color: $algemeen-color;
 				&.active{
 					background: $algemeen-background;
-					color: white;
-					&:hover{
-						color: rgba(255, 255, 255, $opacity);
-					}
 				}
 			}
 		}
@@ -51,20 +46,15 @@ header{
 	&.testimonials,&.testimonial{
 		&>a{
 			background: $testimonials-color;
-			color: white;
 		}
 		nav{
-			&>a{
+			& > a{
 				background: $testimonials-color;
 			}
-			a{
+			a,form{
 				color: $testimonials-color;
 				&.active{
 					background: $testimonials-background;
-					color: white;
-					&:hover{
-						color: rgba(255, 255, 255, $opacity);
-					}
 				}
 			}
 		}
@@ -72,20 +62,15 @@ header{
 	&.scholen,&.school{
 		&>a{
 			background: $scholen-color;
-			color: white;
 		}
 		nav{
-			&>a{
+			& > a{
 				background: $scholen-color;
 			}
-			a{
+			a,form{
 				color: $scholen-color;
 				&.active{
 					background: $scholen-background;
-					color: white;
-					&:hover{
-						color: rgba(255, 255, 255, $opacity);
-					}
 				}
 			}
 		}
@@ -93,20 +78,15 @@ header{
 	&.nieuws,&.artikel{
 		&>a{
 			background: $nieuws-color;
-			color: white;
 		}
 		nav{
 			& > a{
 				background: $nieuws-color;
 			}
-			a{
+			a,form{
 				color: $nieuws-color;
 				&.active{
 					background: $nieuws-background;
-					color: white;
-					&:hover{
-						color: rgba(255, 255, 255, $opacity);
-					}
 				}
 			}
 		}
@@ -114,20 +94,15 @@ header{
 	&.studentengids{
 		&>a{
 			background: $studentengids-color;
-			color: white;
 		}
 		nav{
 			& > a{
 				background: $studentengids-color;
 			}
-			a{
+			a,form{
 				color: $studentengids-color;
 				&.active{
 					background: $studentengids-background;
-					color: white;
-					&:hover{
-						color: rgba(255, 255, 255, $opacity);
-					}
 				}
 			}
 		}
@@ -135,40 +110,33 @@ header{
 	&.zoeken{
 		& > a{
 			background: $zoeken-color;
-			color: white;
 		}
 		nav{
 			& > a{
 				background: $zoeken-color;
 			}
-			a{
+			a,form{
 				color: $zoeken-color;
 				&.active{
 					background: $zoeken-background;
-					color: white;
-					&:hover{
-						color: rgba(255, 255, 255, $opacity);
-					}
 				}
 			}
 		}
 	}
 }
 
-
-
+// general header
 
 header{
 	position: relative;
 	height: 400px;
 	overflow: hidden;
 	display: block;
-	background: lighten($primary-blue,30%);
+	background: gray;
 	&>a{
 		position: absolute;
 		right: 0;
 		color: white;
-		background: $primary-blue;
 		padding: 7px 15px;
 		text-decoration: none;
 	}
@@ -177,10 +145,6 @@ header{
 		width: 100%;
 		display: flex;
 		margin: 30px 0;
-		background: white;
-		&>a{
-			background: #1F97D4;
-		}
 		a{
 			display: block;
 			z-index: 1;
@@ -194,8 +158,8 @@ header{
 		}
 		ul{
 			display: flex;
-			flex: 1;
 			flex-wrap: wrap;
+			flex: 1;
 			list-style: none;
 			justify-content: space-around;
 			position: relative;
@@ -208,23 +172,26 @@ header{
 			li:first-child a p{
 				padding-left: 20px;
 			}
+
 			li{
 				display: flex;
 				flex:1;
+
 				a{
 					position: relative;
 					text-decoration: none;
-					color: $primary-blue;
 					width: 100%;
-					padding:0 10px 0 0;
+					padding:0 10px;
 					background: white;
+
 					&.active{
-						background: $algemeen-background;
 						color: white;
+
 						&:hover{
 							color: rgba(255,255,255,$opacity);
 						}
 					}
+
 					p{
 						font-family: "Antwerpen", Arial, sans-serif;
 						font-size: 1.44em;
@@ -232,26 +199,21 @@ header{
 						padding: $general-padding 0 $general-padding 10px;
 						white-space: nowrap;
 					}
-					svg{
-						display: block;
-						position: absolute;
-						bottom: 0;
-						width: 100%;
-						background: #1F97D3;
-						&:first-child{
-							padding: $general-padding+.2rem 0;
-							background: none;
-							position: static;
-							max-height: 100%;
-							max-width: 100%;
-						}
-					}
 				}
+
 				form{
 					width: 100%;
 					z-index: 1;
 					display: flex;
 					background: white;
+
+					&.active{
+						color: white;
+
+						&:hover{
+							color: rgba(255,255,255,$opacity);
+						}
+					}
 					input[type=text]{
 						width: 90%;
 						width: calc(100% - ( 100px + 3rem ) );
@@ -259,10 +221,19 @@ header{
 						margin: $general-padding 0 $general-padding 20px;
 						padding: 5px 7px;
 					}
-					input[type=image]{
+
+					input[type=image],input[type=submit]{
 						display: block;
-						padding: $general-padding+.2rem $general-padding $general-padding;
 						margin: 0 auto;
+						cursor: pointer;
+						font-family: "Antwerpen", Arial, sans-serif;
+						font-size: 1.44em;
+						text-align: center;
+						padding: $general-padding+-.2rem 0 $general-padding+.1rem 10px;
+						white-space: nowrap;
+						border: none;
+						background: none;
+						color: inherit;
 					}
 				}
 			}
@@ -283,12 +254,46 @@ header{
 
 
 
-
-
 main{
 	display: block;
 	background: white;
 	padding: 40px;
+
+	&.algemeen{
+		&>a{
+			display: block;
+			position: relative;
+
+			img{
+				width: 100%;
+			}
+
+			h2{
+				position: absolute;
+				margin: 2rem;
+				bottom: 0;
+				left: 0;
+
+			}
+			h3{
+				position: absolute;
+				margin: 2rem;
+				bottom: 0;
+				left: 0;
+			}
+
+			svg{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				margin: 2rem;
+			}
+		}
+		section{
+
+		}
+	}
+
 	&.nieuws{
 		display: flex;
 		flex-wrap: wrap;
@@ -379,7 +384,7 @@ main{
 		filter{
 			border-right: 1px solid $border-color;
 			display: block;
-			padding:0 2%;
+			padding: 0 2%;
 			form{
 				h5{
 					display: block;
@@ -416,236 +421,6 @@ main{
 					}
 				}
 
-			}
-		}
-	}
-	&.algemeen{
-		padding: 0;
-		background:url("/img/hover_dark_gray.png") repeat;
-		background-size: 50%;
-		h2{
-			text-align: center;
-			padding-bottom: 2%;
-		}
-		img{
-			max-width: 100%;
-		}
-		&>section{
-			width: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			position: relative;
-			h2{
-				padding: 2%;
-				position: absolute;
-				width: 100%;
-			}
-			img[role=presentation]{
-				display: block;
-				position: absolute;
-				bottom: 0;
-				height: 5vh;
-				max-width: 50%;
-			}
-			&:nth-child(2){
-				h2{
-					padding-top: 4%;
-				}
-				a{
-					padding: 125px 2% 4%;
-					background: rgba(0,255,0,0.8);
-					img{
-						display: block;
-						margin: 0 auto;
-						height: 10vh;
-					}
-					&:hover{
-						background: rgba(0,255,0,0.9);
-					}
-					&:nth-child(2) img[role=presentation]{
-						bottom: -8px;
-						z-index: 1;
-					}
-					&:nth-child(3){
-						img[role=presentation]{
-							right: 0;
-						}
-					}
-				}
-			}
-			&:nth-child(3){
-				a{
-					padding: 100px 2% 4%;
-					background: rgba(255,255,0,0.8);
-					&:hover{
-						background: rgba(255,255,0,0.9);
-					}
-					img{
-						height: 10vh;
-						margin: 0 auto;
-						display: block;
-					}
-					&:nth-child(2){
-						img[role=presentation]{
-							bottom: -5px;
-							left: -400px;
-							width: 100%;
-							height: 100%;
-						}
-					}
-					&:nth-child(3){
-						img[role=presentation]{
-							right: -400px;
-							bottom: -7px;
-							width: 100%;
-							height: 100%;
-						}
-					}
-				}
-			}
-			a{
-				display: block;
-				width: 46%;
-				padding: 2%;
-				background: rgba(0,145,211,0.8);
-				&:hover{
-					background: rgba(0,145,211,0.9);
-				}
-			}
-		}
-		&>a{
-			display: block;
-			text-decoration: none;
-			color: $font-color;
-			background: rgba(0,145,211,0.8);
-			&:first-child{
-				background: rgba(0,145,211,0.8);
-			}
-			&:nth-child(2){
-				background: rgba(0,255,0,0.8);
-			}
-			&:nth-child(3){
-				background: rgba(255,255,0,0.8);
-			}
-			&:nth-child(4){
-				background: rgba(255,165,0,0.8);
-			}
-			&:nth-child(5){
-				background: rgba(148,0,255,0.8);
-			}
-			&:nth-child(6){
-				background: rgba(255,0,0,0.8);
-			}
-
-			&:hover{
-				background: rgba(0,145,211,0.9);
-				&:first-child{
-					background: rgba(0,145,211,0.9);
-				}
-				&:nth-child(2){
-					background: rgba(0,255,0,0.9);
-				}
-				&:nth-child(3){
-					background: rgba(255,255,0,0.9);
-				}
-				&:nth-child(4){
-					background: rgba(255,165,0,0.9);
-				}
-				&:nth-child(5){
-					background: rgba(148,0,255,0.9);
-				}
-				&:nth-child(6){
-					background: rgba(255,0,0,0.9);
-				}
-			}
-			section{
-				width: 96%;
-				padding: 2%;
-				//	background: white;
-				//	text-decoration: none;
-				//	color: $font-color;
-				//	svg,img{
-				//		display: block;
-				//		max-width: 100%;
-				//		max-height: 5vh;
-				//		margin: 0 auto;
-				//	}
-				//	h4{
-				//		text-align: center;
-				//	}
-				//	h5{
-				//		text-align: center;
-				//	}
-				//	&:hover{
-				//		background: opacify(white, 0.2);
-				//	}
-				//}
-
-				//ul{
-				//	list-style: none;
-				//	padding-top: $small-padding;
-				//	li a{
-				//		display: flex;
-				//		padding: $small-padding;
-				//		img{
-				//			max-height: 100%;
-				//			height: 10vh;
-				//			margin: 0;
-				//		}
-				//		time{
-				//			margin: auto 0;
-				//		}
-				//		div{
-				//			display: block;
-				//			min-width: 2.75em;
-				//			text-align: center;
-				//			font-weight: bold;
-				//			color: #fff;
-				//			border-radius: 4px;
-				//			border: 3px solid #000;
-				//			font-size: 0.75rem;
-				//			line-height: 1.6em;
-				//		}
-				//		p{
-				//			margin: auto $small-padding;
-				//		}
-				//		span{
-				//			font-weight: bold;
-				//			color: $font-color-white;
-				//			background: $primary-blue;
-				//			padding: 5px 10px;
-				//			border-radius: 3px;
-				//		}
-				//		&:hover{
-				//			background: url("/img/hover_gray.png") repeat;
-				//			background-size: cover;
-				//			border: 1px solid $border-color;
-				//			padding: calc(1rem - 1px);
-				//
-				//		}
-				//	}
-				//}
-
-				figure{
-					background: white;
-					font-size: 2em;
-					width: 400px;
-					margin: 0 auto;
-					position: relative;
-					padding: 25px 25px 75px;
-					z-index: 1;
-					figcaption{
-
-					}
-					img{
-						position: absolute;
-						bottom: -45px;
-						border-radius: 50%;
-						margin: 0 30%;
-						width: 25%;
-						display: block;
-					}
-				}
 			}
 		}
 	}

@@ -1,7 +1,11 @@
 var menuBackground = document.querySelector("nav ul");
-var inner = menuBackground.innerHTML;
-menuBackground.innerHTML = generateMenuSVG() + inner;
+var innerMenu = menuBackground.innerHTML;
+menuBackground.innerHTML = generateMenuSVG() + innerMenu;
 
+var homeTitles = document.querySelector("main>a");
+if(homeTitles){
+	homeTitles.innerHTML += generateHomeSVG();
+}
 
 
 function generateMenuSVG(){
@@ -89,7 +93,7 @@ function generateMenuSVG(){
 		'</svg>';
 }
 
-function generateTripleSVG(){
+function generateHomeSVG(){
 	return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3200 240">' +
 		'<path fill="rgb('+ getGrayColor() +')" d="M80 0v80h-80"/>' +
 		'<path fill="rgb('+ getGrayColor() +')" d="M80 0h80v80"/>' +
@@ -345,7 +349,7 @@ function getGrayColor(){
 
 // search
 var searchForm = document.querySelector("header nav ul li form");
-var searchButton = document.querySelector("header nav ul li form input[type=image]");
+var searchButton = document.querySelector("header nav ul li form input[type=submit]");
 var first = true;
 searchButton.addEventListener("click", showSearch);
 function showSearch(e){
