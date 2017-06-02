@@ -19,6 +19,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('student_image_url')->nullable();
             $table->string('title');
             $table->longText('content');
+	        $table->string('quote');
             $table->string('video_url')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();

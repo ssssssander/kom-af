@@ -20,37 +20,37 @@
 		<a href="{{ route('login') }}">Login</a>
 	@endif
 	<nav>
-		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/antwerpen_logo.png') }}" alt="Antwerpen"></a>
+		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/logo.svg') }}" alt="Antwerpen"></a>
 		<ul>
 			<li>
-                <a href="{{ route('algemeen') }}" class="{{ Route::is('algemeen') ? 'active' : null }}">
+                <a href="{{ route('algemeen') }}" {{ Route::is('algemeen') ? 'class=active' : null }}>
                     <p>Algemeen</p>
                 </a>
             </li>
 			<li>
-                <a href="{{ route('testimonials') }}" class="{{ Route::is('testimonial*') ? 'active' : null }}">
+                <a href="{{ route('testimonials') }}" {{ Route::is('testimonial*') ? 'class=active' : null }}>
                     <p>Testimonials</p>
                 </a>
             </li>
 			<li>
-                <a href="{{ route('scholen') }}" class="{{ Route::is('scho*') ? 'active' : null }}">
+                <a href="{{ route('scholen') }}" {{ Route::is('scho*') ? 'class=active' : null }}>
                     <p>Scholen</p>
                 </a>
             </li>
 			<li>
-                <a href="{{ route('nieuws') }}" class="{{ (Route::is('nieuws') || Route::is('artikel')) ? 'active' : null }}">
-                    <p>Nieuws</p>
-                </a>
-            </li>
+				<a href="{{ route('nieuws') }}" {{ (Route::is('nieuws') || Route::is('artikel')) ? 'class=active' : null }}>
+					<p>Nieuws</p>
+				</a>
+			</li>
 			<li>
-                <a href="{{ route('studentengids') }}" class="{{ Route::is('studentengids') ? 'active' : null }}">
+                <a href="{{ route('studentengids') }}" {{ Route::is('studentengids') ? 'class=active' : null }}>
                     <p>Studentengids</p>
                 </a>
             </li>
 			<li>
-                <form method="get" action="{{ route('zoeken') }}">
+                <form method="get" action="{{ route('zoeken') }}" {{ Route::is('zoeken') ? 'class=active' : null }}>
                     {{ csrf_field() }}
-                    <input type="image" src="{{ asset('img/zoek.svg') }}">
+                    <input type="submit" value="Zoeken">
                 </form>
             </li>
 		</ul>
