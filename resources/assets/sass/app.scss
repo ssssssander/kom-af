@@ -263,23 +263,36 @@ main{
 		&>a{
 			display: block;
 			position: relative;
+			z-index: 1;
 
 			img{
+				display: block;
 				width: 100%;
 			}
 
-			h2{
+			h2,h3{
 				position: absolute;
 				margin: 2rem;
+				padding: 1rem;
 				bottom: 0;
 				left: 0;
-
+				background: url("/img/algemeen_images/white.png");
+				color: $font-color-white;
+			}
+			h2{
+				background: url("/img/algemeen_images/orange.png");
+				bottom: 4.3rem;
 			}
 			h3{
-				position: absolute;
-				margin: 2rem;
-				bottom: 0;
-				left: 0;
+				font-family: "SunAntwerpen", Arial, sans-serif;
+				font-weight: normal;
+				background-position-y: 12.4rem;
+				color: $font-color;
+				max-height: 70px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: calc(100% - 6rem);
+				white-space: nowrap;
 			}
 
 			svg{
@@ -288,9 +301,122 @@ main{
 				left: 0;
 				margin: 2rem;
 			}
-		}
-		section{
 
+			&.news{
+				h2{
+					background: url("/img/algemeen_images/purple.png");
+					bottom: 4.3rem;
+				}
+			}
+			&.kot{
+				h2{
+					background: url("/img/algemeen_images/pink.png");
+					bottom: 4.3rem;
+				}
+			}
+		}
+		&>section{
+			background: $bg-color;
+			border-right: 1px solid $border-color;
+			border-left: 1px solid $border-color;
+			box-shadow: 0 0 10px black;
+			position: relative;
+			display: flex;
+			flex-wrap: wrap;
+
+			h2{
+				margin: 4rem auto 2rem;
+				padding: 1rem;
+				background: $scholen-color;
+				color: white;
+				text-align: center;
+			}
+
+			p{
+				font-size: 1.5em;
+				color: $scholen-color;
+				padding: 2rem 2rem 4rem;
+				margin: auto;
+				width: calc(50% - 4rem);
+				text-align: center;
+			}
+
+			a{
+				width: 25%;
+				text-align: center;
+				text-decoration: none;
+				color: $scholen-color;
+				font-size: 1.5em;
+				margin: auto;
+
+				figure{
+					margin: 1rem auto;
+
+					div{
+						border: 3px solid $scholen-color;
+						border-radius: 50%;
+						margin: 2rem auto 1rem auto;
+						overflow: hidden;
+						width: 125px;
+						height: 125px;
+						background: white;
+
+						img{
+							height: 4rem;
+							padding: 25%;
+						}
+					}
+					figcaption{
+						padding-bottom: 3rem;
+					}
+				}
+			}
+
+			&.gids{
+				h2{
+					background: $studentengids-color;
+				}
+
+				p{
+					color: $studentengids-color;
+				}
+
+				a{
+					color: $studentengids-color;
+
+					div{
+						border-color: $studentengids-color;
+					}
+				}
+			}
+			&.game{
+				h2{
+					background: $algemeen-color;
+				}
+
+				p{
+					color: $algemeen-color;
+				}
+
+				a{
+					color: $algemeen-color;
+
+					div{
+						border-color: $algemeen-color;
+					}
+				}
+				&>a:first-of-type{
+					figure div img{
+						padding: 25% 29%;
+					}
+				}
+
+				&>a:last-child{
+					div img{
+						padding: 21% 20%;
+					}
+				}
+			}
 		}
 	}
 
@@ -506,9 +632,6 @@ main{
 		&.studentengids ul li{
 			width: (100%/$tablet-list)-4%;
 		}
-		&.algemeen  section{
-			width: (100%/$tablet-list)-4%;
-		}
 		&.testimonials ul li{
 			width: (100%/$tablet-list)-4%;
 		}
@@ -534,9 +657,6 @@ main{
 			width: (100%/$mobile-list)-4%;
 		}
 		&.studentengids ul li{
-			width: (100%/$mobile-list)-4%;
-		}
-		&.algemeen  section{
 			width: (100%/$mobile-list)-4%;
 		}
 		&.testimonials ul li{

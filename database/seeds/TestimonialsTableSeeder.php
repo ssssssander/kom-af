@@ -50,7 +50,7 @@ class TestimonialsTableSeeder extends Seeder
                 'student_image_url' => 'Een student_image_url',
                 'title' => 'Julie Vrijens: van artdirector tot ontwerpster van een Oscarjurk',
                 'content' => 'Content',
-	            'quote' => 'Antwerpen is de stad die mij leerdeterug te genieten',
+	            'quote' => 'Antwerpen is de stad die mij leerde terug te genieten',
                 'video_url' => '',
                 'image_url' => 'testimonial_images/julie.jpg',
 	            'created_at'=>'2017-05-11 16:00:38',
