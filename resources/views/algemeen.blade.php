@@ -3,69 +3,85 @@
 @section('vid', $vid = false)
 
 @section('content')
-	<a href="{{ route('testimonial', ['testimonial' => 2]) }}">
-		<section>
+	@if($testimonial)
+		<a href="{{ route('testimonial', ['testimonial' => $testimonial->id]) }}" class="testi">
+			<img src="{{ asset('img/'.$testimonial->image_url) }}" alt="{{ $testimonial->student_name }}">
 			<h2>Wat studenten vinden van Antwerpen?</h2>
-			<figure>
-				<figcaption>"Antwerpen is de stad die mij leerde terug te genieten."</figcaption>
-				<img src="{{ asset('img/testimonial_images/julie%20focus.jpg') }}" alt="red juliet">
-			</figure>
-		</section>
-	</a>
-	<section>
-		<h2>Ondek unieke plekken dankzij onze game "KomAf".</h2>
-		<a href="https://apple.be/benl/">
-			<img src="{{ asset('img/appStore.svg') }}" alt="AppStore">
-			<img src="{{ asset('img/alien_sitting.png') }}" alt="alien" role="presentation">
+			<h3>"{{ $testimonial->quote }}"</h3>
 		</a>
-		<a href="https://google.be">
-			<img src="{{ asset('img/playStore.png') }}" alt="PlayStore">
-		</a>
-	</section>
-	<section>
+	@endif
+	<section class="openbaar">
 		<h2>Alle wegen leiden naar Antwerpen.</h2>
+		<p>Bezoek Antwerpen met het openbaar vervoer >></p>
 		<a href="http://delijn.be">
-			<img src="{{ asset('img/de_lijn.svg') }}" alt="de lijn - busregeling">
-			<img src="{{ asset('img/bus.svg') }}" alt="bus" role="presentation">
+			<figure>
+				<div>
+					<img src="{{ asset('img/algemeen_images/bus.svg') }}" alt="de lijn - busregeling">
+				</div>
+				<figcaption>de lijn</figcaption>
+			</figure>
 		</a>
 		<a href="http://nmbs.be/">
-			<img src="{{ asset('img/nmbs.svg') }}" alt="nmbs - treinregeling">
-			<img src="{{ asset('img/trein.svg') }}" alt="trein" role="presentation">
+			<figure>
+				<div>
+					<img src="{{ asset('img/algemeen_images/trein.svg') }}" alt="nmbs - treinregeling">
+				</div>
+				<figcaption>nmbs</figcaption>
+			</figure>
 		</a>
 	</section>
-	<a href="https://studentkotweb.be">
-		<section>
-			<h2>Beleef Antwerpen vanop kot.</h2>
-			<p>Kotweb is de site om gemakkelijk een kot te vinden</p>
-		</section>
-	</a>
 	@if($news)
-		{{--@foreach($news as $article)--}}
+		@if($news->user_id)
+			<a href="{{ $news->article_url }}" class="news">
+		@else
+			<a href="{{ route('artikel',['article',$news->id]) }}" class="news">
+		@endif
+
 			@if($news->user_id)
-			<a href="{{ $news->article_url }}">
-				@else
-					<a href="{{ route('artikel',['article',$news->id]) }}">
-				@endif
-				<section>
-					<h2>Nieuws speciaal voor jou.</h2>
-					<article>
-						<time>{{ $news->time_ago }} geleden</time>
-						@if($news->user_id)
-							<img src="{{ asset('img/article_images/' . $news->image_url) }}" alt="{{ $news->title }}">
-							@else
-							<img src="{{ $news->image_url }}" alt="{{ $news->title }}">
-						@endif
-						<h5>{{ $news->title }}</h5>
-						<p>{{ $news->content }}</p>
-					</article>
-				</section>
-			</a>
-		{{--@endforeach--}}
+				<img src="{{ asset('img/' . $news->image_url) }}" alt="{{ $news->title }}">
+			@else
+				<img src="{{ $news->image_url }}" alt="{{ $news->title }}">
+			@endif
+			<h2>{{ $news->title }}</h2>
+			<h3>{{ $news->content }}</h3>
+		</a>
 	@endif
-	<a href="{{ route('gids') }}">
-		<section>
-			<h2>De online studentengids wijst je de weg</h2>
-			<p>Vind de leukste en goedkoopste plekken in Antwerpen</p>
-		</section>
+	<section class="gids">
+		<h2>De online studentengids wijst je de weg</h2>
+		<p>Bekijk hier dé studentengids van Gate15 online >></p>
+		<a href="{{ route('studentengids') }}">
+			<figure>
+				<div>
+					<img src="{{ asset('img/algemeen_images/boek.svg') }}" alt="de studentengids">
+				</div>
+				<figcaption>de studentengids</figcaption>
+			</figure>
+		</a>
+	</section>
+	<a href="https://studentkotweb.be" class="kot">
+		<img src="/img/algemeen_images/kot.jpg" alt="tafel met plant en gsm in een studenten kot">
+		<h2>Beleef Antwerpen vanop kot.</h2>
+		<h3>Kotweb is de site om gemakkelijk een kot te vinden</h3>
 	</a>
+	<section class="game">
+		<h2>Ondek unieke plekken dankzij onze game "KomAf".</h2>
+		<p>Download hier onze game >></p>
+		<a href="https://google.be">
+			<figure>
+				<div>
+					<img src="{{ asset('img/algemeen_images/play.svg') }}" alt="PlayStore">
+				</div>
+				<figcaption>PlayStore</figcaption>
+			</figure>
+		</a>
+		<a href="https://apple.be/benl/">
+			<figure>
+				<div>
+					<img src="{{ asset('img/algemeen_images/apple.svg') }}" alt="AppStore">
+				</div>
+				<figcaption>AppStore</figcaption>
+			</figure>
+		</a>
+
+	</section>
 @endsection

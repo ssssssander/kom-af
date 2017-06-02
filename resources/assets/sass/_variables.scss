@@ -20,8 +20,23 @@
 	text-rendering: optimizeLegibility;
 }
 
-$primary-blue: #0091D3;
+$opacity: 0.7;
 
+$primary-blue: #0091D3;
+$algemeen-color: #3396C7;
+$algemeen-background: rgba(24,147,223,$opacity);
+$testimonials-color: #ED8923;
+$testimonials-background: rgba(255,137,0,$opacity);
+$scholen-color: #58A93F;
+$scholen-background: rgba(39,162,33,$opacity);
+$nieuws-color: #682480;
+$nieuws-background: rgba(83,17,110,$opacity);
+$studentengids-color: #148A93;
+$studentengids-background: rgba(18,130,139,$opacity);
+$zoeken-color: #D83B53;
+$zoeken-background: rgba(232,40,75,$opacity);
+
+// form colors
 $primary-form: #0064B4;
 $secondary-form: #CF0039;
 $success: #4AA32C;

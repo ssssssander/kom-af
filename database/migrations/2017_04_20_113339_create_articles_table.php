@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->longText('content');
             $table->string('time_ago');
-            $table->string('image_url');
+            $table->string('image_url')->nullable();
             $table->string('article_url')->nullable();
             $table->timestamps();
 
