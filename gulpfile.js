@@ -2,11 +2,12 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const uglify = require('gulp-uglify');
 const pump = require('pump');
+const minify = require('gulp-minify');
+// const imageOptim = require('gulp-imageoptim');
 
-gulp.task('default', ['sass','image','js','font','image-map','video-map','video']);
-gulp.task('watch', ['sass:watch','js:watch','image:watch','video:watch','image-map:watch','video-map:watch']);
+gulp.task('default', ['sass','image','js','font','video']);
+gulp.task('watch', ['sass:watch','js:watch','image:watch','video:watch']);
 
 /*
  *
@@ -28,16 +29,9 @@ gulp.task('sass:watch', function () {
  * image
  *
  */
-gulp.task('image-map', function () {
-	gulp.src('resources/assets/img/*/*')
-		.pipe(gulp.dest('public/img'));
-});
-gulp.task('image-map:watch', function () {
-	gulp.watch('resources/assets/img/*/*', ['image-map']);
-});
-
 gulp.task('image', function () {
-	gulp.src('resources/assets/img/*')
+	gulp.src('resources/assets/img/**/*')
+		// .pipe(imageOptim.optimize())
 		.pipe(gulp.dest('public/img'));
 });
 gulp.task('image:watch', function () {
@@ -50,16 +44,10 @@ gulp.task('image:watch', function () {
  *
  */
 
-gulp.task('video-map', function () {
-	gulp.src('resources/assets/vid/*/*')
-		.pipe(gulp.dest('public/vid'));
-});
-gulp.task('video-map:watch', function () {
-	gulp.watch('resources/assets/vid/*/*', ['video-map']);
-});
+
 
 gulp.task('video', function () {
-	gulp.src('resources/assets/vid/*')
+	gulp.src('resources/assets/vid/**/*')
 		.pipe(gulp.dest('public/vid'));
 });
 gulp.task('video:watch', function () {
@@ -71,13 +59,14 @@ gulp.task('video:watch', function () {
  * js
  *
  */
-gulp.task('js', function () {
-	pump([
-		gulp.src('resources/assets/js/*.js'),
-		uglify(),
-		gulp.dest('public/js')
-	]);
+gulp.task('js', function() {
+	gulp.src('resources/assets/js/*.js')
+		.pipe(minify())
+		.pipe(gulp.dest('public/js'))
 });
+
+
+
 
 gulp.task('js:watch', function () {
 	gulp.watch('resources/assets/js/*.js', ['js']);
