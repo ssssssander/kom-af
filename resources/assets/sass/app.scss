@@ -541,37 +541,57 @@ main{
 		display: flex;
 		flex-wrap: wrap;
 		article{
-			width: (100%/$desktop-list)-4%;
+			width: (100%/$tablet-list)-4%;
 			padding: 2%;
 			a{
 				position: relative;
 				display: block;
 				text-decoration: none;
 				color: $font-color;
-				background: $bg-color;
-				border: 1px solid white;
+
 				&:hover{
-					background: url("/img/hover_gray.png") repeat;
-					background-size: contain;
-					border: 1px solid $border-color;
+					p{
+						border-left: 1px solid black;
+						border-right: 1px solid black;
+						border-bottom: 1px solid black;
+						box-shadow: 0 0 5px black;
+					}
+				}
+				div{
+					height: $title-height;
+					overflow: hidden;
+
+					svg{
+						display: block;
+						height: $title-height;
+					}
+				}
+				h2{
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					font-size: 1.44em;
+					padding: $general-padding;
+					background: $nieuws-background;
+					height: calc(132px - 3rem);
+					width: calc(100% - 3rem);
+					color: white;
+					text-overflow: ellipsis;
 				}
 				img{
-					width: 100%;
-					height: 100%;
-					text-align: center;
-				}
-				h5, time, p{
-					padding: 10px $general-padding 10px;
-				}
-				h5{
-					padding-top: $general-padding;
-				}
-				time{
-					font-weight: bold;
 					display: block;
+					z-index: 1;
+					position: relative;
+					width: 100%;
 				}
 				p{
-					padding-bottom: $general-padding;
+					padding: $general-padding;
+					background: white;
+					border-left: 1px solid $border-color;
+					border-right: 1px solid $border-color;
+					border-bottom: 1px solid $border-color;
+					box-shadow: 0 0 5px #696969;
 				}
 			}
 		}
