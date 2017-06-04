@@ -1,14 +1,15 @@
+// svg generation and adding to the pages
+
 var menuBackground = document.querySelector("nav ul");
 var innerMenu = menuBackground.innerHTML;
 menuBackground.innerHTML = generateMenuSVG() + innerMenu;
 
 var Titles = document.querySelectorAll(".testimonials>ul>li>a>div,.nieuws>article>a>div");
 if(Titles.length>0){
-	for(let i = 0,ilen = Titles.length;i<ilen;++i){
+	for(var i = 0, ilen = Titles.length;i<ilen;++i){
 		Titles[i].innerHTML = generateTitleSVG();
 	}
 }
-
 
 function generateMenuSVG(){
 	return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3200 80">' +
@@ -513,6 +514,15 @@ function getGrayColor(){
 	return grijstint+","+grijstint+","+grijstint;
 }
 
+// studiegids
+
+var categories = document.querySelectorAll(".studentengids filter form input");
+var form = document.querySelector(".studentengids filter form");
+if(categories.length>0){
+	for(var j = 0,jlen = categories.length; j < jlen;++j) {
+		categories[j].addEventListener('change', function(){form.submit();});
+	}
+}
 
 // search
 var searchForm = document.querySelector("header nav ul li form");
