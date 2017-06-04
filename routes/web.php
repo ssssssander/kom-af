@@ -27,3 +27,28 @@ Route::get('/artikel/{article}', 'PageController@artikel')->name('artikel');
 Route::get('/studentengids', 'PageController@studentengids')->name('studentengids');
 
 Route::get('/zoeken', 'PageController@zoeken')->name('zoeken');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
