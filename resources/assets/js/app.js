@@ -514,6 +514,15 @@ function getGrayColor(){
 	return grijstint+","+grijstint+","+grijstint;
 }
 
+// studiegids
+
+var categories = document.querySelectorAll(".studentengids filter form input");
+var form = document.querySelector(".studentengids filter form");
+if(categories.length>0){
+	for(var j = 0,jlen = categories.length; j < jlen;++j) {
+		categories[j].addEventListener('change', function(){form.submit();});
+	}
+}
 
 // search
 var searchForm = document.querySelector("header nav ul li form");

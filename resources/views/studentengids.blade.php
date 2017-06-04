@@ -6,15 +6,18 @@
 			{{ csrf_field() }}
 			<h5>Categorieën</h5>
 			<label>
-                <input type="checkbox" class="category" name="drinken" @if(isset($selectedCategories[0])) checked @endif>Drinken
+                <input type="checkbox" class="category" name="drinken" @if(isset($selectedCategories[0])) checked @endif>
+				Drinken
             </label>
 			<label>
-                <input type="checkbox" class="category" name="eten" @if(isset($selectedCategories[1])) checked @endif>Eten
+                <input type="checkbox" class="category" name="eten" @if(isset($selectedCategories[1])) checked @endif>
+				Eten
             </label>
 			<label>
-                <input type="checkbox" class="category" name="ontspanning" @if(isset($selectedCategories[2])) checked @endif>Ontspanning
+                <input type="checkbox" class="category" name="ontspanning" @if(isset($selectedCategories[2])) checked @endif>
+				Ontspanning
             </label>
-            <input type="submit" id="submit" style="display:none;">
+            {{--<input type="submit" id="submit" style="display:none;">--}}
 		</form>
 	</filter>
 	<ul>
@@ -38,17 +41,17 @@
                 </a>
             </li>
         @endforeach
-        {{ $studentGuideItems->links() }}
 	</ul>
-    <script>
-        let categories = document.getElementsByClassName('category');
+	{{ $studentGuideItems->links() }}
+    {{--<script>--}}
+        {{--let categories = document.getElementsByClassName('category');--}}
 
-        for(let i = 0; i < categories.length; i++) {
-            categories[i].addEventListener('click', submitForm);
-        }
+        {{--for(let i = 0; i < categories.length; i++) {--}}
+            {{--categories[i].addEventListener('click', submitForm);--}}
+        {{--}--}}
 
-        function submitForm(event) {
-            document.getElementById('submit').click();
-        }
-    </script>
+        {{--function submitForm(event) {--}}
+            {{--document.getElementById('submit').click();--}}
+        {{--}--}}
+    {{--</script>--}}
 @endsection

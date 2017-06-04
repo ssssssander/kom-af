@@ -309,6 +309,8 @@ main{
 		list-style: none;
 		display: flex;
 		justify-content: center;
+		width: 100%;
+		margin-top: $general-padding*2;
 
 		.disabled{
 			span{
@@ -316,7 +318,7 @@ main{
 				border-color: $disabled;
 			}
 			&:hover span{
-				border-color: transparent;
+				border-color: $disabled;
 				background: none;
 				color: $disabled;
 			}
