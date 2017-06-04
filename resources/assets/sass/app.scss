@@ -37,6 +37,9 @@ header{
 			}
 			a,form{
 				color: $algemeen-color;
+				&:hover{
+					color: $algemeen-background;
+				}
 				&.active{
 					background: $algemeen-background;
 				}
@@ -53,6 +56,9 @@ header{
 			}
 			a,form{
 				color: $testimonials-color;
+				&:hover{
+					color: $testimonials-background;
+				}
 				&.active{
 					background: $testimonials-background;
 				}
@@ -69,6 +75,9 @@ header{
 			}
 			a,form{
 				color: $scholen-color;
+				&:hover{
+					color: $scholen-background;
+				}
 				&.active{
 					background: $scholen-background;
 				}
@@ -85,6 +94,9 @@ header{
 			}
 			a,form{
 				color: $nieuws-color;
+				&:hover{
+					color: $nieuws-background;
+				}
 				&.active{
 					background: $nieuws-background;
 				}
@@ -101,6 +113,9 @@ header{
 			}
 			a,form{
 				color: $studentengids-color;
+				&:hover{
+					color: $studentengids-background;
+				}
 				&.active{
 					background: $studentengids-background;
 				}
@@ -117,6 +132,9 @@ header{
 			}
 			a,form{
 				color: $zoeken-color;
+				&:hover{
+					color: $zoeken-background;
+				}
 				&.active{
 					background: $zoeken-background;
 				}
@@ -139,6 +157,9 @@ header{
 		color: white;
 		padding: 7px 15px;
 		text-decoration: none;
+		&:hover{
+			text-decoration: underline;
+		}
 	}
 	nav{
 		position: absolute;
@@ -254,12 +275,100 @@ header{
 
 
 
+// .school + .school ul {
+//	 display: flex;
+//	 flex-wrap: wrap;
+//	 justify-content: center;
+//	 list-style: none;
+// }
+//
+//.school + .school a, .active span, .disabled span {
+//	background-color: #e5e5e6;
+//	width: 25%;
+//	text-align: center;
+//	padding: 15px;
+//	margin: 20px;
+//	display: inherit;
+//	align-items: center;
+//	justify-content: inherit;
+//	overflow: auto;
+//	color: #000000;
+//	text-decoration: none;
+//}
+//.school + .school a:hover {
+//	background-image: url('/img/hover_gray.png');
+//	background-size: cover;
+//}
+
 main{
 	display: block;
 	background: white;
 	padding: 40px;
 
+	ul.pagination{
+		list-style: none;
+		display: flex;
+		justify-content: center;
+
+		.disabled{
+			span{
+				color: $disabled;
+				border-color: $disabled;
+			}
+			&:hover span{
+				border-color: transparent;
+				background: none;
+				color: $disabled;
+			}
+		}
+		&>.active{
+			span{
+				color: $font-color-white;
+				background: $algemeen-color;
+				font-weight: bold;
+				border-color: $algemeen-color;
+			}
+			&:hover span{
+				color: black;
+				background: $algemeen-color;
+				border-color: black;
+			}
+		}
+
+		li{
+			&:first-child *,&:last-child *{
+				border-color: transparent;
+			}
+			*{
+				display: block;
+				text-decoration: none;
+				color: $font-color;
+				border: 1px solid black;
+				padding: $general-padding/4 $general-padding/2;
+				margin: 10px;
+
+				&:hover{
+					color: $font-color;
+					background: $bg-color;
+					border: 1px solid black;
+				}
+			}
+		}
+
+	}
+
 	&.algemeen{
+
+		ul.pagination>.active{
+			span{
+				background: $algemeen-color;
+				border-color: $algemeen-color;
+			}
+			&:hover span{
+				background: $algemeen-color;
+			}
+		}
+
 		&>a{
 			display: block;
 			position: relative;
@@ -421,6 +530,17 @@ main{
 	}
 
 	&.testimonials{
+
+		ul.pagination>.active{
+			span{
+				background: $testimonials-color;
+				border-color: $testimonials-color;
+			}
+			&:hover span{
+				background: $testimonials-color;
+			}
+		}
+
 		ul{
 			list-style: none;
 			display: flex;
@@ -490,12 +610,31 @@ main{
 		}
 	}
 	&.testimonial{
-
+		ul.pagination>.active{
+			span{
+				background: $testimonials-color;
+				border-color: $testimonials-color;
+			}
+			&:hover span{
+				background: $testimonials-color;
+			}
+		}
 	}
 
 	&.scholen{
 		display: flex;
 		flex-wrap: wrap;
+
+		ul.pagination>.active{
+			span{
+				background: $scholen-color;
+				border-color: $scholen-color;
+			}
+			&:hover span{
+				background: $scholen-color;
+			}
+		}
+
 		figure{
 			width: (100%/$desktop-list)-4%;
 			padding: 2%;
@@ -534,12 +673,31 @@ main{
 		}
 	}
 	&.school{
-
+		ul.pagination>.active{
+			span{
+				background: $scholen-color;
+				border-color: $scholen-color;
+			}
+			&:hover span{
+				background: $scholen-color;
+			}
+		}
 	}
 
 	&.nieuws{
 		display: flex;
 		flex-wrap: wrap;
+
+		ul.pagination>.active{
+			span{
+				background: $nieuws-color;
+				border-color: $nieuws-color;
+			}
+			&:hover span{
+				background: $nieuws-color;
+			}
+		}
+
 		article{
 			width: (100%/$tablet-list)-4%;
 			padding: 2%;
@@ -599,6 +757,17 @@ main{
 
 	&.studentengids{
 		display: flex;
+
+		ul.pagination>.active{
+			span{
+				background: $studentengids-color;
+				border-color: $studentengids-color;
+			}
+			&:hover span{
+				background: $studentengids-color;
+			}
+		}
+
 		filter{
 			border-right: 1px solid $border-color;
 			display: block;
@@ -644,6 +813,17 @@ main{
 	}
 
 	&.zoeken{
+
+		ul.pagination>.active{
+			span{
+				background: $zoeken-color;
+				border-color: $zoeken-color;
+			}
+			&:hover span{
+				background: $zoeken-color;
+			}
+		}
+
 		ul{
 			list-style: none;
 			li{
@@ -678,22 +858,7 @@ main{
 }
 
 
-@media all and (max-width: 750px) {
-	main{
-		&.nieuws article{
-			width: (100%/$tablet-list)-4%;
-		}
-		&.scholen figure{
-			width: (100%/$tablet-list)-4%;
-		}
-		&.studentengids ul li{
-			width: (100%/$tablet-list)-4%;
-		}
-		&.testimonials ul li{
-			width: (100%/$tablet-list)-4%;
-		}
-	}
-}
+
 @media all and (max-width: 700px) {
 	header{
 		display: flex;

@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const pump = require('pump');
-const minify = require('gulp-minify');
+var uglify = require('gulp-uglify');
 // const imageOptim = require('gulp-imageoptim');
 
 gulp.task('default', ['sass','image','js','font','video']);
@@ -59,10 +59,18 @@ gulp.task('video:watch', function () {
  * js
  *
  */
-gulp.task('js', function() {
-	gulp.src('resources/assets/js/*.js')
-		.pipe(minify())
-		.pipe(gulp.dest('public/js'))
+// gulp.task('js', function() {
+// 	gulp.src('resources/assets/js/*.js')
+// 		.pipe(minify())
+// 		.pipe(gulp.dest('public/js'))
+// });
+
+gulp.task('js', function (cb) {
+	pump([
+			gulp.src('resources/assets/js/*.js'),
+			uglify(),
+			gulp.dest('public/js')
+		],cb);
 });
 
 

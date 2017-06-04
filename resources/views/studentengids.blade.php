@@ -23,7 +23,18 @@
                 <a href="{{ $studentGuideItem->item_url }}">
                     <h5>{{ $studentGuideItem->name }}</h5>
                     <h5>{{ $studentGuideItem->category }}</h5>
-                    <p>{{ $studentGuideItem->description }}</p>
+					@php
+						$words = explode(' ', $studentGuideItem->description);
+					@endphp
+					@if(count($words) > 25)
+						@php
+							array_splice($words, 25);
+							$kort = implode(' ', $words);
+						@endphp
+						<p>{{ $kort }} ...</p>
+					@else
+						<p>{{ $studentGuideItem->description }}</p>
+					@endif
                 </a>
             </li>
         @endforeach
