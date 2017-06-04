@@ -72,7 +72,7 @@ APOPO doet mee aan de Warmste Week
 	            'quote' => '',
                 'video_url' => '',
                 'image_url' => 'testimonial_images/rat.jpeg',
-	            'created_at'=>'2017-11-01 07:00:00',
+	            'created_at'=>'2017-05-10 16:00:38',
 	            'updated_at'=>'2017-05-10 16:00:38'
             ],
             [
@@ -143,7 +143,7 @@ Prijswinnend design
 Niet alleen de gebruikers, ook ontwerpers zijn gek van dit staaltje Antwerps design. Naast het CE-label sleepte de Colli-Pee onder andere een ‘Design Week Award’ in de wacht, en de IWT Innovation Award in de categorie ‘belangrijke maatschappelijke relevantie’. 
 ',
 		        'quote' => '',
-		        'video_url' => 'https://www.youtube.com/embed/RLwLyaj4iTI ',
+		        'video_url' => '',
 		        'image_url' => '',
 		        'created_at'=>'2017-05-11 16:00:38',
 		        'updated_at'=>'2017-05-11 16:00:38'
