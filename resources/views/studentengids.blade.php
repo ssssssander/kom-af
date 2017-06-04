@@ -20,7 +20,7 @@
             {{--<input type="submit" id="submit" style="display:none;">--}}
 		</form>
 	</filter>
-	<ul>
+	<ol>
         @foreach($studentGuideItems as $studentGuideItem)
             <li>
                 <a href="{{ $studentGuideItem->item_url }}">
@@ -41,7 +41,7 @@
                 </a>
             </li>
         @endforeach
-	</ul>
+	</ol>
 	{{ $studentGuideItems->links() }}
     {{--<script>--}}
         {{--let categories = document.getElementsByClassName('category');--}}

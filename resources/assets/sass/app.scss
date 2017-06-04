@@ -758,7 +758,6 @@ main{
 	}
 
 	&.studentengids{
-		display: flex;
 
 		ul.pagination>.active{
 			span{
@@ -771,24 +770,23 @@ main{
 		}
 
 		filter{
-			border-right: 1px solid $border-color;
 			display: block;
-			padding: 0 2%;
+			padding: $general-padding 2%;
 			form{
 				h5{
 					display: block;
 					padding-bottom: 5px;
 				}
 				label{
-					display: block;
-					padding: 5px 0;
+
+					padding: $general-padding;
 					input{
 						margin-right: 5px;
 					}
 				}
 			}
 		}
-		ul{
+		ol{
 			list-style: none;
 			display: flex;
 			flex-wrap: wrap;
@@ -826,7 +824,7 @@ main{
 			}
 		}
 
-		ul{
+		ol{
 			list-style: none;
 			li{
 				margin: $general-padding;
