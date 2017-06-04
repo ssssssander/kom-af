@@ -17,7 +17,7 @@
 <body>
 <header class="{{ Route::currentRouteName() }}">
 	@if (Auth::guest())
-		<a href="{{ route('login') }}">Login</a>
+		<a href="{{ route('admin') }}">Login</a>
 	@endif
 	<nav>
 		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/logo.svg') }}" alt="Antwerpen"></a>

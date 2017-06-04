@@ -11,7 +11,8 @@
         "guzzlehttp/guzzle": "~6.0",
         "laravel/framework": "5.4.*",
         "laravel/scout": "^3.0",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "tcg/voyager": "^0.11.12"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

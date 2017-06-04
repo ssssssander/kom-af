@@ -3,7 +3,7 @@
 @section('title', 'Zoeken naar "' . $query . '"')
 
 @section('content')
-	<ul>
+	<ol>
         @if(!$searchResults->isEmpty())
             @foreach($searchResults as $searchResult)
                 <li>
@@ -17,6 +17,6 @@
         @else
             <h2>Niets gevonden!</h2>
         @endif
-	</ul>
+	</ol>
     {{ $searchResults->links() }}
 @endsection
