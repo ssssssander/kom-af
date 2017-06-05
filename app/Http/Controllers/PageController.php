@@ -31,8 +31,8 @@ class PageController extends Controller {
      * @return \Illuminate\Http\Response
      */
 	public function algemeen() {
-		$news = DB::table('articles')->orderby('created_at', 'desc')->first();
-		$testimonial = DB::table('testimonials')->orderby('created_at', 'desc')->first();
+		$news = DB::table('articles')->orderby('updated_at', 'desc')->first();
+		$testimonial = DB::table('testimonials')->orderby('updated_at', 'desc')->first();
 		return view('algemeen', compact('testimonial','news'));
     }
 
@@ -57,7 +57,7 @@ class PageController extends Controller {
 	}
 
 	public function nieuws() {
-        $articles = Article::paginate(6);
+        $articles = DB::table('articles')->orderBy('updated_at', 'desc')->paginate(6);
 
 		return view('nieuws', compact('articles'));
 	}

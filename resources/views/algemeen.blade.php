@@ -5,9 +5,9 @@
 @section('content')
 	@if($testimonial)
 		<a href="{{ route('testimonial', ['testimonial' => $testimonial->id]) }}" class="testi">
-			<img src="{{ asset('img/'.$testimonial->image_url) }}" alt="{{ $testimonial->student_name }}">
+			<img src="{{ asset('img/'.$testimonial->image_url) }}" alt="{{ $testimonial->title }}">
 			<h2>Wat studenten vinden van Antwerpen?</h2>
-			<h3>"{{ $testimonial->quote }}"</h3>
+			<h3>"Antwerpen is de stad die mij leerde terug te genieten"</h3>
 		</a>
 	@endif
 	<section class="openbaar">
@@ -31,14 +31,14 @@
 		</a>
 	</section>
 	@if($news)
-		@if($news->user_id)
+		@if(!$news->article_url)
 			<a href="{{ $news->article_url }}" class="news">
 		@else
 			<a href="{{ route('artikel',['article',$news->id]) }}" class="news">
 		@endif
 
-			@if($news->user_id)
-				<img src="{{ asset('img/' . $news->image_url) }}" alt="{{ $news->title }}">
+			@if(!$news->article_url)
+				<img src="{{ asset('storage/' . $news->image_url) }}" alt="{{ $news->title }}">
 			@else
 				<img src="{{ $news->image_url }}" alt="{{ $news->title }}">
 			@endif
