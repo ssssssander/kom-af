@@ -14,7 +14,18 @@
 					<h2>{{ $article->title }}</h2>
                     <img src="{{ asset('storage/' . $article->image_url) }}" alt="{{ $article->title }}">
             @endif
-                <p>{{ $article->content }}</p>
+			@php
+				$words = explode(' ', $article->content);
+			@endphp
+			@if(count($words) > 50)
+				@php
+					array_splice($words, 50);
+					$kort = implode(' ', $words);
+				@endphp
+					<p>{{ $kort }} ...</p>
+			@else
+				<p>{{ $article->content }}</p>
+			@endif
             </a>
         </article>
     @endforeach

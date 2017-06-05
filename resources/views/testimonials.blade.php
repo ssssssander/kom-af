@@ -13,7 +13,18 @@
                     @if($testimonial->image_url != '')
                         <img src="{{ asset('img/' . $testimonial->image_url) }}" alt="{{ $testimonial->title }}">
                     @endif
-                    <p>{{ $testimonial->content }}</p>
+					@php
+						$words = explode(' ', $testimonial->content);
+					@endphp
+					@if(count($words) > 50)
+						@php
+							array_splice($words, 50);
+							$kort = implode(' ', $words);
+						@endphp
+						<p>{{ $kort }} ...</p>
+					@else
+						<p>{{ $testimonial->content }}</p>
+					@endif
                 </a>
             </li>
         @endforeach
