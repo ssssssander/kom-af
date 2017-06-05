@@ -32,23 +32,3 @@ Route::get('/zoeken', 'PageController@zoeken')->name('zoeken');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
