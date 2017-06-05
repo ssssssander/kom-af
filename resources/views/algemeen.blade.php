@@ -5,7 +5,7 @@
 @section('content')
 	@if($testimonial)
 		<a href="{{ route('testimonial', ['testimonial' => $testimonial->id]) }}" class="testi">
-			<img src="{{ asset('img/'.$testimonial->image_url) }}" alt="{{ $testimonial->title }}">
+			<img src="{{ asset('storage/'.$testimonial->image_url) }}" alt="{{ $testimonial->title }}">
 			<h2>Wat studenten vinden van Antwerpen?</h2>
 			<h3>"Antwerpen is de stad die mij leerde terug te genieten"</h3>
 		</a>
