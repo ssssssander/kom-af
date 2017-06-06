@@ -692,8 +692,8 @@ main{
 
 			li{
 				display: block;
-				width: calc(100% / 3 - 3rem);
-				margin: $general-padding;
+				width: 100% / $desktop-list - 4%;
+				margin: 2%;
 				a{
 					display: block;
 					color: $font-color;
@@ -887,22 +887,45 @@ main{
 	header{
 		display: flex;
 		justify-content: center;
-		&>img{
+		& > img{
 			height: 100%;
 			width: initial;
+		}
+	}
+	main{
+		ul.pagination li *{
+			margin: 5px;
+		}
+		&.algemeen{
+			padding: 20px;
+
+			section{
+				p{
+					width: 100%;
+				}
+			}
+		}
+		&.scholen figure,&.school ol li{
+			width: (100%/$tablet-list)-4%;
+		}
+		&.studentengids ol li{
+			width: (100%/$tablet-list)-4%;
 		}
 	}
 }
 
 @media all and (max-width: 550px) {
 	main{
+		ul.pagination li *{
+			margin: 1px;
+		}
 		&.nieuws article{
 			width: (100%/$mobile-list)-4%;
 		}
-		&.scholen figure{
+		&.scholen figure,&.school ol li{
 			width: (100%/$mobile-list)-4%;
 		}
-		&.studentengids ul li{
+		&.studentengids ol li{
 			width: (100%/$mobile-list)-4%;
 		}
 		&.testimonials ul li{
