@@ -10,5 +10,5 @@
     @if($testimonial->image_url != '')
        <img src="{{ asset('storage/' . $testimonial->image_url) }}" alt="{{ $testimonial->title }}">
     @endif
-	<p>{{ $testimonial->content }}</p>
+	<p>{!! $testimonial->content !!}</p>
 @endsection
