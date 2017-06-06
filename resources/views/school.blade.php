@@ -3,12 +3,12 @@
 @section('title', $school->name)
 
 @section('content')
-	<ul>
+	<ol>
         @foreach($courses as $course)
-            <a href="{{ $course->course_url }}">
-                <li>{{ $course->name }}</li>
-            </a>
+			<li>
+				<a href="{{ $course->course_url }}">{{ $course->name }}</a>
+			</li>
         @endforeach
-	</ul>
+	</ol>
     {{ $courses->links() }}
 @endsection
