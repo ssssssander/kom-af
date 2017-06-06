@@ -3,7 +3,7 @@
 @section('content')
     @foreach($articles as $article)
         <article>
-            @if($article->user_id == null)
+            @if($article->article_url != null)
                 <a href="{{ $article->article_url }}">
 					<div></div>
 					<h2>{{ $article->title }}</h2>
@@ -12,7 +12,7 @@
                 <a href="{{ route('artikel', ['article' => $article->id]) }}">
 					<div></div>
 					<h2>{{ $article->title }}</h2>
-                    <img src="{{ asset('img/' . $article->image_url) }}" alt="{{ $article->title }}">
+                    <img src="{{ asset('storage/' . $article->image_url) }}" alt="{{ $article->title }}">
             @endif
 			@php
 				$words = explode(' ', $article->content);
