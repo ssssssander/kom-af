@@ -273,33 +273,6 @@ header{
 	}
 }
 
-
-
-// .school + .school ul {
-//	 display: flex;
-//	 flex-wrap: wrap;
-//	 justify-content: center;
-//	 list-style: none;
-// }
-//
-//.school + .school a, .active span, .disabled span {
-//	background-color: #e5e5e6;
-//	width: 25%;
-//	text-align: center;
-//	padding: 15px;
-//	margin: 20px;
-//	display: inherit;
-//	align-items: center;
-//	justify-content: inherit;
-//	overflow: auto;
-//	color: #000000;
-//	text-decoration: none;
-//}
-//.school + .school a:hover {
-//	background-image: url('/img/hover_gray.png');
-//	background-size: cover;
-//}
-
 main{
 	display: block;
 	background: white;
@@ -684,6 +657,31 @@ main{
 				background: $scholen-color;
 			}
 		}
+
+		ol{
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+
+			li{
+				display: block;
+				width: 100% / $desktop-list - 4%;
+				margin: 2%;
+				a{
+					display: block;
+					color: $font-color;
+					background: $bg-color;
+					border: 1px solid $border-color;
+					padding: $general-padding;
+					text-decoration: none;
+
+					&:hover{
+						background: white;
+						border-color: black;
+					}
+				}
+			}
+		}
 	}
 
 	&.nieuws{
@@ -837,8 +835,7 @@ main{
 					color: $font-color;
 					border: 1px solid white;
 					&:hover{
-						background: url("/img/hover_gray.png") repeat;
-						background-size: contain;
+						background: white;
 						border: 1px solid $border-color;
 					}
 					img{
@@ -863,22 +860,45 @@ main{
 	header{
 		display: flex;
 		justify-content: center;
-		&>img{
+		& > img{
 			height: 100%;
 			width: initial;
+		}
+	}
+	main{
+		ul.pagination li *{
+			margin: 5px;
+		}
+		&.algemeen{
+			padding: 20px;
+
+			section{
+				p{
+					width: 100%;
+				}
+			}
+		}
+		&.scholen figure,&.school ol li{
+			width: (100%/$tablet-list)-4%;
+		}
+		&.studentengids ol li{
+			width: (100%/$tablet-list)-4%;
 		}
 	}
 }
 
 @media all and (max-width: 550px) {
 	main{
+		ul.pagination li *{
+			margin: 1px;
+		}
 		&.nieuws article{
 			width: (100%/$mobile-list)-4%;
 		}
-		&.scholen figure{
+		&.scholen figure,&.school ol li{
 			width: (100%/$mobile-list)-4%;
 		}
-		&.studentengids ul li{
+		&.studentengids ol li{
 			width: (100%/$mobile-list)-4%;
 		}
 		&.testimonials ul li{
