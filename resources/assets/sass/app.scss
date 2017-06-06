@@ -684,6 +684,31 @@ main{
 				background: $scholen-color;
 			}
 		}
+
+		ol{
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+
+			li{
+				display: block;
+				width: calc(100% / 3 - 3rem);
+				margin: $general-padding;
+				a{
+					display: block;
+					color: $font-color;
+					background: $bg-color;
+					border: 1px solid $border-color;
+					padding: $general-padding;
+					text-decoration: none;
+
+					&:hover{
+						background: white;
+						border-color: black;
+					}
+				}
+			}
+		}
 	}
 
 	&.nieuws{
@@ -837,8 +862,7 @@ main{
 					color: $font-color;
 					border: 1px solid white;
 					&:hover{
-						background: url("/img/hover_gray.png") repeat;
-						background-size: contain;
+						background: white;
 						border: 1px solid $border-color;
 					}
 					img{

@@ -16,9 +16,6 @@
 </head>
 <body>
 <header class="{{ Route::currentRouteName() }}">
-	@if (Auth::guest())
-		<a href="{{ route('admin') }}">Login</a>
-	@endif
 	<nav>
 		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/logo.svg') }}" alt="Antwerpen"></a>
 		<ul>
@@ -57,7 +54,7 @@
 	</nav>
 	@yield('vid', $vid =  false)
 
-    <img src="{{ asset('img/') }}/@yield('heroImage', 'hero_images/' . Route::currentRouteName() . '.jpeg')"
+    <img src="{{ asset('storage/') }}/@yield('heroImage', 'hero_images/' . Route::currentRouteName() . '.jpeg')"
         alt="{{ Route::currentRouteName() }}">
 
     <h1>@yield('title', ucfirst(str_replace('_', ' ', Route::currentRouteName())))</h1>

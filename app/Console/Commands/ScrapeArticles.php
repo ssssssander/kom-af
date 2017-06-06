@@ -51,10 +51,10 @@ class ScrapeArticles extends Command
             'maanden', 'maand', 'jaren', 'jaar'];
 
         $bar = $this->output->createProgressBar(count($articles->data));
-        $scrapedArticleIds = Article::select('id')->where('user_id', null)->get();
+        $scrapedArticleIds = Article::select('id')->where('article_url', '!=', null)->get();
 
         if(!$scrapedArticleIds->isEmpty()) {
-            Article::where('user_id', null)->delete();
+            Article::where('article_url', '!=', null)->delete();
         }
 
         $loadingText = "\r\n\r\n" . 'Getting data from GATE15 news API...' . "\r\n";
