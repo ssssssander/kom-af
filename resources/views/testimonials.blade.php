@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <ul>
+    <ol>
         @foreach($testimonials as $testimonial)
             <li>
                 <a href="{{ route('testimonial', ['testimonial' => $testimonial->id]) }}">
@@ -28,5 +28,6 @@
                 </a>
             </li>
         @endforeach
-    </ul>
+    </ol>
+    {{ $testimonials->links() }}
 @endsection

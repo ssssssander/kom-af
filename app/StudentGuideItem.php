@@ -10,4 +10,8 @@ class StudentGuideItem extends Model
     use Searchable;
 
     protected $dates = ['created_at', 'updated_at'];
+
+    public function hasAttribute($attr) {
+        return array_key_exists($attr, $this->attributes);
+    }
 }

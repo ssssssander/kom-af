@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class PageController extends Controller {
 
@@ -22,7 +23,7 @@ class PageController extends Controller {
      * @return void
      */
     public function __construct() {
-        // $this->middleware('auth');
+        //
     }
 
     /**
@@ -31,13 +32,14 @@ class PageController extends Controller {
      * @return \Illuminate\Http\Response
      */
 	public function overzicht() {
-        $news = DB::table('articles')->where('id', 3)->orderby('updated_at', 'desc')->first();
-        $testimonial = DB::table('testimonials')->where('id', 4)->orderby('updated_at', 'desc')->first();
+        $news = DB::table('articles')->where('title', 'GEZOCHT: JOBSTUDENTEN STUDAY 2017')->first();
+        $testimonial = DB::table('testimonials')->where('title', 'Julie Vrijens: van artdirector tot ontwerpster van een Oscarjurk')->first();
 		return view('overzicht', compact('testimonial','news'));
     }
 
 	public function testimonials() {
-		$testimonials = Testimonial::all();
+		$testimonials = DB::table('testimonials')->orderBy('created_at', 'desc')->paginate(2);
+
 		return view('testimonials', compact('testimonials'));
 	}
 
@@ -57,7 +59,7 @@ class PageController extends Controller {
 	}
 
 	public function nieuws() {
-        $articles = DB::table('articles')->orderBy('updated_at', 'desc')->paginate(6);
+        $articles = DB::table('articles')->orderBy('created_at', 'desc')->paginate(6);
 
 		return view('nieuws', compact('articles'));
 	}
@@ -99,18 +101,21 @@ class PageController extends Controller {
 	}
 
 	public function zoeken(Request $request) {
-        $query = $request->input('zoek');
-        $query = preg_replace('/\s+/', ' ', $query);
+        if(Input::has('zoek')) {
+            $query = Input::get('zoek');
+            $query = preg_replace('/\s+/', ' ', $query);
 
-        if($request->has('zoek')) {
             $articleResults = Article::search($query)->get();
             $courseResults = Course::search($query)->get();
             $studentGuideResults = StudentGuideItem::search($query)->get();
+            $testimonialResults = Testimonial::search($query)->get();
 
-            $searchResults = $articleResults->merge($courseResults)->merge($studentGuideResults);
-            $searchResults = CollectionPaginate::paginate($searchResults, 12, $request);
+            $searchResults = $articleResults->merge($courseResults)->merge($studentGuideResults)->merge($testimonialResults);
 
-            return view('zoeken', compact('query', 'searchResults', 'articleResults', 'courseResults', 'studentGuideResults'));
+            $searchResults = CollectionPaginate::paginate($searchResults, 6, $request);
+            $searchResults = $searchResults->appends(Input::except('page'));
+
+            return view('zoeken', compact('query', 'searchResults'));
         }
         else {
             return back();

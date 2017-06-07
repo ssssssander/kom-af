@@ -14,4 +14,8 @@ class Course extends Model
     public function school() {
         return $this->belongsTo(School::class);
     }
+
+    public function hasAttribute($attr) {
+        return array_key_exists($attr, $this->attributes);
+    }
 }

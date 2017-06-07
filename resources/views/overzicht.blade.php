@@ -31,7 +31,7 @@
 		</a>
 	</section>
 	@if($news)
-		@if(!$news->article_url)
+		@if($news->article_url)
 			<a href="{{ $news->article_url }}" class="news">
 		@else
 			<a href="{{ route('artikel',['article',$news->id]) }}" class="news">
