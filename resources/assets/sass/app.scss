@@ -619,10 +619,12 @@ main{
 				border: 1px solid white;
 				&:hover{
 					div{
-						background: url("/img/hover_gray.png") repeat;
-						background-size: contain;
-						border: 1px solid $border-color;
+						background: white;
+						border: 1px solid $scholen-color;
 						padding: calc(1rem - 1px);
+					}
+					figcaption{
+						color: $scholen-color;
 					}
 				}
 				div{
@@ -675,7 +677,8 @@ main{
 
 					&:hover{
 						background: white;
-						border-color: black;
+						color: $scholen-color;
+						border-color: $scholen-color;
 					}
 				}
 			}
@@ -798,9 +801,9 @@ main{
 					padding: $general-padding;
 					border: 1px solid white;
 					&:hover{
-						background: url("/img/hover_gray.png") repeat;
-						background-size: contain;
-						border: 1px solid $border-color;
+						color: $studentengids-color;
+						background: white;
+						border: 1px solid $studentengids-color;
 					}
 				}
 
