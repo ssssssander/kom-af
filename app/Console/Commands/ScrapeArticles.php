@@ -60,7 +60,7 @@ class ScrapeArticles extends Command
         $loadingText = "\r\n\r\n" . 'Getting data from GATE15 news API...' . "\r\n";
         $this->info($loadingText);
 
-        for($i = 0; $i < count($articles->data); $i++) {
+        for($i = count($articles->data) - 1; $i >= 0; $i--) {
             $createdAt = new Carbon($articles->data[$i]->latestVersion->createdAt);
 
             $title = $articles->data[$i]->latestVersion->title;

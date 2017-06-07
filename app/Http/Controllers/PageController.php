@@ -32,13 +32,14 @@ class PageController extends Controller {
      * @return \Illuminate\Http\Response
      */
 	public function overzicht() {
-        $news = DB::table('articles')->where('id', 3)->orderby('updated_at', 'desc')->first();
-        $testimonial = DB::table('testimonials')->where('id', 4)->orderby('updated_at', 'desc')->first();
+        $news = DB::table('articles')->where('title', 'GEZOCHT: JOBSTUDENTEN STUDAY 2017')->first();
+        $testimonial = DB::table('testimonials')->where('title', 'Julie Vrijens: van artdirector tot ontwerpster van een Oscarjurk')->first();
 		return view('overzicht', compact('testimonial','news'));
     }
 
 	public function testimonials() {
-		$testimonials = Testimonial::all();
+		$testimonials = DB::table('testimonials')->orderBy('created_at', 'desc')->paginate(2);
+
 		return view('testimonials', compact('testimonials'));
 	}
 
@@ -58,7 +59,7 @@ class PageController extends Controller {
 	}
 
 	public function nieuws() {
-        $articles = DB::table('articles')->orderBy('updated_at', 'desc')->paginate(6);
+        $articles = DB::table('articles')->orderBy('created_at', 'desc')->paginate(6);
 
 		return view('nieuws', compact('articles'));
 	}
