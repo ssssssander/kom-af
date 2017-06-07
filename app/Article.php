@@ -16,4 +16,8 @@ class Article extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function hasAttribute($attr) {
+        return array_key_exists($attr, $this->attributes);
+    }
 }

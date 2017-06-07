@@ -29,4 +29,5 @@
             </li>
         @endforeach
     </ul>
+    {{ $testimonials->links() }}
 @endsection
