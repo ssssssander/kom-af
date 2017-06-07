@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class PageController extends Controller {
 
@@ -22,7 +23,7 @@ class PageController extends Controller {
      * @return void
      */
     public function __construct() {
-        // $this->middleware('auth');
+        //
     }
 
     /**
@@ -99,18 +100,21 @@ class PageController extends Controller {
 	}
 
 	public function zoeken(Request $request) {
-        $query = $request->input('zoek');
-        $query = preg_replace('/\s+/', ' ', $query);
+        if(Input::has('zoek')) {
+            $query = Input::get('zoek');
+            $query = preg_replace('/\s+/', ' ', $query);
 
-        if($request->has('zoek')) {
             $articleResults = Article::search($query)->get();
             $courseResults = Course::search($query)->get();
             $studentGuideResults = StudentGuideItem::search($query)->get();
+            $testimonialResults = Testimonial::search($query)->get();
 
-            $searchResults = $articleResults->merge($courseResults)->merge($studentGuideResults);
-            $searchResults = CollectionPaginate::paginate($searchResults, 12, $request);
+            $searchResults = $articleResults->merge($courseResults)->merge($studentGuideResults)->merge($testimonialResults);
 
-            return view('zoeken', compact('query', 'searchResults', 'articleResults', 'courseResults', 'studentGuideResults'));
+            $searchResults = CollectionPaginate::paginate($searchResults, 6, $request);
+            $searchResults = $searchResults->appends(Input::except('page'));
+
+            return view('zoeken', compact('query', 'searchResults'));
         }
         else {
             return back();
