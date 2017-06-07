@@ -4,11 +4,8 @@
 @section('title', $testimonial->title)
 
 @section('content')
+    <p>{!! $testimonial->content !!}</p>
     @if($testimonial->video_url != '')
-	   <iframe src="{{ $testimonial->video_url }}" frameborder="0" allowfullscreen></iframe>
+       <iframe src="{{ $testimonial->video_url }}" frameborder="0" allowfullscreen width=816 height=459></iframe>
     @endif
-    @if($testimonial->image_url != '')
-       <img src="{{ asset('storage/' . $testimonial->image_url) }}" alt="{{ $testimonial->title }}">
-    @endif
-	<p>{!! $testimonial->content !!}</p>
 @endsection

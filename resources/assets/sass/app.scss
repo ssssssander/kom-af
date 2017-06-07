@@ -27,7 +27,7 @@ small,time{font-size: 0.833em;}
 // colors menu
 
 header{
-	&.algemeen{
+	&.overzicht{
 		&>a{
 			background: $algemeen-color;
 		}
@@ -304,9 +304,7 @@ main{
 				border-color: $algemeen-color;
 			}
 			&:hover span{
-				color: black;
-				background: $algemeen-color;
-				border-color: black;
+				color: $font-color-white;
 			}
 		}
 
@@ -332,7 +330,7 @@ main{
 
 	}
 
-	&.algemeen{
+	&.overzicht{
 
 		ul.pagination>.active{
 			span{
@@ -869,7 +867,7 @@ main{
 		ul.pagination li *{
 			margin: 5px;
 		}
-		&.algemeen{
+		&.overzicht{
 			padding: 20px;
 
 			section{

@@ -5,7 +5,6 @@
 
 @section('content')
     <article>
-        <h5>{{ $article->title }}</h5>
         <p>{!! $article->content !!}</p>
     </article>
 @endsection
