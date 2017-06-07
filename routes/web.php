@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'PageController@algemeen')->name('algemeen');
+Route::get('/', 'PageController@overzicht')->name('overzicht');
 
 Route::get('/scholen', 'PageController@scholen')->name('scholen');
 Route::get('/school/{school}', 'PageController@school')->name('school');

@@ -27,7 +27,7 @@ small,time{font-size: 0.833em;}
 // colors menu
 
 header{
-	&.algemeen{
+	&.overzicht{
 		&>a{
 			background: $algemeen-color;
 		}
@@ -304,9 +304,7 @@ main{
 				border-color: $algemeen-color;
 			}
 			&:hover span{
-				color: black;
-				background: $algemeen-color;
-				border-color: black;
+				color: $font-color-white;
 			}
 		}
 
@@ -332,7 +330,7 @@ main{
 
 	}
 
-	&.algemeen{
+	&.overzicht{
 
 		ul.pagination>.active{
 			span{
@@ -621,10 +619,12 @@ main{
 				border: 1px solid white;
 				&:hover{
 					div{
-						background: url("/img/hover_gray.png") repeat;
-						background-size: contain;
-						border: 1px solid $border-color;
+						background: white;
+						border: 1px solid $scholen-color;
 						padding: calc(1rem - 1px);
+					}
+					figcaption{
+						color: $scholen-color;
 					}
 				}
 				div{
@@ -677,7 +677,8 @@ main{
 
 					&:hover{
 						background: white;
-						border-color: black;
+						color: $scholen-color;
+						border-color: $scholen-color;
 					}
 				}
 			}
@@ -800,9 +801,9 @@ main{
 					padding: $general-padding;
 					border: 1px solid white;
 					&:hover{
-						background: url("/img/hover_gray.png") repeat;
-						background-size: contain;
-						border: 1px solid $border-color;
+						color: $studentengids-color;
+						background: white;
+						border: 1px solid $studentengids-color;
 					}
 				}
 
@@ -835,8 +836,9 @@ main{
 					color: $font-color;
 					border: 1px solid white;
 					&:hover{
+						color: $zoeken-color;
 						background: white;
-						border: 1px solid $border-color;
+						border: 1px solid $zoeken-color;
 					}
 					img{
 						height: 100%;
@@ -869,9 +871,20 @@ main{
 		ul.pagination li *{
 			margin: 5px;
 		}
-		&.algemeen{
+		&.overzicht{
 			padding: 20px;
 
+			h2{
+				font-size: 1.728em;
+			}
+			h3{
+				font-size: 1.44em;
+			}
+			a{
+				h2{
+					bottom: 4.6rem;
+				}
+			}
 			section{
 				p{
 					width: 100%;
@@ -891,6 +904,19 @@ main{
 	main{
 		ul.pagination li *{
 			margin: 1px;
+		}
+		&.overzicht{
+			h2{
+				font-size: 1.2em;
+			}
+			h3{
+				font-size: 1em;
+			}
+			a{
+				h2{
+					bottom: 4rem;
+				}
+			}
 		}
 		&.nieuws article{
 			width: (100%/$mobile-list)-4%;
