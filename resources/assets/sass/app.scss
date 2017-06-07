@@ -473,7 +473,19 @@ main{
 				border-bottom: 1px solid $border-color;
 
 				h2{
+					position: relative;
 					background: $algemeen-color;
+
+					&::after{
+						content: "";
+						display: block;
+						width: 50px;
+						height: 71px;
+						position: absolute;
+						top: -57px;; //-12px
+						left: 20px;
+						background: url("/img/aliensitting_large.png");
+					}
 				}
 
 				p{
@@ -514,7 +526,7 @@ main{
 			}
 		}
 
-		ul{
+		ol{
 			list-style: none;
 			display: flex;
 			flex-wrap: wrap;
@@ -906,6 +918,8 @@ main{
 			margin: 1px;
 		}
 		&.overzicht{
+			padding: 10px;
+
 			h2{
 				font-size: 1.2em;
 			}
@@ -915,6 +929,17 @@ main{
 			a{
 				h2{
 					bottom: 4rem;
+				}
+			}
+
+			&>section a figure{
+				div{
+					width: 100px;
+					height: 100px;
+
+					img{
+						height: 3rem;
+					}
 				}
 			}
 		}
