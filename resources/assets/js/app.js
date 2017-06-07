@@ -4,7 +4,7 @@ var menuBackground = document.querySelector("nav ul");
 var innerMenu = menuBackground.innerHTML;
 menuBackground.innerHTML = generateMenuSVG() + innerMenu;
 
-var Titles = document.querySelectorAll(".testimonials>ul>li>a>div,.nieuws>article>a>div");
+var Titles = document.querySelectorAll(".testimonials>ol>li>a>div,.nieuws>article>a>div");
 if(Titles.length>0){
 	for(var i = 0, ilen = Titles.length;i<ilen;++i){
 		Titles[i].innerHTML = generateTitleSVG();
