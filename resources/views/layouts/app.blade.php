@@ -16,12 +16,13 @@
 </head>
 <body>
 <header class="{{ Route::currentRouteName() }}">
+	<a href="{{ route('voyager.login') }}">Login</a>
 	<nav>
-		<a href="{{ route('algemeen') }}"><img src="{{ asset('img/logo.svg') }}" alt="Antwerpen"></a>
+		<a href="{{ route('overzicht') }}"><img src="{{ asset('img/logo.svg') }}" alt="Antwerpen"></a>
 		<ul>
 			<li>
-                <a href="{{ route('algemeen') }}" {{ Route::is('algemeen') ? 'class=active' : null }}>
-                    <p>Algemeen</p>
+                <a href="{{ route('overzicht') }}" {{ Route::is('overzicht') ? 'class=active' : null }}>
+                    <p>Overzicht</p>
                 </a>
             </li>
 			<li>

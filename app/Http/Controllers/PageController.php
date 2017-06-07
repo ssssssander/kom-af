@@ -30,10 +30,10 @@ class PageController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-	public function algemeen() {
+	public function overzicht() {
         $news = DB::table('articles')->where('id', 3)->orderby('updated_at', 'desc')->first();
         $testimonial = DB::table('testimonials')->where('id', 4)->orderby('updated_at', 'desc')->first();
-		return view('algemeen', compact('testimonial','news'));
+		return view('overzicht', compact('testimonial','news'));
     }
 
 	public function testimonials() {
