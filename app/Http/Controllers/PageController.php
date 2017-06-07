@@ -38,7 +38,7 @@ class PageController extends Controller {
     }
 
 	public function testimonials() {
-		$testimonials = DB::table('testimonials')->orderBy('created_at', 'desc')->paginate(2);
+		$testimonials = DB::table('testimonials')->orderBy('created_at', 'desc')->paginate(6);
 
 		return view('testimonials', compact('testimonials'));
 	}
